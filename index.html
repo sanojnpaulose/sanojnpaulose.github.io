@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sanoj N. Paulose — Artificial Intelligence and Machine Learning student, AI developer, and creative technologist.">
+  <meta name="keywords" content="Sanoj N Paulose, Artificial Intelligence, Machine Learning, Python, SQL, C, Deepfake Detection, AI Chatbot, Sleep Analysis AI">
+  <meta name="author" content="Sanoj N. Paulose">
+  <meta property="og:title" content="Sanoj N. Paulose | AI Portfolio">
+  <meta property="og:description" content="AI, machine learning, software projects and creative work by Sanoj N. Paulose.">
+  <meta property="og:type" content="website">
+  <title>Sanoj N. Paulose | AI &amp; Machine Learning Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    :root{--orange:#f4a900;--ink:#202124;--muted:#73767c;--line:#e8e8e5;--soft:#fafaf8}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:85px}
+    body{margin:0;color:var(--ink);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+    h1,h2,h3,h4{font-family:"Poppins",sans-serif;letter-spacing:-.045em}
+    em{font-style:normal;color:var(--orange)}
+    a{text-decoration:none}
+    .navbar{padding:16px 0;background:#ffffffed;backdrop-filter:blur(12px);transition:.3s}
+    .navbar.scrolled{padding:9px 0;box-shadow:0 5px 20px #00000012}
+    .navbar-brand{font:800 1.15rem "Poppins";color:var(--ink)}
+    .brand-icon{display:inline-grid;place-items:center;background:var(--orange);color:white;width:27px;height:27px;margin-right:5px}
+    .nav-link{font-size:.8rem;font-weight:700;color:#555!important}
+    .nav-link:hover,.nav-link.active{color:var(--orange)!important}
+    .nav-cta,.btn-orange{display:inline-block;background:var(--orange);color:white;border:1px solid var(--orange);padding:11px 17px;font-size:.8rem;font-weight:700;border-radius:2px;transition:.3s}
+    .nav-cta:hover,.btn-orange:hover{background:#df9900;color:white;transform:translateY(-2px)}
+    .hero{min-height:690px;display:flex;align-items:center;position:relative;overflow:hidden;color:white;background:linear-gradient(90deg,#101114ed,#1011149c),url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=2000&q=85") center/cover}
+    .hero-inner{position:relative;z-index:2;padding-top:110px;padding-bottom:55px}
+    .eyebrow,.orange-label{color:var(--orange);font-size:.68rem;font-weight:800;letter-spacing:2px}
+    .eyebrow{display:inline-block;border:1px solid #ffffff55;padding:10px 13px;margin-bottom:28px}
+    .hero h1{font-size:clamp(3.8rem,9vw,7.5rem);font-weight:800;line-height:.93;margin:16px 0 25px}
+    .hero-role{font-size:clamp(.9rem,1.8vw,1.1rem);font-weight:700;line-height:1.8;color:#eee}
+    .hero-role span{color:var(--orange)}
+    .hero-description{max-width:570px;color:#c1c1c1;line-height:1.9;margin:20px 0 28px}
+    .hero-orbit{position:absolute;width:320px;height:320px;border:1px solid #ffffff35;border-radius:50%;right:8%;top:25%;animation:rotate 25s linear infinite}
+    .hero-orbit:before{content:"";position:absolute;inset:40px;border:1px solid #f4a90099;border-radius:50%}
+    .hero-orbit:after{content:"";position:absolute;width:50px;height:50px;background:var(--orange);border-radius:50%;left:50%;top:25%;box-shadow:0 0 70px #f4a90080}
+    .hero-bottom{display:flex;justify-content:space-between;margin-top:80px;font-size:.62rem;letter-spacing:2px;color:#aaa}
+    .section{padding:100px 0}
+    .section-heading{display:flex;gap:16px;align-items:flex-start;margin-bottom:45px}
+    .section-number{background:var(--orange);color:white;padding:9px 12px;font-weight:800;font-size:.8rem}
+    .section-heading small{color:#999;font-size:.67rem;font-weight:800;letter-spacing:2px}
+    .section-heading h2{font-size:clamp(2.4rem,5vw,4rem);font-weight:800;margin-top:5px}
+    .body-copy{color:var(--muted);font-size:.9rem;line-height:1.9}
+    .about-card{background:var(--soft);border-left:4px solid var(--orange);padding:27px}
+    .about-symbol{width:70px;height:70px;border-radius:50%;display:grid;place-items:center;background:#fff1cc;color:#bd8000;font-size:2rem;margin-bottom:20px}
+    .tag-list{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+    .tag-list span{background:#fff6df;color:#805c00;padding:8px 10px;font-size:.68rem;font-weight:700}
+    .showcase{display:grid;grid-template-columns:1fr 1fr;background:#222427;color:white}
+    .showcase-art{min-height:340px;background:linear-gradient(135deg,#c6d1bd,#53684e);display:grid;place-items:center;position:relative;overflow:hidden}
+    .showcase-art:before{content:"";position:absolute;width:250px;height:250px;border-radius:50%;background:var(--orange);top:-90px;right:-40px}
+    .mock-device{position:relative;z-index:1;width:160px;height:260px;border:7px solid #222;border-radius:22px;background:linear-gradient(145deg,#fff7e4,#f4b11e);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#222;box-shadow:0 20px 50px #0004;transform:rotate(-7deg);transition:.4s}
+    .mock-device:hover{transform:rotate(0) translateY(-5px)}
+    .mock-device i{font-size:2.6rem;margin-bottom:20px}
+    .mock-device strong{font:800 1.1rem "Poppins";text-align:center}
+    .showcase-copy{align-self:center;padding:50px}
+    .showcase-copy h2{font-size:clamp(2rem,4vw,3.5rem);font-weight:800;margin:15px 0}
+    .showcase-copy p{color:#bbb;line-height:1.8}
+    .showcase-copy a{display:inline-block;color:white;border-bottom:1px solid var(--orange);padding:10px 0;font-size:.8rem;font-weight:700}
+    .soft-bg{background:var(--soft)}
+    .skill-icon{display:grid;place-items:center;width:75px;height:75px;border:7px solid #eee;border-top-color:var(--orange);border-right-color:var(--orange);border-radius:50%;margin:0 auto 12px;font-size:1.4rem}
+    .skill-circle{text-align:center;flex:1}
+    .skill-circle strong{font-size:.7rem}
+    .skill-bar{margin:20px 0}
+    .skill-bar label{display:flex;justify-content:space-between;font-size:.75rem;font-weight:700;margin-bottom:8px}
+    .track{height:7px;background:#e5e5e2;overflow:hidden}
+    .track span{display:block;height:100%;width:var(--level);background:var(--orange);transform:scaleX(0);transform-origin:left;transition:1.2s}
+    .reveal.show .track span{transform:scaleX(1)}
+    .timeline{border-left:1px solid #ddd;padding-left:24px;margin-top:25px}
+    .timeline article{position:relative;padding-bottom:28px}
+    .timeline article:before{content:"";position:absolute;left:-30px;top:5px;width:11px;height:11px;background:white;border:3px solid var(--orange);border-radius:50%}
+    .timeline small{font-size:.62rem;letter-spacing:1px;color:#999;font-weight:800}
+    .timeline h4{font-size:1rem;margin:7px 0;font-weight:700}
+    .timeline p{color:var(--muted);font-size:.78rem;margin:0}
+    .project-card{height:100%;transition:.35s}
+    .project-card:hover{transform:translateY(-5px)}
+    .project-art{height:260px;display:grid;place-items:center;overflow:hidden}
+    .art-one{background:linear-gradient(135deg,#f8d57e,#f4a900)}
+    .art-two{background:linear-gradient(135deg,#dddeda,#aab7a5)}
+    .art-three{background:linear-gradient(135deg,#d9d9ed,#999bc4)}
+    .art-four{background:linear-gradient(135deg,#222427,#55545a)}
+    .project-visual{width:76%;height:72%;background:white;color:#222;padding:25px;box-shadow:0 20px 40px #0003;transform:rotate(-3deg);transition:.4s}
+    .project-card:hover .project-visual{transform:rotate(0) scale(1.04)}
+    .project-visual small{font-size:.55rem;color:#999;letter-spacing:1px}
+    .project-visual strong{display:block;font:800 clamp(1.3rem,3vw,2rem) "Poppins";line-height:1.1;margin-top:18px}
+    .project-visual .fake-button{width:55px;height:10px;background:var(--orange);margin-top:15px}
+    .project-info{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid #ffffff30}
+    .project-info small{color:var(--orange);font-size:.62rem;font-weight:800;letter-spacing:1px}
+    .project-info h3{font-size:1.08rem;margin-top:7px}
+    .project-info a{color:inherit;font-size:1.4rem}
+    .project-info.light{border-color:#ddd}
+    .project-info.light a{color:var(--ink)}
+    .note{padding:13px;background:#fff8e7;color:#8b7744;font-size:.72rem;line-height:1.7}
+    .projects-dark{background:#222427;color:white}
+    .testimonial{background:var(--soft);border:1px solid #eee;padding:28px;display:flex;gap:20px}
+    .testimonial i{font-size:2.5rem;color:var(--orange)}
+    .testimonial p{color:var(--muted);line-height:1.8}
+    .writing-section{background:#fafaf8}
+    .writing-panel{display:grid;grid-template-columns:1.05fr .95fr;gap:45px;align-items:center;background:white;border:1px solid #eee;padding:clamp(25px,5vw,55px)}
+    .writing-copy h3{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;line-height:1.2;margin:18px 0}
+    .book-card{position:relative;max-width:360px;min-height:410px;margin:auto;width:100%;padding:35px;background:#252426;color:#f7f0e6;box-shadow:12px 12px 0 #f4a900;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+    .book-card:before{content:"";position:absolute;width:230px;height:230px;border:1px solid #f4a90055;border-radius:50%;right:-85px;top:70px}
+    .book-card:after{content:"";position:absolute;width:145px;height:145px;border:1px solid #f4a90066;border-radius:50%;right:-42px;top:112px}
+    .book-kicker,.book-bottom{position:relative;z-index:1;font-size:.58rem;letter-spacing:2px;color:#c9bda8;font-weight:700}
+    .book-title{position:relative;z-index:1;font:800 clamp(3.8rem,7vw,5.5rem)/.9 "Poppins";letter-spacing:-5px;margin:40px 0}
+    .book-title span{color:var(--orange)}
+    .book-rule{width:55px;height:4px;background:var(--orange);margin-top:-20px}
+    .book-thought{position:relative;z-index:1;font:italic 1rem "Poppins";color:#e4d8c4;max-width:220px;line-height:1.7;margin:20px 0}
+    .thought-row{display:flex;justify-content:space-between;align-items:center;gap:35px;margin-top:45px;padding:28px 0;border-top:1px solid #e5e2dc}
+    .thought-row small{font-size:.65rem;letter-spacing:2px;font-weight:800;color:#999}
+    .thought-row h3{font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;margin:8px 0}
+    .thought-row p{max-width:420px;margin:0}
+    .contact-panel{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:clamp(25px,6vw,65px);background:#f8f8f5}
+    .contact-panel h2{font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1;margin:15px 0}
+    .contact-links{display:flex;flex-direction:column;justify-content:center;gap:18px}
+    .contact-links a{color:#222;overflow-wrap:anywhere;text-decoration:none;font-size:.8rem;font-weight:700}
+    .contact-links i{color:var(--orange);margin-right:10px}
+    footer{background:#202124;color:#aaa;padding:25px 0}
+    footer .container{display:flex;justify-content:space-between;align-items:center;gap:15px}
+    footer p{margin:0;font-size:.7rem}
+    footer a{color:white;text-decoration:none;font-weight:700}
+    footer a span{color:var(--orange)}
+    .reveal{opacity:0;transform:translateY(25px);transition:opacity .8s ease,transform .8s ease}
+    .reveal.show{opacity:1;transform:none}
+    .delay{transition-delay:.15s}
+    @keyframes rotate{to{transform:rotate(360deg)}}
+    @media(max-width:991px){.hero-orbit{right:-100px;opacity:.4}.navbar-collapse{background:white;padding:15px}}
+    @media(max-width:767px){.section{padding:75px 0}.showcase,.contact-panel,.writing-panel{grid-template-columns:1fr}.thought-row{align-items:flex-start;flex-direction:column;gap:12px}.showcase-copy{padding:35px 25px}.showcase-art{min-height:290px}.hero{min-height:620px}.hero h1{font-size:4rem}.hero-orbit{width:200px;height:200px;right:-90px}.hero-bottom{margin-top:60px}.project-art{height:230px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+  <div class="container">
+    <a class="navbar-brand" href="#home"><span class="brand-icon">S</span> Sanoj<span style="color:var(--orange)">.</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li><a class="nav-link active" href="#home">Home</a></li>
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#education">Education</a></li>
+        <li><a class="nav-link" href="#skills">Skills</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#writing">Writing</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="ms-lg-2"><a class="nav-cta" href="#contact">Let's connect ↗</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-orbit"></div>
+    <div class="container hero-inner reveal">
+      <span class="eyebrow">ARTIFICIAL INTELLIGENCE · MACHINE LEARNING</span>
+      <p class="small fw-bold text-uppercase">Hey there! I'm</p>
+      <h1>Sanoj N.<br><em>Paulose.</em></h1>
+      <p class="hero-role">AI &amp; Machine Learning <span>·</span> Developer <span>·</span> Creative Technologist</p>
+      <p class="hero-description">I explore intelligent systems, build AI-powered projects, and bring technical ideas to life through code and creativity.</p>
+      <a class="btn-orange" href="#projects">Explore my projects ↗</a>
+      <a class="btn btn-outline-light rounded-0 ms-2" href="#about">About me</a>
+      <div class="hero-bottom"><span>PERSONAL PORTFOLIO / 2026</span><span>SCROLL TO EXPLORE ↓</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-heading reveal"><span class="section-number">01</span><div><small>GET TO KNOW ME</small><h2>About <em>Me</em></h2></div></div>
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-4 reveal"><div class="about-card"><div class="about-symbol"><i class="bi bi-cpu"></i></div><span class="orange-label">AI · CODE · CREATIVITY</span><h3 class="mt-3">Building ideas into intelligent experiences.</h3></div></div>
+        <div class="col-lg-8 reveal delay">
+          <h3 class="fw-bold">Hi, I'm Sanoj N. Paulose</h3>
+          <p class="body-copy">I’m an Artificial Intelligence and Machine Learning graduate with interests in AI systems, computer vision, prompt engineering, and creative technology. I enjoy exploring how intelligent tools can solve real problems and create useful digital experiences.</p>
+          <p class="body-copy">My work combines technical experimentation with creative thinking, from deepfake image detection and sleep analysis to AI chatbots and creative projects.</p>
+          <p class="body-copy">Beyond technology, I’m a writer who explores emotions, memories, relationships, and the thoughts that often remain unspoken. Writing is another way I make sense of the world — one thought, one story, one line at a time.</p>
+          <div class="tag-list"><span>Artificial Intelligence</span><span>Machine Learning</span><span>Computer Vision</span><span>Prompt Engineering</span><span>Creative Projects</span></div>
+          <a class="btn btn-dark rounded-0" href="#education">View my education ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="showcase">
+    <div class="showcase-art"><div class="mock-device"><i class="bi bi-braces"></i><strong>Ideas into<br>intelligence.</strong><small class="mt-2">Code · Create · Explore</small></div></div>
+    <div class="showcase-copy"><span class="orange-label">MY INTERESTS</span><h2>Curiosity meets <em>technology.</em></h2><p>From AI and machine learning to prompt engineering and creative storytelling, I like working across disciplines to explore new possibilities.</p><a href="#projects">Discover my work ↗</a></div>
+  </section>
+
+  <section class="section soft-bg" id="education">
+    <div class="container">
+      <div class="section-heading reveal"><span class="section-number">02</span><div><small>ACADEMIC JOURNEY</small><h2>Education &amp; <em>learning</em></h2></div></div>
+      <div class="timeline reveal">
+        <article><small>EXPECTED GRADUATION · 2028</small><h4>M.Sc. Computer Science — Specialized in Artificial Intelligence</h4><p>Expected graduation: 2028</p></article>
+        <article><small>GRADUATED · 2026</small><h4>B.Sc. Artificial Intelligence &amp; Machine Learning</h4><p><strong>Bharathiar University</strong> · Graduation: 2026</p></article>
+        <article><small>COMPLETED · 2020</small><h4>Higher Secondary Education — Commerce</h4><p><strong>Sanios College, Kuttanellur</strong> · Completed: 2020</p></article>
+        <article><small>COMPLETED · 2018</small><h4>Secondary Education</h4><p><strong>St. Augustine HSS, Kuttanellur</strong> · Completed: 2018</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-heading reveal"><span class="section-number">03</span><div><small>TECHNICAL TOOLKIT</small><h2>Skills &amp; <em>languages</em></h2></div></div>
+      <div class="row g-5">
+        <div class="col-lg-5 reveal">
+          <h3 class="fw-bold">Programming languages</h3>
+          <p class="body-copy">Languages I use for programming, data work, and software development.</p>
+          <div class="d-flex gap-3 mt-4">
+            <div class="skill-circle"><i class="skill-icon bi bi-code-slash"></i><strong>Python</strong></div>
+            <div class="skill-circle"><i class="skill-icon bi bi-database"></i><strong>SQL</strong></div>
+            <div class="skill-circle"><i class="skill-icon bi bi-terminal"></i><strong>C</strong></div>
+          </div>
+        </div>
+        <div class="col-lg-7 reveal delay">
+          <h3 class="fw-bold">Areas of interest</h3>
+          <p class="body-copy">Focus areas represented in my projects and learning journey.</p>
+          <div class="skill-bar"><label>Artificial Intelligence</label><div class="track"><span style="--level:90%"></span></div></div>
+          <div class="skill-bar"><label>Machine Learning</label><div class="track"><span style="--level:85%"></span></div></div>
+          <div class="skill-bar"><label>Computer Vision</label><div class="track"><span style="--level:80%"></span></div></div>
+          <div class="skill-bar"><label>Prompt Engineering</label><div class="track"><span style="--level:80%"></span></div></div>
+          <p class="small text-secondary">Progress-bar values are visual placeholders, not verified proficiency ratings. Edit or remove them as needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section projects-dark" id="projects">
+    <div class="container">
+      <div class="section-heading reveal"><span class="section-number">04</span><div><small>SELECTED WORK</small><h2>Projects &amp; <em>creative work</em></h2></div></div>
+      <div class="row g-4">
+        <div class="col-md-6 reveal"><article class="project-card"><div class="project-art art-one"><div class="project-visual"><small>AI / COMPUTER VISION</small><strong>Deepfake<br>Detection</strong><div class="fake-button"></div></div></div><div class="project-info"><div><small>ARTIFICIAL INTELLIGENCE</small><h3>Deepfake Image Detection</h3></div><a href="https://github.com/sanojnpaulose" target="_blank" rel="noopener" aria-label="GitHub">↗</a></div></article></div>
+        <div class="col-md-6 reveal delay"><article class="project-card"><div class="project-art art-two"><div class="project-visual"><small>AI / WELLNESS</small><strong>Sleep<br>Analysis AI</strong><div class="fake-button"></div></div></div><div class="project-info"><div><small>AI ANALYSIS</small><h3>Sleep Analysis AI</h3></div><a href="https://github.com/sanojnpaulose" target="_blank" rel="noopener" aria-label="GitHub">↗</a></div></article></div>
+        <div class="col-md-6 reveal"><article class="project-card"><div class="project-art art-three"><div class="project-visual"><small>LLM / PROMPTS</small><strong>AI Chatbot</strong><div class="fake-button"></div></div></div><div class="project-info"><div><small>PROMPT ENGINEERING</small><h3>AI Chatbot with Prompt Engineering</h3></div><a href="https://github.com/sanojnpaulose" target="_blank" rel="noopener" aria-label="GitHub">↗</a></div></article></div>
+        <div class="col-md-6 reveal delay"><article class="project-card"><div class="project-art art-four"><div class="project-visual"><small>CREATIVE WORK</small><strong>Echoes<br>of Love</strong><div class="fake-button"></div></div></div><div class="project-info"><div><small>CREATIVE PROJECT</small><h3>Echoes of Love</h3></div><a href="#contact" aria-label="Contact about project">↗</a></div></article></div>
+      </div>
+</div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading reveal"><span class="section-number">05</span><div><small>HOW I THINK</small><h2>Beyond the <em>code</em></h2></div></div>
+      <div class="testimonial reveal"><i class="bi bi-lightbulb"></i><div><h3 class="fw-bold">Technology with a creative side.</h3><p class="body-copy mb-0">I’m interested in projects that connect intelligent systems with human experiences — whether through AI tools, thoughtful interfaces, or creative work like <strong>Echoes of Love</strong>.</p></div></div>
+    </div>
+  </section>
+
+  <section class="section writing-section" id="writing">
+    <div class="container">
+      <div class="section-heading reveal"><span class="section-number">05</span><div><small>ANOTHER SIDE OF ME</small><h2>Beyond technology, <em>I write.</em></h2></div></div>
+      <div class="writing-panel reveal">
+        <div class="writing-copy">
+          <span class="orange-label">WRITER · THINKER · STORYTELLER</span>
+          <h3>Some thoughts become stories.<br>Some stories stay with us.</h3>
+          <p class="body-copy">I write about the quiet complexity of people, the weight of memories, and the questions we carry inside. My writing is a space where emotion meets imagination — where even silence can have something to say.</p>
+          <div class="tag-list"><span>Thoughts</span><span>Stories</span><span>Emotions</span></div>
+        </div>
+        <div class="book-card">
+          <div class="book-kicker">A NOVEL BY SANOJ N. PAULOSE</div>
+          <div class="book-title">WHAT<br><em>IF</em><span>!</span></div>
+          <div class="book-rule"></div>
+          <p class="book-thought">“Some books leave a silence behind.”</p>
+          <div class="book-bottom">FICTION · MEMORY · POSSIBILITY</div>
+        </div>
+      </div>
+      <div class="thought-row reveal delay">
+        <div><small>THREE WORDS FOR <em>WHAT IF</em></small><h3>Love. Loss. <em>Longing.</em></h3></div>
+        <p class="body-copy">My three-word impression of <strong>WHAT IF</strong>: a story shaped by the things we feel, the things we lose, and the things we still carry.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-panel reveal">
+        <div><span class="orange-label">LET'S CONNECT</span><h2>Let's build<br>something <em>meaningful.</em></h2><p class="body-copy">Interested in AI, machine learning, collaboration, or a creative project? Reach out.</p></div>
+        <div class="contact-links">
+          <a href="mailto:sanojnpaulose@gmail.com"><i class="bi bi-envelope"></i> sanojnpaulose@gmail.com</a>
+          <a href="https://github.com/sanojnpaulose" target="_blank" rel="noopener"><i class="bi bi-github"></i> github.com/sanojnpaulose</a>
+          <a href="https://www.linkedin.com/in/sanoj-np-bab360289" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i> LinkedIn Profile ↗</a>
+          <a class="btn-orange mt-2" href="mailto:sanojnpaulose@gmail.com">Send me an email ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="container"><a href="#home">S<span>.</span></a><p>© <span id="year"></span> Sanoj N. Paulose · Built with curiosity and code.</p><a href="#home">BACK TO TOP ↑</a></div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const navbar = document.getElementById("navbar");
+  window.addEventListener("scroll", () => navbar.classList.toggle("scrolled", window.scrollY > 25));
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+  const navLinks = document.querySelectorAll(".nav-link");
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id));
+      }
+    });
+  }, { rootMargin: "-35% 0px -55% 0px" });
+  document.querySelectorAll("main section[id]").forEach(section => sectionObserver.observe(section));
+
+  navLinks.forEach(link => link.addEventListener("click", () => {
+    const menu = document.getElementById("navMenu");
+    if (menu.classList.contains("show")) bootstrap.Collapse.getOrCreateInstance(menu).hide();
+  }));
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
