@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sanoj N Paulose — AI and Machine Learning, creative technology, and writing.">
+  <meta name="description" content="Sanoj N Paulose — Artificial Intelligence and Machine Learning student, AI developer, and creative technologist.">
+  <meta name="keywords" content="Sanoj N Paulose, Artificial Intelligence, Machine Learning, Python, SQL, C, Deepfake Detection, AI Chatbot, Sleep Analysis AI">
   <meta name="author" content="Sanoj N Paulose">
-  <title>Sanoj N Paulose | AI Portfolio</title>
+  <meta property="og:title" content="Sanoj N Paulose | AI Portfolio">
+  <meta property="og:description" content="AI, machine learning, software projects and creative work by Sanoj N Paulose.">
+  <meta property="og:type" content="website">
+  <title>Sanoj N Paulose | AI &amp; Machine Learning Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +22,7 @@
       --orange: #f4a900;
       --ink: #202124;
       --muted: #73767c;
+      --line: #e8e8e5;
       --soft: #fafaf8;
     }
 
@@ -30,8 +35,8 @@
 
     body {
       margin: 0;
-      font-family: "DM Sans", sans-serif;
       color: var(--ink);
+      font-family: "DM Sans", sans-serif;
       overflow-x: hidden;
     }
 
@@ -40,249 +45,241 @@
       letter-spacing: -.045em;
     }
 
-    em { color: var(--orange); font-style: normal; }
+    em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
     a { text-decoration: none; }
 
-    /* NAVIGATION */
     .navbar {
       padding: 16px 0;
-      background: #fffffff0;
-      backdrop-filter: blur(16px);
-      transition: padding .35s, box-shadow .35s;
+      background: #ffffffed;
+      backdrop-filter: blur(12px);
+      transition: .3s;
     }
 
     .navbar.scrolled {
       padding: 9px 0;
-      box-shadow: 0 5px 24px #00000012;
+      box-shadow: 0 5px 20px #00000012;
     }
 
     .navbar-brand {
-      font: 800 1.05rem "Poppins", sans-serif;
+      font: 800 1.15rem "Poppins";
       color: var(--ink);
     }
 
     .brand-icon {
       display: inline-grid;
       place-items: center;
-      width: 29px;
-      height: 29px;
-      margin-right: 6px;
-      color: #171717;
       background: var(--orange);
-      border-radius: 3px;
+      color: white;
+      width: 27px;
+      height: 27px;
+      margin-right: 5px;
     }
 
     .nav-link {
-      color: #555 !important;
       font-size: .8rem;
       font-weight: 700;
-      transition: color .25s;
+      color: #555 !important;
     }
 
     .nav-link:hover,
-    .nav-link.active { color: #c88900 !important; }
+    .nav-link.active {
+      color: var(--orange) !important;
+    }
 
     .nav-cta,
     .btn-orange {
       display: inline-block;
-      padding: 12px 18px;
-      color: #171717;
       background: var(--orange);
+      color: white;
       border: 1px solid var(--orange);
+      padding: 11px 17px;
       font-size: .8rem;
       font-weight: 700;
-      transition: transform .3s, background .3s;
+      border-radius: 2px;
+      transition: .3s;
     }
 
     .nav-cta:hover,
     .btn-orange:hover {
-      color: #171717;
-      background: #ffbd27;
-      transform: translateY(-3px);
+      background: #df9900;
+      color: white;
+      transform: translateY(-2px);
     }
 
     /* CINEMATIC HERO */
     .hero {
-      min-height: 760px;
-      position: relative;
+      min-height: 690px;
       display: flex;
       align-items: center;
+      position: relative;
       overflow: hidden;
-      color: #fff;
-      isolation: isolate;
+      color: white;
       background:
-        linear-gradient(90deg, #101114f2 0%, #101114c9 55%, #101114a6 100%),
+        linear-gradient(90deg, #101114ed, #1011149c),
         url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=2000&q=85")
-        center / cover;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      inset: 0;
-      background: linear-gradient(120deg, transparent 30%, #f4a9000c, transparent 70%);
-      animation: ambientLight 9s ease-in-out infinite alternate;
+        center/cover;
     }
 
     .hero-inner {
       position: relative;
-      z-index: 3;
-      padding-top: 130px;
-      padding-bottom: 45px;
+      z-index: 2;
+      padding-top: 110px;
+      padding-bottom: 55px;
+      max-width: 100%;
     }
 
-    .eyebrow {
-      display: inline-block;
-      padding: 10px 13px;
-      margin-bottom: 25px;
-      border: 1px solid #ffffff60;
+    .hero-profile-photo {
+      position: absolute;
+      z-index: 1;
+      right: 9%;
+      top: 50%;
+      transform: translateY(-42%);
+      width: clamp(210px, 26vw, 360px);
+      height: clamp(210px, 26vw, 360px);
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      border: 5px solid #f4a900;
+      box-shadow: 0 0 0 14px #f4a90020, 0 24px 70px #0008;
+      animation: profileFloat 6s ease-in-out infinite;
+    }
+
+    .eyebrow,
+    .orange-label {
       color: var(--orange);
       font-size: .68rem;
       font-weight: 800;
       letter-spacing: 2px;
     }
 
+    .eyebrow {
+      display: inline-block;
+      border: 1px solid #ffffff55;
+      padding: 10px 13px;
+      margin-bottom: 28px;
+    }
+
     .hero h1 {
-      margin: 16px 0 25px;
-      font-size: clamp(4rem, 9vw, 7.7rem);
+      font-size: clamp(3.8rem, 9vw, 7.5rem);
       font-weight: 800;
-      line-height: .92;
-      animation: titleReveal 1.1s cubic-bezier(.2,.8,.2,1) both;
+      line-height: .93;
+      margin: 16px 0 25px;
+      animation: heroTextIn 1s ease both;
     }
 
     .hero-role {
-      color: #eee;
-      font-size: clamp(.95rem, 1.7vw, 1.15rem);
+      font-size: clamp(.9rem, 1.8vw, 1.1rem);
       font-weight: 700;
+      line-height: 1.8;
+      color: #eee;
     }
 
     .hero-role span { color: var(--orange); }
 
     .hero-description {
       max-width: 570px;
-      margin: 22px 0 28px;
-      color: #c8c8c8;
+      color: #c1c1c1;
       line-height: 1.9;
-    }
-
-    .hero-profile-photo {
-      position: absolute;
-      z-index: 2;
-      top: 50%;
-      right: 10%;
-      width: clamp(220px, 26vw, 365px);
-      aspect-ratio: 1;
-      object-fit: cover;
-      border: 5px solid var(--orange);
-      border-radius: 50%;
-      box-shadow: 0 0 0 14px #f4a9001e, 0 25px 85px #0008;
-      transform: translateY(-42%);
-      animation: photoFloat 6s ease-in-out infinite;
+      margin: 20px 0 28px;
     }
 
     .hero-orbit {
       position: absolute;
-      z-index: 1;
-      top: 23%;
-      right: 8%;
-      width: clamp(270px, 30vw, 420px);
-      aspect-ratio: 1;
+      width: 320px;
+      height: 320px;
       border: 1px solid #ffffff35;
       border-radius: 50%;
+      right: 8%;
+      top: 25%;
+      animation: rotate 25s linear infinite;
       pointer-events: none;
-      animation: orbitSpin 28s linear infinite;
     }
 
-    .hero-orbit::before {
+    .hero-orbit:before {
       content: "";
       position: absolute;
-      inset: 35px;
-      border: 1px solid #f4a90090;
+      inset: 40px;
+      border: 1px solid #f4a90099;
       border-radius: 50%;
     }
 
-    .hero-orbit::after {
+    .hero-orbit:after {
       content: "";
       position: absolute;
-      top: 22%;
-      left: 50%;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
+      width: 50px;
+      height: 50px;
       background: var(--orange);
-      box-shadow: 0 0 35px var(--orange);
+      border-radius: 50%;
+      left: 50%;
+      top: 25%;
+      box-shadow: 0 0 70px #f4a90080;
     }
 
     .hero-bottom {
       display: flex;
       justify-content: space-between;
-      gap: 15px;
-      margin-top: 85px;
-      color: #aaa;
+      margin-top: 80px;
       font-size: .62rem;
-      letter-spacing: 1.8px;
+      letter-spacing: 2px;
+      color: #aaa;
     }
 
-    /* SHARED SECTION STYLES */
-    .section { padding: 105px 0; }
+    .section { padding: 100px 0; }
 
     .section-heading {
       display: flex;
-      align-items: flex-start;
       gap: 16px;
+      align-items: flex-start;
       margin-bottom: 45px;
     }
 
     .section-number {
-      flex-shrink: 0;
-      padding: 10px 13px;
-      color: #171717;
       background: var(--orange);
+      color: white;
+      padding: 9px 12px;
       font-weight: 800;
       font-size: .8rem;
     }
 
     .section-heading small {
-      color: #929292;
+      color: #999;
       font-size: .67rem;
       font-weight: 800;
       letter-spacing: 2px;
     }
 
     .section-heading h2 {
-      margin-top: 7px;
       font-size: clamp(2.4rem, 5vw, 4rem);
       font-weight: 800;
-      line-height: 1.1;
+      margin-top: 5px;
     }
 
     .body-copy {
       color: var(--muted);
       font-size: .9rem;
-      line-height: 1.95;
+      line-height: 1.9;
     }
 
-    .soft-bg { background: var(--soft); }
-
-    /* ABOUT */
     .about-card {
-      height: 100%;
-      padding: 30px;
       background: var(--soft);
       border-left: 4px solid var(--orange);
+      padding: 27px;
     }
 
     .about-symbol {
-      display: grid;
-      place-items: center;
       width: 70px;
       height: 70px;
-      margin-bottom: 20px;
       border-radius: 50%;
-      color: #956700;
+      display: grid;
+      place-items: center;
       background: #fff1cc;
+      color: #bd8000;
       font-size: 2rem;
+      margin-bottom: 20px;
     }
 
     .tag-list {
@@ -293,198 +290,184 @@
     }
 
     .tag-list span {
-      padding: 8px 11px;
+      background: #fff6df;
       color: #805c00;
-      background: #fff4d8;
-      font-size: .7rem;
+      padding: 8px 10px;
+      font-size: .68rem;
       font-weight: 700;
     }
 
-    /* FEATURE SHOWCASE */
     .showcase {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      color: white;
       background: #222427;
+      color: white;
     }
 
     .showcase-art {
-      min-height: 380px;
+      min-height: 340px;
+      background: linear-gradient(135deg, #c6d1bd, #53684e);
       display: grid;
       place-items: center;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, #c6d1bd, #53684e);
     }
 
-    .showcase-art::before {
+    .showcase-art:before {
       content: "";
       position: absolute;
-      top: -80px;
-      right: -30px;
-      width: 260px;
-      height: 260px;
+      width: 250px;
+      height: 250px;
       border-radius: 50%;
       background: var(--orange);
-      animation: photoFloat 7s ease-in-out infinite;
+      top: -90px;
+      right: -40px;
     }
 
     .mock-device {
+      position: relative;
       z-index: 1;
-      width: 170px;
-      height: 270px;
+      width: 160px;
+      height: 260px;
+      border: 7px solid #222;
+      border-radius: 22px;
+      background: linear-gradient(145deg, #fff7e4, #f4b11e);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       color: #222;
-      background: linear-gradient(145deg, #fff7e4, #f4b11e);
-      border: 7px solid #222;
-      border-radius: 24px;
-      box-shadow: 0 25px 55px #0005;
+      box-shadow: 0 20px 50px #0004;
       transform: rotate(-7deg);
-      transition: transform .5s;
+      transition: .4s;
     }
 
-    .mock-device:hover { transform: rotate(0) translateY(-10px); }
-    .mock-device i { margin-bottom: 20px; font-size: 2.6rem; }
+    .mock-device:hover { transform: rotate(0) translateY(-5px); }
+    .mock-device i { font-size: 2.6rem; margin-bottom: 20px; }
+
+    .mock-device strong {
+      font: 800 1.1rem "Poppins";
+      text-align: center;
+    }
 
     .showcase-copy {
       align-self: center;
-      padding: clamp(30px, 5vw, 65px);
+      padding: 50px;
     }
 
     .showcase-copy h2 {
-      margin: 16px 0;
       font-size: clamp(2rem, 4vw, 3.5rem);
       font-weight: 800;
+      margin: 15px 0;
     }
 
-    .showcase-copy p { color: #bbb; line-height: 1.9; }
+    .showcase-copy p { color: #bbb; line-height: 1.8; }
 
-    .orange-label {
-      color: var(--orange);
-      font-size: .68rem;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
-
-    /* EDUCATION TIMELINE */
-    .timeline {
-      margin-top: 25px;
-      padding-left: 25px;
-      border-left: 1px solid #d8d8d8;
-    }
-
-    .timeline article {
-      position: relative;
-      padding: 0 0 32px 0;
-    }
-
-    .timeline article::before {
-      content: "";
-      position: absolute;
-      top: 4px;
-      left: -31px;
-      width: 12px;
-      height: 12px;
-      border: 3px solid var(--orange);
-      border-radius: 50%;
-      background: white;
-      box-shadow: 0 0 0 5px #f4a90018;
-    }
-
-    .timeline small {
-      color: #929292;
-      font-size: .65rem;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-    }
-
-    .timeline h4 {
-      margin: 8px 0;
-      font-size: 1.05rem;
+    .showcase-copy a {
+      display: inline-block;
+      color: white;
+      border-bottom: 1px solid var(--orange);
+      padding: 10px 0;
+      font-size: .8rem;
       font-weight: 700;
     }
 
-    .timeline p {
-      margin: 0;
-      color: var(--muted);
-      font-size: .82rem;
-    }
+    .soft-bg { background: var(--soft); }
 
-    /* SKILLS */
     .skill-icon {
       display: grid;
       place-items: center;
       width: 75px;
       height: 75px;
-      margin: 0 auto 12px;
       border: 7px solid #eee;
       border-top-color: var(--orange);
       border-right-color: var(--orange);
       border-radius: 50%;
+      margin: 0 auto 12px;
       font-size: 1.4rem;
     }
 
-    .skill-circle { flex: 1; text-align: center; }
-    .skill-circle strong { font-size: .75rem; }
-
-    .skill-bar { margin: 23px 0; }
+    .skill-circle { text-align: center; flex: 1; }
+    .skill-circle strong { font-size: .7rem; }
+    .skill-bar { margin: 20px 0; }
 
     .skill-bar label {
-      display: block;
-      margin-bottom: 8px;
-      font-size: .78rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: .75rem;
       font-weight: 700;
+      margin-bottom: 8px;
     }
 
     .track {
       height: 7px;
-      overflow: hidden;
       background: #e5e5e2;
+      overflow: hidden;
     }
 
     .track span {
       display: block;
-      width: var(--level);
       height: 100%;
+      width: var(--level);
       background: var(--orange);
       transform: scaleX(0);
       transform-origin: left;
-      transition: transform 1.3s cubic-bezier(.2,.8,.2,1);
+      transition: 1.2s;
     }
 
     .reveal.show .track span { transform: scaleX(1); }
 
-    /* PROJECTS */
-    .projects-dark { color: white; background: #222427; }
-
-    .project-card {
-      height: 100%;
-      transition: transform .4s;
+    .timeline {
+      border-left: 1px solid #ddd;
+      padding-left: 24px;
+      margin-top: 25px;
     }
 
-    .project-card:hover { transform: translateY(-9px); }
+    .timeline article {
+      position: relative;
+      padding-bottom: 28px;
+    }
+
+    .timeline article:before {
+      content: "";
+      position: absolute;
+      left: -30px;
+      top: 5px;
+      width: 11px;
+      height: 11px;
+      background: white;
+      border: 3px solid var(--orange);
+      border-radius: 50%;
+    }
+
+    .timeline small {
+      font-size: .62rem;
+      letter-spacing: 1px;
+      color: #999;
+      font-weight: 800;
+    }
+
+    .timeline h4 {
+      font-size: 1rem;
+      margin: 7px 0;
+      font-weight: 700;
+    }
+
+    .timeline p {
+      color: var(--muted);
+      font-size: .78rem;
+      margin: 0;
+    }
+
+    .project-card { height: 100%; transition: .35s; }
+    .project-card:hover { transform: translateY(-5px); }
 
     .project-art {
-      height: 270px;
+      height: 260px;
       display: grid;
       place-items: center;
       overflow: hidden;
-      position: relative;
     }
-
-    .project-art::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(115deg, transparent 30%, #ffffff55 48%, transparent 62%);
-      transform: translateX(-120%);
-      transition: transform .8s;
-    }
-
-    .project-card:hover .project-art::after { transform: translateX(120%); }
 
     .art-one { background: linear-gradient(135deg, #f8d57e, #f4a900); }
     .art-two { background: linear-gradient(135deg, #dddeda, #aab7a5); }
@@ -492,44 +475,43 @@
     .art-four { background: linear-gradient(135deg, #222427, #55545a); }
 
     .project-visual {
-      z-index: 1;
       width: 76%;
       height: 72%;
-      padding: 25px;
+      background: white;
       color: #222;
-      background: #fff;
+      padding: 25px;
       box-shadow: 0 20px 40px #0003;
       transform: rotate(-3deg);
-      transition: transform .5s;
+      transition: .4s;
     }
 
     .project-card:hover .project-visual { transform: rotate(0) scale(1.04); }
 
     .project-visual small {
+      font-size: .55rem;
       color: #999;
-      font-size: .57rem;
       letter-spacing: 1px;
     }
 
     .project-visual strong {
       display: block;
+      font: 800 clamp(1.3rem, 3vw, 2rem) "Poppins";
+      line-height: 1.1;
       margin-top: 18px;
-      font: 800 clamp(1.3rem, 3vw, 2rem)/1.1 "Poppins";
     }
 
-    .fake-button {
+    .project-visual .fake-button {
       width: 55px;
-      height: 8px;
-      margin-top: 15px;
+      height: 10px;
       background: var(--orange);
+      margin-top: 15px;
     }
 
     .project-info {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 15px;
-      padding: 20px 0;
+      padding: 18px 0;
       border-bottom: 1px solid #ffffff30;
     }
 
@@ -540,21 +522,21 @@
       letter-spacing: 1px;
     }
 
-    .project-info h3 { margin-top: 8px; font-size: 1.05rem; }
-    .project-info a { color: white; font-size: 1.5rem; }
+    .project-info h3 { font-size: 1.08rem; margin-top: 7px; }
+    .project-info a { color: inherit; font-size: 1.4rem; }
+    .projects-dark { background: #222427; color: white; }
 
-    /* CREATIVE THINKING */
     .testimonial {
-      display: flex;
-      gap: 22px;
-      padding: 30px;
       background: var(--soft);
       border: 1px solid #eee;
+      padding: 28px;
+      display: flex;
+      gap: 20px;
     }
 
-    .testimonial i { color: var(--orange); font-size: 2.5rem; }
+    .testimonial i { font-size: 2.5rem; color: var(--orange); }
+    .testimonial p { color: var(--muted); line-height: 1.8; }
 
-    /* WRITING */
     .writing-section { background: #fafaf8; }
 
     .writing-panel {
@@ -562,89 +544,85 @@
       grid-template-columns: 1.05fr .95fr;
       gap: 45px;
       align-items: center;
-      padding: clamp(25px, 5vw, 55px);
       background: white;
       border: 1px solid #eee;
+      padding: clamp(25px, 5vw, 55px);
     }
 
     .writing-copy h3 {
-      margin: 18px 0;
       font-size: clamp(1.8rem, 3vw, 2.8rem);
       font-weight: 800;
       line-height: 1.2;
+      margin: 18px 0;
     }
 
     .book-card {
       position: relative;
+      max-width: 360px;
+      min-height: 410px;
+      margin: auto;
+      width: 100%;
+      padding: 35px;
+      background: #252426;
+      color: #f7f0e6;
+      box-shadow: 12px 12px 0 #f4a900;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      width: 100%;
-      max-width: 360px;
-      min-height: 430px;
-      margin: auto;
-      padding: 35px;
       overflow: hidden;
-      color: #f7f0e6;
-      background: #252426;
-      box-shadow: 12px 12px 0 var(--orange);
-      transition: transform .5s;
     }
 
-    .book-card:hover { transform: translateY(-8px) rotate(-1deg); }
-
-    .book-card::before,
-    .book-card::after {
+    .book-card:before {
       content: "";
       position: absolute;
-      border: 1px solid #f4a90066;
-      border-radius: 50%;
-    }
-
-    .book-card::before {
-      top: 65px;
-      right: -85px;
       width: 230px;
       height: 230px;
+      border: 1px solid #f4a90055;
+      border-radius: 50%;
+      right: -85px;
+      top: 70px;
     }
 
-    .book-card::after {
-      top: 105px;
-      right: -45px;
-      width: 150px;
-      height: 150px;
+    .book-card:after {
+      content: "";
+      position: absolute;
+      width: 145px;
+      height: 145px;
+      border: 1px solid #f4a90066;
+      border-radius: 50%;
+      right: -42px;
+      top: 112px;
     }
 
-    .book-kicker, .book-bottom {
+    .book-kicker,
+    .book-bottom {
+      position: relative;
       z-index: 1;
-      color: #c9bda8;
       font-size: .58rem;
-      font-weight: 700;
       letter-spacing: 2px;
+      color: #c9bda8;
+      font-weight: 700;
     }
 
     .book-title {
+      position: relative;
       z-index: 1;
-      margin: 40px 0;
       font: 800 clamp(3.8rem, 7vw, 5.5rem)/.9 "Poppins";
       letter-spacing: -5px;
+      margin: 40px 0;
     }
 
     .book-title span { color: var(--orange); }
-
-    .book-rule {
-      width: 55px;
-      height: 4px;
-      margin-top: -20px;
-      background: var(--orange);
-    }
+    .book-rule { width: 55px; height: 4px; background: var(--orange); margin-top: -20px; }
 
     .book-thought {
+      position: relative;
       z-index: 1;
-      max-width: 220px;
-      margin: 20px 0;
+      font: italic 1rem "Poppins";
       color: #e4d8c4;
-      font: italic 1rem/1.7 "Poppins";
+      max-width: 220px;
+      line-height: 1.7;
+      margin: 20px 0;
     }
 
     .thought-row {
@@ -658,21 +636,98 @@
     }
 
     .thought-row small {
-      color: #999;
       font-size: .65rem;
-      font-weight: 800;
       letter-spacing: 2px;
+      font-weight: 800;
+      color: #999;
     }
 
     .thought-row h3 {
-      margin: 8px 0;
       font-size: clamp(1.7rem, 3vw, 2.5rem);
       font-weight: 800;
+      margin: 8px 0;
     }
 
     .thought-row p { max-width: 420px; margin: 0; }
 
-    /* TROPHY AND CERTIFICATE */
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: clamp(25px, 6vw, 65px);
+      background: #f8f8f5;
+    }
+
+    .contact-panel h2 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1;
+      margin: 15px 0;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .contact-links a {
+      color: #222;
+      overflow-wrap: anywhere;
+      text-decoration: none;
+      font-size: .8rem;
+      font-weight: 700;
+    }
+
+    .contact-links i { color: var(--orange); margin-right: 10px; }
+
+    footer {
+      background: #202124;
+      color: #aaa;
+      padding: 25px 0;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    footer p { margin: 0; font-size: .7rem; }
+    footer a { color: white; text-decoration: none; font-weight: 700; }
+    footer a span { color: var(--orange); }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: none;
+    }
+
+    .delay { transition-delay: .15s; }
+
+    @keyframes rotate {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes profileFloat {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -12px; }
+    }
+
+    @keyframes heroTextIn {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Awards and recognition — large images, uncropped */
     .recognition-section {
       background: #fafaf8;
       border-top: 1px solid #e8e8e5;
@@ -680,40 +735,55 @@
 
     .recognition-card {
       height: 100%;
-      overflow: hidden;
-      background: white;
+      background: #fff;
       border: 1px solid #e8e8e5;
-      transition: transform .4s, box-shadow .4s;
+      transition: transform .35s, box-shadow .35s;
+      overflow: hidden;
     }
 
     .recognition-card:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 22px 50px #20212418;
+      transform: translateY(-5px);
+      box-shadow: 0 18px 45px #20212412;
     }
 
     .recognition-image-wrap {
+      background: #f1eee8;
+      overflow: hidden;
+      min-height: 440px;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 480px;
-      overflow: hidden;
-      background: #f1eee8;
     }
 
     .recognition-image {
       display: block;
       width: 100%;
-      height: clamp(450px, 48vw, 680px);
+      height: clamp(420px, 48vw, 620px);
+      min-height: 420px;
+      max-height: 620px;
       object-fit: contain;
       object-position: center;
-      padding: 10px;
+      padding: 12px;
       background: #f1eee8;
-      transition: transform .6s;
+      transition: transform .5s;
     }
 
     .recognition-card:hover .recognition-image { transform: scale(1.025); }
-
     .recognition-copy { padding: 25px; }
+
+    .recognition-copy h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin: 12px 0;
+      letter-spacing: -.03em;
+    }
+
+    .recognition-copy p {
+      color: var(--muted);
+      font-size: .85rem;
+      line-height: 1.85;
+      margin-bottom: 0;
+    }
 
     .recognition-badge {
       display: inline-block;
@@ -726,19 +796,6 @@
       text-transform: uppercase;
     }
 
-    .recognition-copy h3 {
-      margin: 12px 0;
-      font-size: 1.2rem;
-      font-weight: 800;
-    }
-
-    .recognition-copy p {
-      margin: 0;
-      color: var(--muted);
-      font-size: .85rem;
-      line-height: 1.85;
-    }
-
     .recognition-date {
       display: flex;
       align-items: center;
@@ -749,147 +806,36 @@
       font-weight: 700;
     }
 
-    /* CONTACT */
-    .contact-panel {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      padding: clamp(25px, 6vw, 65px);
-      background: #f8f8f5;
-    }
-
-    .contact-panel h2 {
-      margin: 15px 0;
-      font-size: clamp(2.8rem, 6vw, 5rem);
-      font-weight: 800;
-      line-height: 1;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .contact-links a {
-      color: #222;
-      overflow-wrap: anywhere;
-      font-size: .82rem;
-      font-weight: 700;
-    }
-
-    .contact-links i { margin-right: 10px; color: var(--orange); }
-
-    footer {
-      padding: 25px 0;
-      color: #aaa;
-      background: #202124;
-    }
-
-    footer .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-    }
-
-    footer p { margin: 0; font-size: .7rem; }
-    footer a { color: white; font-weight: 700; }
-    footer a span { color: var(--orange); }
-
-    /* APPLE-INSPIRED SCROLL ANIMATIONS */
-    .reveal {
-      opacity: 0;
-      transform: translateY(38px) scale(.985);
-      filter: blur(5px);
-      transition:
-        opacity .9s cubic-bezier(.2,.8,.2,1),
-        transform .9s cubic-bezier(.2,.8,.2,1),
-        filter .9s ease;
-      will-change: opacity, transform, filter;
-    }
-
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0);
-    }
-
-    .delay { transition-delay: .15s; }
-    .delay-2 { transition-delay: .3s; }
-
-    .stagger > * {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1);
-    }
-
-    .stagger.show > * {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .stagger.show > *:nth-child(2) { transition-delay: .12s; }
-    .stagger.show > *:nth-child(3) { transition-delay: .24s; }
-    .stagger.show > *:nth-child(4) { transition-delay: .36s; }
-
-    @keyframes orbitSpin {
-      to { transform: rotate(360deg); }
-    }
-
-    @keyframes photoFloat {
-      0%, 100% { translate: 0 0; }
-      50% { translate: 0 -12px; }
-    }
-
-    @keyframes titleReveal {
-      from { opacity: 0; transform: translateY(35px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes ambientLight {
-      from { opacity: .35; transform: translateX(-3%); }
-      to { opacity: 1; transform: translateX(3%); }
-    }
-
-    /* RESPONSIVE */
     @media (max-width: 991px) {
       .hero-profile-photo {
-        top: 135px;
         right: 6%;
-        width: 155px;
+        top: 145px;
         transform: none;
+        width: 150px;
+        height: 150px;
+        opacity: .9;
       }
 
-      .hero-inner { padding-top: 310px; }
+      .hero-inner { padding-top: 315px; }
 
       .hero-orbit {
-        top: 105px;
-        right: 3%;
         width: 220px;
+        height: 220px;
+        right: 3%;
+        top: 110px;
       }
 
-      .navbar-collapse { padding: 15px; background: white; }
       .hero-bottom { margin-top: 55px; }
+      .navbar-collapse { background: white; padding: 15px; }
     }
 
     @media (max-width: 767px) {
       .section { padding: 75px 0; }
 
       .showcase,
-      .writing-panel,
-      .contact-panel { grid-template-columns: 1fr; }
-
-      .showcase-art { min-height: 290px; }
-      .showcase-copy { padding: 35px 25px; }
-
-      .hero { min-height: 680px; }
-      .hero h1 { font-size: clamp(3.5rem, 13vw, 5rem); }
-
-      .hero-orbit {
-        width: 200px;
-        right: -90px;
+      .contact-panel,
+      .writing-panel {
+        grid-template-columns: 1fr;
       }
 
       .thought-row {
@@ -898,12 +844,24 @@
         gap: 12px;
       }
 
-      .project-art { height: 230px; }
-      .recognition-image-wrap { min-height: 350px; }
+      .showcase-copy { padding: 35px 25px; }
+      .showcase-art { min-height: 290px; }
+      .hero { min-height: 620px; }
+      .hero h1 { font-size: 4rem; }
 
+      .hero-orbit {
+        width: 200px;
+        height: 200px;
+        right: -90px;
+      }
+
+      .hero-bottom { margin-top: 60px; }
+      .project-art { height: 230px; }
+
+      .recognition-image-wrap { min-height: 360px; }
       .recognition-image {
         height: auto;
-        min-height: 350px;
+        min-height: 360px;
         max-height: none;
         object-fit: contain;
       }
@@ -911,28 +869,27 @@
 
     @media (max-width: 575px) {
       .hero-profile-photo {
-        top: 110px;
-        right: 7%;
         width: 112px;
+        height: 112px;
+        right: 7%;
+        top: 115px;
       }
 
-      .hero-inner { padding-top: 245px; }
+      .hero-inner { padding-top: 250px; }
 
       .hero-orbit {
-        top: 85px;
         width: 170px;
+        height: 170px;
+        top: 90px;
       }
 
       .hero-bottom {
-        flex-wrap: wrap;
         font-size: .52rem;
         letter-spacing: 1px;
         gap: 12px;
       }
 
       .hero-bottom span:last-child { text-align: right; }
-      .recognition-image { padding: 6px; }
-      footer .container { flex-wrap: wrap; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -943,19 +900,11 @@
         transition-duration: .01ms !important;
         scroll-behavior: auto !important;
       }
-
-      .reveal,
-      .stagger > * {
-        opacity: 1;
-        transform: none;
-        filter: none;
-      }
     }
   </style>
 </head>
 
 <body>
-  <!-- NAVIGATION -->
   <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
     <div class="container">
       <a class="navbar-brand" href="#home">
@@ -979,7 +928,9 @@
           <li><a class="nav-link" href="#writing">Writing</a></li>
           <li><a class="nav-link" href="#recognition">Recognition</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
-          <li class="ms-lg-2"><a class="nav-cta" href="#contact">Let's Talk ↗</a></li>
+          <li class="ms-lg-2">
+            <a class="nav-cta" href="#contact">Let's Talk ↗</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -990,8 +941,10 @@
     <section class="hero" id="home">
       <img class="hero-profile-photo"
         src="sanoj.jpg"
-        alt="Sanoj N Paulose"
-        width="360" height="360" fetchpriority="high">
+        alt="Portrait of Sanoj N Paulose"
+        width="360"
+        height="360"
+        fetchpriority="high">
 
       <div class="hero-orbit"></div>
 
@@ -1046,9 +999,9 @@
             <h3 class="fw-bold">Hi, I'm Sanoj N Paulose</h3>
             <p class="body-copy">
               I’m an Artificial Intelligence and Machine Learning graduate
-              interested in AI systems, computer vision, prompt engineering,
-              and creative technology. I enjoy exploring how intelligent
-              tools can solve real problems and create useful experiences.
+              with interests in AI systems, computer vision, prompt engineering,
+              and creative technology. I enjoy exploring how intelligent tools
+              can solve real problems and create useful digital experiences.
             </p>
             <p class="body-copy">
               My work combines technical experimentation with creative thinking,
@@ -1069,12 +1022,14 @@
               <span>Prompt Engineering</span>
               <span>Creative Projects</span>
             </div>
+
+            <a class="btn btn-dark rounded-0" href="#education">View my education ↗</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FEATURE SHOWCASE -->
+    <!-- SHOWCASE -->
     <section class="showcase">
       <div class="showcase-art">
         <div class="mock-device">
@@ -1084,13 +1039,13 @@
         </div>
       </div>
 
-      <div class="showcase-copy reveal">
+      <div class="showcase-copy">
         <span class="orange-label">MY INTERESTS</span>
         <h2>Curiosity meets <em>technology.</em></h2>
         <p>
           From AI and machine learning to prompt engineering and creative
-          storytelling, I like working across disciplines to explore
-          new possibilities.
+          storytelling, I like working across disciplines to explore new
+          possibilities.
         </p>
         <a href="#projects">Discover my work ↗</a>
       </div>
@@ -1103,11 +1058,11 @@
           <span class="section-number">02</span>
           <div>
             <small>ACADEMIC JOURNEY</small>
-            <h2>Education &amp; <em>Learning</em></h2>
+            <h2>Education &amp; <em>learning</em></h2>
           </div>
         </div>
 
-        <div class="timeline stagger">
+        <div class="timeline reveal">
           <article>
             <small>EXPECTED GRADUATION · 2028</small>
             <h4>M.Sc. Computer Science — Specialized in Artificial Intelligence</h4>
@@ -1142,7 +1097,7 @@
           <span class="section-number">03</span>
           <div>
             <small>TECHNICAL TOOLKIT</small>
-            <h2>Skills &amp; <em>Languages</em></h2>
+            <h2>Skills &amp; <em>languages</em></h2>
           </div>
         </div>
 
@@ -1150,7 +1105,7 @@
           <div class="col-lg-5 reveal">
             <h3 class="fw-bold">Programming languages</h3>
             <p class="body-copy">
-              Languages I use for programming and data work.
+              Languages I use for programming, data work, and software development.
             </p>
 
             <div class="d-flex gap-3 mt-4">
@@ -1171,31 +1126,25 @@
 
           <div class="col-lg-7 reveal delay">
             <h3 class="fw-bold">Areas of interest</h3>
+            <p class="body-copy">
+              Focus areas represented in my projects and learning journey.
+            </p>
 
             <div class="skill-bar">
               <label>Artificial Intelligence</label>
               <div class="track"><span style="--level:90%"></span></div>
             </div>
-
             <div class="skill-bar">
               <label>Machine Learning</label>
               <div class="track"><span style="--level:85%"></span></div>
             </div>
-
             <div class="skill-bar">
               <label>Computer Vision</label>
               <div class="track"><span style="--level:80%"></span></div>
             </div>
-
             <div class="skill-bar">
               <label>Prompt Engineering</label>
               <div class="track"><span style="--level:80%"></span></div>
-            </div>
-
-            <div class="tag-list">
-              <span>Deep Learning</span>
-              <span>Data Analysis</span>
-              <span>Problem Solving</span>
             </div>
           </div>
         </div>
@@ -1209,12 +1158,12 @@
           <span class="section-number">04</span>
           <div>
             <small>SELECTED WORK</small>
-            <h2>Projects &amp; <em>Creative Work</em></h2>
+            <h2>Projects &amp; <em>creative work</em></h2>
           </div>
         </div>
 
-        <div class="row g-4 stagger">
-          <div class="col-md-6">
+        <div class="row g-4">
+          <div class="col-md-6 reveal">
             <article class="project-card">
               <div class="project-art art-one">
                 <div class="project-visual">
@@ -1233,7 +1182,7 @@
             </article>
           </div>
 
-          <div class="col-md-6">
+          <div class="col-md-6 reveal delay">
             <article class="project-card">
               <div class="project-art art-two">
                 <div class="project-visual">
@@ -1252,7 +1201,7 @@
             </article>
           </div>
 
-          <div class="col-md-6">
+          <div class="col-md-6 reveal">
             <article class="project-card">
               <div class="project-art art-three">
                 <div class="project-visual">
@@ -1271,7 +1220,7 @@
             </article>
           </div>
 
-          <div class="col-md-6">
+          <div class="col-md-6 reveal delay">
             <article class="project-card">
               <div class="project-art art-four">
                 <div class="project-visual">
@@ -1300,7 +1249,7 @@
           <span class="section-number">05</span>
           <div>
             <small>HOW I THINK</small>
-            <h2>Beyond the <em>Code</em></h2>
+            <h2>Beyond the <em>code</em></h2>
           </div>
         </div>
 
@@ -1309,9 +1258,9 @@
           <div>
             <h3 class="fw-bold">Technology with a creative side.</h3>
             <p class="body-copy mb-0">
-              I’m interested in projects that connect intelligent systems
-              with human experiences — whether through AI tools, thoughtful
-              interfaces, or creative work like <strong>Echoes of Love</strong>.
+              I’m interested in projects that connect intelligent systems with
+              human experiences — whether through AI tools, thoughtful interfaces,
+              or creative work like <strong>Echoes of Love</strong>.
             </p>
           </div>
         </div>
@@ -1325,7 +1274,7 @@
           <span class="section-number">05</span>
           <div>
             <small>ANOTHER SIDE OF ME</small>
-            <h2>Beyond technology, <em>I Write.</em></h2>
+            <h2>Beyond technology, <em>I write.</em></h2>
           </div>
         </div>
 
@@ -1354,7 +1303,7 @@
           </div>
         </div>
 
-        <div class="thought-row reveal">
+        <div class="thought-row reveal delay">
           <div>
             <small>THREE WORDS FOR <em>WHAT IF</em></small>
             <h3>Love. Loss. <em>Longing.</em></h3>
@@ -1367,32 +1316,33 @@
       </div>
     </section>
 
-    <!-- RECOGNITION: TROPHY + CERTIFICATE -->
+    <!-- RECOGNITION -->
     <section class="section recognition-section" id="recognition">
       <div class="container">
         <div class="section-heading reveal">
           <span class="section-number">06</span>
           <div>
             <small>AWARDS &amp; RECOGNITION</small>
-            <h2>A milestone in my <em>Writing Journey.</em></h2>
+            <h2>A milestone in my <em>writing journey.</em></h2>
           </div>
         </div>
 
         <p class="body-copy mb-5 reveal" style="max-width:720px">
-          My contribution to <strong>1221 മാജിക് വാക്കുകൾ</strong> became
-          a memorable milestone in my writing journey. The certificate records
-          the publication's inclusion in the Kerala Book of Records.
+          Alongside my creative journey, my contribution to the book
+          <strong>1221 മാജിക് വാക്കുകൾ</strong> became a memorable milestone.
+          The certificate records the publication's inclusion in the Kerala Book of Records.
         </p>
 
-        <div class="row g-4 stagger">
-          <div class="col-lg-7">
+        <div class="row g-4">
+          <div class="col-lg-7 reveal">
             <article class="recognition-card">
               <div class="recognition-image-wrap">
-                <a href="kbr-trophy.jpg" target="_blank" rel="noopener noreferrer">
+                <a href="kbr-trophy.jpg" target="_blank" rel="noopener noreferrer"
+                   aria-label="Open the Kerala Book of Records trophy photograph">
                   <img class="recognition-image"
-                    src="kbr-trophy.jpg"
-                    alt="Kerala Book of Records trophy and medal"
-                    loading="lazy">
+                       src="kbr-trophy.jpg"
+                       alt="Kerala Book of Records trophy and medal"
+                       width="1200" height="1500" loading="lazy">
                 </a>
               </div>
               <div class="recognition-copy">
@@ -1411,14 +1361,15 @@
             </article>
           </div>
 
-          <div class="col-lg-5">
+          <div class="col-lg-5 reveal delay">
             <article class="recognition-card">
               <div class="recognition-image-wrap">
-                <a href="kbr-achievement.jpg" target="_blank" rel="noopener noreferrer">
+                <a href="kbr-achievement.jpg" target="_blank" rel="noopener noreferrer"
+                   aria-label="Open the certificate, trophy and book photograph">
                   <img class="recognition-image"
-                    src="kbr-achievement.jpg"
-                    alt="Participation certificate, trophy and book"
-                    loading="lazy">
+                       src="kbr-achievement.jpg"
+                       alt="Kerala Book of Records participation certificate, trophy and book"
+                       width="1200" height="1500" loading="lazy">
                 </a>
               </div>
               <div class="recognition-copy">
@@ -1446,10 +1397,10 @@
         <div class="contact-panel reveal">
           <div>
             <span class="orange-label">LET'S CONNECT</span>
-            <h2>Let's build<br>something <em>Meaningful.</em></h2>
+            <h2>Let's build<br>something <em>meaningful.</em></h2>
             <p class="body-copy">
-              Interested in AI, machine learning, collaboration,
-              or a creative project? Reach out.
+              Interested in AI, machine learning, collaboration, or a creative project?
+              Reach out.
             </p>
           </div>
 
@@ -1461,7 +1412,7 @@
               <i class="bi bi-github"></i>github.com/sanojnpaulose
             </a>
             <a href="https://www.linkedin.com/in/sanoj-np-bab360289"
-              target="_blank" rel="noopener">
+               target="_blank" rel="noopener">
               <i class="bi bi-linkedin"></i>LinkedIn Profile ↗
             </a>
             <a class="btn-orange mt-2" href="mailto:sanojnpaulose@gmail.com">
@@ -1485,53 +1436,54 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    // Navbar shrink effect
+    // Navbar scroll effect
     const navbar = document.getElementById("navbar");
 
     window.addEventListener("scroll", () => {
       navbar.classList.toggle("scrolled", window.scrollY > 25);
-    }, { passive: true });
-
-    // Scroll reveal: animate every section as it enters the viewport
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.12,
-      rootMargin: "0px 0px -35px 0px"
     });
 
-    document.querySelectorAll(".reveal, .stagger").forEach(element => {
-      revealObserver.observe(element);
+    // Reveal elements when they enter the viewport
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll(".reveal").forEach(el => {
+      revealObserver.observe(el);
     });
 
-    // Active navigation state
+    // Active navigation links
     const navLinks = document.querySelectorAll(".nav-link");
 
-    const sectionObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          navLinks.forEach(link => {
-            link.classList.toggle(
-              "active",
-              link.getAttribute("href") === "#" + entry.target.id
-            );
-          });
-        }
-      });
-    }, {
-      rootMargin: "-35% 0px -55% 0px"
-    });
+    const sectionObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(link => {
+              link.classList.toggle(
+                "active",
+                link.getAttribute("href") === "#" + entry.target.id
+              );
+            });
+          }
+        });
+      },
+      { rootMargin: "-35% 0px -55% 0px" }
+    );
 
     document.querySelectorAll("main section[id]").forEach(section => {
       sectionObserver.observe(section);
     });
 
-    // Close mobile menu after navigation
+    // Close mobile menu after clicking a navigation link
     navLinks.forEach(link => {
       link.addEventListener("click", () => {
         const menu = document.getElementById("navMenu");
@@ -1542,7 +1494,7 @@
       });
     });
 
-    // Footer year
+    // Automatically update copyright year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
