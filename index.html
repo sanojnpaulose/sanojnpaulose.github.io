@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,11 +60,13 @@
       text-decoration: none;
     }
 
+    /* NAVIGATION */
+
     .navbar {
       padding: 16px 0;
       background: #ffffffed;
       backdrop-filter: blur(12px);
-      transition: .3s;
+      transition: padding .3s, box-shadow .3s;
     }
 
     .navbar.scrolled {
@@ -90,6 +93,7 @@
       font-size: .8rem;
       font-weight: 700;
       color: #555 !important;
+      transition: color .25s;
     }
 
     .nav-link:hover,
@@ -107,50 +111,64 @@
       font-size: .8rem;
       font-weight: 700;
       border-radius: 2px;
-      transition: .3s;
+      transition: transform .3s, box-shadow .3s, background .3s;
     }
 
     .nav-cta:hover,
     .btn-orange:hover {
       background: #df9900;
       color: white;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px #f4a90050;
     }
 
+    /* CINEMATIC HERO */
+
     .hero {
-      min-height: 690px;
+      min-height: 760px;
       display: flex;
       align-items: center;
       position: relative;
+      isolation: isolate;
       overflow: hidden;
       color: white;
       background:
-        linear-gradient(90deg, #101114ed, #1011149c),
+        linear-gradient(90deg, #101114ed 0%, #101114b8 55%, #10111485 100%),
         url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=2000&q=85")
-        center/cover;
+        center center / cover no-repeat;
+      animation: heroBackground 22s ease-in-out infinite alternate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: radial-gradient(
+        circle at 75% 48%,
+        #f4a90020,
+        transparent 35%
+      );
+      animation: lightPulse 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroBackground {
+      from { background-size: 100%; }
+      to { background-size: 112%; }
+    }
+
+    @keyframes lightPulse {
+      from { opacity: .4; }
+      to { opacity: 1; }
     }
 
     .hero-inner {
       position: relative;
-      z-index: 2;
-      padding-top: 110px;
-      padding-bottom: 55px;
+      z-index: 3;
+      padding-top: 120px;
+      padding-bottom: 45px;
       max-width: 100%;
-    }
-
-    .hero-profile-photo {
-      position: absolute;
-      z-index: 1;
-      right: 9%;
-      top: 50%;
-      transform: translateY(-42%);
-      width: clamp(210px, 26vw, 360px);
-      height: clamp(210px, 26vw, 360px);
-      object-fit: cover;
-      object-position: center;
-      border-radius: 50%;
-      border: 5px solid #f4a900;
-      box-shadow: 0 0 0 14px #f4a90020, 0 24px 70px #0008;
     }
 
     .eyebrow,
@@ -166,6 +184,11 @@
       border: 1px solid #ffffff55;
       padding: 10px 13px;
       margin-bottom: 28px;
+      animation: fadeUp .8s .1s both;
+    }
+
+    .hero-intro {
+      animation: fadeUp .8s .2s both;
     }
 
     .hero h1 {
@@ -173,6 +196,47 @@
       font-weight: 800;
       line-height: .93;
       margin: 16px 0 25px;
+      animation: nameReveal 1.1s .25s cubic-bezier(.2,.8,.2,1) both;
+    }
+
+    .hero h1 em {
+      display: inline-block;
+      animation: orangeReveal 1.2s .45s ease both;
+    }
+
+    @keyframes nameReveal {
+      from {
+        opacity: 0;
+        transform: translateY(35px);
+        filter: blur(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes orangeReveal {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero-role {
@@ -180,6 +244,7 @@
       font-weight: 700;
       line-height: 1.8;
       color: #eee;
+      animation: fadeUp .8s .6s both;
     }
 
     .hero-role span {
@@ -191,47 +256,112 @@
       color: #c1c1c1;
       line-height: 1.9;
       margin: 20px 0 28px;
+      animation: fadeUp .8s .75s both;
+    }
+
+    .hero-actions {
+      animation: fadeUp .8s .9s both;
+    }
+
+    .hero-profile-photo {
+      position: absolute;
+      z-index: 2;
+      right: 9%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(210px, 26vw, 360px);
+      height: clamp(210px, 26vw, 360px);
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      border: 5px solid var(--orange);
+      box-shadow:
+        0 0 0 14px #f4a90020,
+        0 24px 70px #0008;
+      animation:
+        profileEntrance 1.2s .3s both,
+        profileFloat 5s 1.5s ease-in-out infinite;
+    }
+
+    @keyframes profileEntrance {
+      from {
+        opacity: 0;
+        transform: translate(35px, -45%);
+        filter: blur(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translate(0, -50%);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes profileFloat {
+      0%, 100% {
+        transform: translateY(-50%);
+      }
+      50% {
+        transform: translateY(calc(-50% - 12px));
+      }
     }
 
     .hero-orbit {
       position: absolute;
-      width: 320px;
-      height: 320px;
-      border: 1px solid #ffffff35;
+      z-index: 1;
+      width: clamp(250px, 29vw, 400px);
+      aspect-ratio: 1;
+      border: 1px solid #ffffff40;
       border-radius: 50%;
-      right: 8%;
-      top: 25%;
-      animation: rotate 25s linear infinite;
+      right: 7%;
+      top: 50%;
+      transform: translateY(-50%);
+      animation:
+        orbitSpin 26s linear infinite,
+        orbitGlow 4s ease-in-out infinite alternate;
+      pointer-events: none;
     }
 
-    .hero-orbit:before {
+    .hero-orbit::before {
       content: "";
       position: absolute;
-      inset: 40px;
+      inset: 30px;
       border: 1px solid #f4a90099;
       border-radius: 50%;
     }
 
-    .hero-orbit:after {
+    .hero-orbit::after {
       content: "";
       position: absolute;
-      width: 50px;
-      height: 50px;
+      width: 18px;
+      height: 18px;
+      top: 18%;
+      left: 68%;
       background: var(--orange);
       border-radius: 50%;
-      left: 50%;
-      top: 25%;
-      box-shadow: 0 0 70px #f4a90080;
+      box-shadow: 0 0 25px #f4a900;
+    }
+
+    @keyframes orbitSpin {
+      to { rotate: 360deg; }
+    }
+
+    @keyframes orbitGlow {
+      from { opacity: .45; }
+      to { opacity: 1; }
     }
 
     .hero-bottom {
       display: flex;
       justify-content: space-between;
+      gap: 15px;
       margin-top: 80px;
       font-size: .62rem;
       letter-spacing: 2px;
       color: #aaa;
+      animation: fadeUp 1s 1s both;
     }
+
+    /* GENERAL SECTIONS */
 
     .section {
       padding: 100px 0;
@@ -245,6 +375,7 @@
     }
 
     .section-number {
+      flex-shrink: 0;
       background: var(--orange);
       color: white;
       padding: 9px 12px;
@@ -260,7 +391,7 @@
     }
 
     .section-heading h2 {
-      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-size: clamp(2.1rem, 5vw, 4rem);
       font-weight: 800;
       margin-top: 5px;
     }
@@ -271,16 +402,28 @@
       line-height: 1.9;
     }
 
+    .soft-bg {
+      background: var(--soft);
+    }
+
+    /* ABOUT */
+
     .about-card {
       background: var(--soft);
       border-left: 4px solid var(--orange);
       padding: 27px;
+      height: 100%;
+      transition: transform .35s, box-shadow .35s;
+    }
+
+    .about-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px #0000000d;
     }
 
     .about-symbol {
       width: 70px;
       height: 70px;
-      border-radius: 50%;
       display: grid;
       place-items: center;
       background: #fff1cc;
@@ -302,7 +445,15 @@
       padding: 8px 10px;
       font-size: .68rem;
       font-weight: 700;
+      transition: transform .25s, background .25s;
     }
+
+    .tag-list span:hover {
+      transform: translateY(-3px);
+      background: #ffebba;
+    }
+
+    /* SHOWCASE */
 
     .showcase {
       display: grid;
@@ -320,7 +471,7 @@
       overflow: hidden;
     }
 
-    .showcase-art:before {
+    .showcase-art::before {
       content: "";
       position: absolute;
       width: 250px;
@@ -329,6 +480,11 @@
       background: var(--orange);
       top: -90px;
       right: -40px;
+      animation: floatDecor 7s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatDecor {
+      to { transform: translate(-25px, 30px) scale(1.1); }
     }
 
     .mock-device {
@@ -346,11 +502,11 @@
       color: #222;
       box-shadow: 0 20px 50px #0004;
       transform: rotate(-7deg);
-      transition: .4s;
+      transition: transform .4s;
     }
 
     .mock-device:hover {
-      transform: rotate(0) translateY(-5px);
+      transform: rotate(0) translateY(-8px);
     }
 
     .mock-device i {
@@ -388,9 +544,57 @@
       font-weight: 700;
     }
 
-    .soft-bg {
-      background: var(--soft);
+    /* EDUCATION */
+
+    .timeline {
+      border-left: 1px solid #ddd;
+      padding-left: 24px;
+      margin-top: 25px;
     }
+
+    .timeline article {
+      position: relative;
+      padding-bottom: 30px;
+    }
+
+    .timeline article::before {
+      content: "";
+      position: absolute;
+      left: -30px;
+      top: 5px;
+      width: 11px;
+      height: 11px;
+      background: white;
+      border: 3px solid var(--orange);
+      border-radius: 50%;
+      transition: transform .3s, background .3s;
+    }
+
+    .timeline article:hover::before {
+      transform: scale(1.4);
+      background: var(--orange);
+    }
+
+    .timeline small {
+      font-size: .62rem;
+      letter-spacing: 1px;
+      color: #999;
+      font-weight: 800;
+    }
+
+    .timeline h4 {
+      font-size: 1rem;
+      margin: 7px 0;
+      font-weight: 700;
+    }
+
+    .timeline p {
+      color: var(--muted);
+      font-size: .78rem;
+      margin: 0;
+    }
+
+    /* SKILLS */
 
     .skill-icon {
       display: grid;
@@ -403,11 +607,16 @@
       border-radius: 50%;
       margin: 0 auto 12px;
       font-size: 1.4rem;
+      transition: transform .35s;
     }
 
     .skill-circle {
       text-align: center;
       flex: 1;
+    }
+
+    .skill-circle:hover .skill-icon {
+      transform: rotate(12deg) scale(1.08);
     }
 
     .skill-circle strong {
@@ -439,62 +648,27 @@
       background: var(--orange);
       transform: scaleX(0);
       transform-origin: left;
-      transition: 1.2s;
+      transition: transform 1.2s;
     }
 
     .reveal.show .track span {
       transform: scaleX(1);
     }
 
-    .timeline {
-      border-left: 1px solid #ddd;
-      padding-left: 24px;
-      margin-top: 25px;
-    }
+    /* PROJECTS */
 
-    .timeline article {
-      position: relative;
-      padding-bottom: 28px;
-    }
-
-    .timeline article:before {
-      content: "";
-      position: absolute;
-      left: -30px;
-      top: 5px;
-      width: 11px;
-      height: 11px;
-      background: white;
-      border: 3px solid var(--orange);
-      border-radius: 50%;
-    }
-
-    .timeline small {
-      font-size: .62rem;
-      letter-spacing: 1px;
-      color: #999;
-      font-weight: 800;
-    }
-
-    .timeline h4 {
-      font-size: 1rem;
-      margin: 7px 0;
-      font-weight: 700;
-    }
-
-    .timeline p {
-      color: var(--muted);
-      font-size: .78rem;
-      margin: 0;
+    .projects-dark {
+      background: #222427;
+      color: white;
     }
 
     .project-card {
       height: 100%;
-      transition: .35s;
+      transition: transform .35s;
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
     }
 
     .project-art {
@@ -528,7 +702,7 @@
       padding: 25px;
       box-shadow: 0 20px 40px #0003;
       transform: rotate(-3deg);
-      transition: .4s;
+      transition: transform .4s;
     }
 
     .project-card:hover .project-visual {
@@ -548,7 +722,7 @@
       margin-top: 18px;
     }
 
-    .project-visual .fake-button {
+    .fake-button {
       width: 55px;
       height: 10px;
       background: var(--orange);
@@ -559,6 +733,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 12px;
       padding: 18px 0;
       border-bottom: 1px solid #ffffff30;
     }
@@ -578,12 +753,15 @@
     .project-info a {
       color: inherit;
       font-size: 1.4rem;
+      transition: color .25s, transform .25s;
     }
 
-    .projects-dark {
-      background: #222427;
-      color: white;
+    .project-info a:hover {
+      color: var(--orange);
+      transform: translate(3px, -3px);
     }
+
+    /* CREATIVE THINKING */
 
     .testimonial {
       background: var(--soft);
@@ -591,6 +769,11 @@
       padding: 28px;
       display: flex;
       gap: 20px;
+      transition: transform .3s;
+    }
+
+    .testimonial:hover {
+      transform: translateY(-4px);
     }
 
     .testimonial i {
@@ -602,6 +785,8 @@
       color: var(--muted);
       line-height: 1.8;
     }
+
+    /* WRITING */
 
     .writing-section {
       background: #fafaf8;
@@ -633,14 +818,20 @@
       padding: 35px;
       background: #252426;
       color: #f7f0e6;
-      box-shadow: 12px 12px 0 #f4a900;
+      box-shadow: 12px 12px 0 var(--orange);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       overflow: hidden;
+      transition: transform .4s, box-shadow .4s;
     }
 
-    .book-card:before {
+    .book-card:hover {
+      transform: translateY(-7px) rotate(-1deg);
+      box-shadow: 17px 18px 0 var(--orange);
+    }
+
+    .book-card::before {
       content: "";
       position: absolute;
       width: 230px;
@@ -651,7 +842,7 @@
       top: 70px;
     }
 
-    .book-card:after {
+    .book-card::after {
       content: "";
       position: absolute;
       width: 145px;
@@ -729,209 +920,8 @@
       margin: 0;
     }
 
-    .contact-panel {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      padding: clamp(25px, 6vw, 65px);
-      background: #f8f8f5;
-    }
+    /* RECOGNITION */
 
-    .contact-panel h2 {
-      font-size: clamp(2.8rem, 6vw, 5rem);
-      font-weight: 800;
-      line-height: 1;
-      margin: 15px 0;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 18px;
-    }
-
-    .contact-links a {
-      color: #222;
-      overflow-wrap: anywhere;
-      text-decoration: none;
-      font-size: .8rem;
-      font-weight: 700;
-    }
-
-    .contact-links i {
-      color: var(--orange);
-      margin-right: 10px;
-    }
-
-    footer {
-      background: #202124;
-      color: #aaa;
-      padding: 25px 0;
-    }
-
-    footer .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-    }
-
-    footer p {
-      margin: 0;
-      font-size: .7rem;
-    }
-
-    footer a {
-      color: white;
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    footer a span {
-      color: var(--orange);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(25px);
-      transition: opacity .8s ease, transform .8s ease;
-    }
-
-    .reveal.show {
-      opacity: 1;
-      transform: none;
-    }
-
-    .delay {
-      transition-delay: .15s;
-    }
-
-    @keyframes rotate {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    @media (max-width: 991px) {
-      .hero-profile-photo {
-        right: 6%;
-        top: 145px;
-        transform: none;
-        width: 150px;
-        height: 150px;
-        opacity: .9;
-      }
-
-      .hero-inner {
-        padding-top: 315px;
-      }
-
-      .hero-orbit {
-        width: 220px;
-        height: 220px;
-        right: 3%;
-        top: 110px;
-      }
-
-      .hero-bottom {
-        margin-top: 55px;
-      }
-
-      .navbar-collapse {
-        background: white;
-        padding: 15px;
-      }
-    }
-
-    @media (max-width: 575px) {
-      .hero-profile-photo {
-        width: 112px;
-        height: 112px;
-        right: 7%;
-        top: 115px;
-      }
-
-      .hero-inner {
-        padding-top: 250px;
-      }
-
-      .hero-orbit {
-        width: 170px;
-        height: 170px;
-        top: 90px;
-      }
-
-      .hero-bottom {
-        font-size: .52rem;
-        letter-spacing: 1px;
-        gap: 12px;
-      }
-
-      .hero-bottom span:last-child {
-        text-align: right;
-      }
-    }
-
-    @media (max-width: 767px) {
-      .section {
-        padding: 75px 0;
-      }
-
-      .showcase,
-      .contact-panel,
-      .writing-panel {
-        grid-template-columns: 1fr;
-      }
-
-      .thought-row {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .showcase-copy {
-        padding: 35px 25px;
-      }
-
-      .showcase-art {
-        min-height: 290px;
-      }
-
-      .hero {
-        min-height: 620px;
-      }
-
-      .hero h1 {
-        font-size: 4rem;
-      }
-
-      .hero-orbit {
-        width: 200px;
-        height: 200px;
-        right: -90px;
-      }
-
-      .hero-bottom {
-        margin-top: 60px;
-      }
-
-      .project-art {
-        height: 230px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-
-    /* AWARDS & RECOGNITION */
     .recognition-section {
       background: #fafaf8;
       border-top: 1px solid #e8e8e5;
@@ -939,10 +929,10 @@
 
     .recognition-card {
       height: 100%;
-      background: #fff;
+      background: white;
       border: 1px solid #e8e8e5;
-      transition: transform .35s, box-shadow .35s;
       overflow: hidden;
+      transition: transform .35s, box-shadow .35s;
     }
 
     .recognition-card:hover {
@@ -1008,10 +998,266 @@
       font-size: .75rem;
       font-weight: 700;
     }
+
+    /* CONTACT */
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: clamp(25px, 6vw, 65px);
+      background: #f8f8f5;
+    }
+
+    .contact-panel h2 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1;
+      margin: 15px 0;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .contact-links a {
+      color: #222;
+      overflow-wrap: anywhere;
+      font-size: .8rem;
+      font-weight: 700;
+      transition: color .25s;
+    }
+
+    .contact-links a:hover {
+      color: #bd8000;
+    }
+
+    .contact-links i {
+      color: var(--orange);
+      margin-right: 10px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #202124;
+      color: #aaa;
+      padding: 25px 0;
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: .7rem;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    footer a span {
+      color: var(--orange);
+    }
+
+    /* SCROLL REVEAL */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay {
+      transition-delay: .15s;
+    }
+
+    /* TABLET */
+
+    @media (max-width: 991px) {
+      .hero {
+        min-height: 690px;
+        animation-duration: 30s;
+      }
+
+      .hero-profile-photo {
+        right: 6%;
+        top: 130px;
+        transform: none;
+        width: 155px;
+        height: 155px;
+        animation:
+          profileEntranceTablet 1.2s .3s both,
+          profileFloatTablet 5s 1.5s ease-in-out infinite;
+      }
+
+      @keyframes profileEntranceTablet {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+          filter: blur(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+          filter: blur(0);
+        }
+      }
+
+      @keyframes profileFloatTablet {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-9px); }
+      }
+
+      .hero-inner {
+        padding-top: 315px;
+      }
+
+      .hero-orbit {
+        width: 205px;
+        right: 4%;
+        top: 210px;
+        transform: translateY(-50%);
+      }
+
+      .navbar-collapse {
+        background: white;
+        padding: 15px;
+      }
+
+      .hero-bottom {
+        margin-top: 55px;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 767px) {
+      .section {
+        padding: 75px 0;
+      }
+
+      .showcase,
+      .contact-panel,
+      .writing-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .thought-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .showcase-copy {
+        padding: 35px 25px;
+      }
+
+      .showcase-art {
+        min-height: 290px;
+      }
+
+      .hero {
+        min-height: 700px;
+        background-position: center;
+      }
+
+      .hero-inner {
+        padding-top: 250px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.6rem, 13vw, 5rem);
+      }
+
+      .hero-profile-photo {
+        width: 112px;
+        height: 112px;
+        right: 7%;
+        top: 105px;
+      }
+
+      .hero-orbit {
+        width: 155px;
+        top: 160px;
+        right: 4%;
+      }
+
+      .hero-bottom {
+        margin-top: 55px;
+        font-size: .52rem;
+        letter-spacing: 1px;
+      }
+
+      .project-art {
+        height: 230px;
+      }
+
+      .book-card {
+        min-height: 370px;
+      }
+
+      .testimonial {
+        padding: 22px;
+      }
+
+      footer .container {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero h1 {
+        font-size: 3.3rem;
+      }
+
+      .hero-actions .btn {
+        margin: 7px 0 0;
+      }
+
+      .hero-bottom {
+        font-size: .46rem;
+      }
+    }
+
+    /* ACCESSIBILITY */
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
   </style>
 </head>
 
 <body>
+
+<!-- NAVIGATION -->
 
 <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
   <div class="container">
@@ -1051,8 +1297,11 @@
 
 <main>
 
-  <!-- HERO -->
+  <!-- HERO SECTION -->
+
   <section class="hero" id="home">
+
+    <div class="hero-orbit" aria-hidden="true"></div>
 
     <img
       class="hero-profile-photo"
@@ -1062,14 +1311,15 @@
       height="360"
       fetchpriority="high">
 
-    <div class="hero-orbit"></div>
+    <div class="container hero-inner">
 
-    <div class="container hero-inner reveal">
       <span class="eyebrow">
         ARTIFICIAL INTELLIGENCE · MACHINE LEARNING
       </span>
 
-      <p class="small fw-bold text-uppercase">Hey there! I'm</p>
+      <p class="small fw-bold text-uppercase hero-intro">
+        Hey there! I'm
+      </p>
 
       <h1>Sanoj N.<br><em>Paulose.</em></h1>
 
@@ -1084,23 +1334,26 @@
         and bring technical ideas to life through code and creativity.
       </p>
 
-      <a class="btn-orange" href="#projects">
-        Explore my projects ↗
-      </a>
+      <div class="hero-actions">
+        <a class="btn-orange" href="#projects">
+          Explore my projects ↗
+        </a>
 
-      <a class="btn btn-outline-light rounded-0 ms-2" href="#about">
-        About me
-      </a>
+        <a class="btn btn-outline-light rounded-0 ms-2" href="#about">
+          About me
+        </a>
+      </div>
 
       <div class="hero-bottom">
         <span>PERSONAL PORTFOLIO / 2026</span>
         <span>SCROLL TO EXPLORE ↓</span>
       </div>
-    </div>
 
+    </div>
   </section>
 
   <!-- ABOUT -->
+
   <section class="section" id="about">
     <div class="container">
 
@@ -1170,8 +1423,8 @@
   </section>
 
   <!-- SHOWCASE -->
-  <section class="showcase">
 
+  <section class="showcase">
     <div class="showcase-art">
       <div class="mock-device">
         <i class="bi bi-braces"></i>
@@ -1182,7 +1435,6 @@
 
     <div class="showcase-copy">
       <span class="orange-label">MY INTERESTS</span>
-
       <h2>Curiosity meets <em>technology.</em></h2>
 
       <p>
@@ -1193,10 +1445,10 @@
 
       <a href="#projects">Discover my work ↗</a>
     </div>
-
   </section>
 
   <!-- EDUCATION -->
+
   <section class="section soft-bg" id="education">
     <div class="container">
 
@@ -1212,37 +1464,26 @@
 
         <article>
           <small>EXPECTED GRADUATION · 2028</small>
-          <h4>
-            M.Sc. Computer Science — Specialized in Artificial Intelligence
-          </h4>
+          <h4>M.Sc. Computer Science — Specialized in Artificial Intelligence</h4>
           <p>Expected graduation: 2028</p>
         </article>
 
         <article>
           <small>GRADUATED · 2026</small>
           <h4>B.Sc. Artificial Intelligence &amp; Machine Learning</h4>
-          <p>
-            <strong>Bharathiar University</strong>
-            · Graduation: 2026
-          </p>
+          <p><strong>Bharathiar University</strong> · Graduation: 2026</p>
         </article>
 
         <article>
           <small>COMPLETED · 2020</small>
           <h4>Higher Secondary Education — Commerce</h4>
-          <p>
-            <strong>Sanjos College, Kuttanellur</strong>
-            · Completed: 2020
-          </p>
+          <p><strong>Sanjos College, Kuttanellur</strong> · Completed: 2020</p>
         </article>
 
         <article>
           <small>COMPLETED · 2018</small>
           <h4>Secondary Education</h4>
-          <p>
-            <strong>St. Augustine HSS, Kuttanellur</strong>
-            · Completed: 2018
-          </p>
+          <p><strong>St. Augustine HSS, Kuttanellur</strong> · Completed: 2018</p>
         </article>
 
       </div>
@@ -1250,6 +1491,7 @@
   </section>
 
   <!-- SKILLS -->
+
   <section class="section" id="skills">
     <div class="container">
 
@@ -1300,30 +1542,22 @@
 
           <div class="skill-bar">
             <label>Artificial Intelligence</label>
-            <div class="track">
-              <span style="--level:90%"></span>
-            </div>
+            <div class="track"><span style="--level:90%"></span></div>
           </div>
 
           <div class="skill-bar">
             <label>Machine Learning</label>
-            <div class="track">
-              <span style="--level:85%"></span>
-            </div>
+            <div class="track"><span style="--level:85%"></span></div>
           </div>
 
           <div class="skill-bar">
             <label>Computer Vision</label>
-            <div class="track">
-              <span style="--level:80%"></span>
-            </div>
+            <div class="track"><span style="--level:80%"></span></div>
           </div>
 
           <div class="skill-bar">
             <label>Prompt Engineering</label>
-            <div class="track">
-              <span style="--level:80%"></span>
-            </div>
+            <div class="track"><span style="--level:80%"></span></div>
           </div>
 
         </div>
@@ -1332,6 +1566,7 @@
   </section>
 
   <!-- PROJECTS -->
+
   <section class="section projects-dark" id="projects">
     <div class="container">
 
@@ -1347,7 +1582,6 @@
 
         <div class="col-md-6 reveal">
           <article class="project-card">
-
             <div class="project-art art-one">
               <div class="project-visual">
                 <small>AI / COMPUTER VISION</small>
@@ -1361,22 +1595,15 @@
                 <small>ARTIFICIAL INTELLIGENCE</small>
                 <h3>Deepfake Image Detection</h3>
               </div>
-
-              <a
-                href="https://github.com/sanojnpaulose"
-                target="_blank"
-                rel="noopener"
-                aria-label="GitHub">
-                ↗
-              </a>
+              <a href="https://github.com/sanojnpaulose"
+                 target="_blank" rel="noopener"
+                 aria-label="GitHub">↗</a>
             </div>
-
           </article>
         </div>
 
         <div class="col-md-6 reveal delay">
           <article class="project-card">
-
             <div class="project-art art-two">
               <div class="project-visual">
                 <small>AI / WELLNESS</small>
@@ -1390,22 +1617,15 @@
                 <small>AI ANALYSIS</small>
                 <h3>Sleep Analysis AI</h3>
               </div>
-
-              <a
-                href="https://github.com/sanojnpaulose"
-                target="_blank"
-                rel="noopener"
-                aria-label="GitHub">
-                ↗
-              </a>
+              <a href="https://github.com/sanojnpaulose"
+                 target="_blank" rel="noopener"
+                 aria-label="GitHub">↗</a>
             </div>
-
           </article>
         </div>
 
         <div class="col-md-6 reveal">
           <article class="project-card">
-
             <div class="project-art art-three">
               <div class="project-visual">
                 <small>LLM / PROMPTS</small>
@@ -1419,22 +1639,15 @@
                 <small>PROMPT ENGINEERING</small>
                 <h3>AI Chatbot with Prompt Engineering</h3>
               </div>
-
-              <a
-                href="https://github.com/sanojnpaulose"
-                target="_blank"
-                rel="noopener"
-                aria-label="GitHub">
-                ↗
-              </a>
+              <a href="https://github.com/sanojnpaulose"
+                 target="_blank" rel="noopener"
+                 aria-label="GitHub">↗</a>
             </div>
-
           </article>
         </div>
 
         <div class="col-md-6 reveal delay">
           <article class="project-card">
-
             <div class="project-art art-four">
               <div class="project-visual">
                 <small>CREATIVE WORK</small>
@@ -1448,12 +1661,8 @@
                 <small>CREATIVE PROJECT</small>
                 <h3>Echoes of Love</h3>
               </div>
-
-              <a href="#contact" aria-label="Contact about project">
-                ↗
-              </a>
+              <a href="#contact" aria-label="Contact about project">↗</a>
             </div>
-
           </article>
         </div>
 
@@ -1462,6 +1671,7 @@
   </section>
 
   <!-- CREATIVE THINKING -->
+
   <section class="section">
     <div class="container">
 
@@ -1492,6 +1702,7 @@
   </section>
 
   <!-- WRITING -->
+
   <section class="section writing-section" id="writing">
     <div class="container">
 
@@ -1566,6 +1777,7 @@
   </section>
 
   <!-- AWARDS & RECOGNITION -->
+
   <section class="section recognition-section" id="recognition">
     <div class="container">
 
@@ -1584,6 +1796,7 @@
       </p>
 
       <div class="row g-4">
+
         <div class="col-lg-7 reveal">
           <article class="recognition-card">
             <div class="recognition-image-wrap">
@@ -1591,18 +1804,21 @@
                  aria-label="Open the Kerala Book of Records trophy photograph">
                 <img class="recognition-image"
                      src="kbr-trophy.jpg"
-                     alt="Kerala Book of Records trophy and medal belonging to Sanoj N. Paulose"
+                     alt="Kerala Book of Records trophy and medal"
                      width="1200" height="1500" loading="lazy">
               </a>
             </div>
+
             <div class="recognition-copy">
               <span class="recognition-badge">Recognition</span>
               <h3>Kerala Book of Records</h3>
+
               <p>
                 A recognition associated with my contribution to
                 <em>1221 മാജിക് വാക്കുകൾ</em>, a collection of short quotes
                 from 1,221 authors.
               </p>
+
               <div class="recognition-date">
                 <i class="bi bi-calendar3"></i>
                 <span>01 June 2022</span>
@@ -1622,14 +1838,17 @@
                      width="1200" height="1500" loading="lazy">
               </a>
             </div>
+
             <div class="recognition-copy">
               <span class="recognition-badge">Published Contribution</span>
               <h3>1221 മാജിക് വാക്കുകൾ</h3>
+
               <p>
                 The Manjari Books collection featuring short quotes by
                 1,221 authors. The certificate dated 01 June 2022 describes
                 the recognition as a Certificate of Participation.
               </p>
+
               <div class="recognition-date">
                 <i class="bi bi-book"></i>
                 <span>Manjari Books</span>
@@ -1637,12 +1856,13 @@
             </div>
           </article>
         </div>
-      </div>
 
+      </div>
     </div>
   </section>
 
   <!-- CONTACT -->
+
   <section class="section" id="contact">
     <div class="container">
 
@@ -1669,18 +1889,14 @@
             sanojnpaulose@gmail.com
           </a>
 
-          <a
-            href="https://github.com/sanojnpaulose"
-            target="_blank"
-            rel="noopener">
+          <a href="https://github.com/sanojnpaulose"
+             target="_blank" rel="noopener">
             <i class="bi bi-github"></i>
             github.com/sanojnpaulose
           </a>
 
-          <a
-            href="https://www.linkedin.com/in/sanoj-np-bab360289"
-            target="_blank"
-            rel="noopener">
+          <a href="https://www.linkedin.com/in/sanoj-np-bab360289"
+             target="_blank" rel="noopener">
             <i class="bi bi-linkedin"></i>
             LinkedIn Profile ↗
           </a>
@@ -1698,6 +1914,7 @@
 </main>
 
 <!-- FOOTER -->
+
 <footer>
   <div class="container">
     <a href="#home">S<span>.</span></a>
