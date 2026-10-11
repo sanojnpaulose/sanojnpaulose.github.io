@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -931,6 +930,84 @@
         scroll-behavior: auto !important;
       }
     }
+
+    /* AWARDS & RECOGNITION */
+    .recognition-section {
+      background: #fafaf8;
+      border-top: 1px solid #e8e8e5;
+    }
+
+    .recognition-card {
+      height: 100%;
+      background: #fff;
+      border: 1px solid #e8e8e5;
+      transition: transform .35s, box-shadow .35s;
+      overflow: hidden;
+    }
+
+    .recognition-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 45px #20212412;
+    }
+
+    .recognition-image-wrap {
+      background: #f1eee8;
+      overflow: hidden;
+    }
+
+    .recognition-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      max-height: 440px;
+      object-fit: cover;
+      object-position: center;
+      transition: transform .5s;
+    }
+
+    .recognition-card:hover .recognition-image {
+      transform: scale(1.025);
+    }
+
+    .recognition-copy {
+      padding: 25px;
+    }
+
+    .recognition-copy h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin: 12px 0;
+      letter-spacing: -.03em;
+    }
+
+    .recognition-copy p {
+      color: var(--muted);
+      font-size: .85rem;
+      line-height: 1.85;
+      margin-bottom: 0;
+    }
+
+    .recognition-badge {
+      display: inline-block;
+      padding: 7px 10px;
+      color: #805c00;
+      background: #fff1cc;
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    .recognition-date {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 17px;
+      color: #8b6508;
+      font-size: .75rem;
+      font-weight: 700;
+    }
   </style>
 </head>
 
@@ -961,6 +1038,7 @@
         <li><a class="nav-link" href="#skills">Skills</a></li>
         <li><a class="nav-link" href="#projects">Projects</a></li>
         <li><a class="nav-link" href="#writing">Writing</a></li>
+        <li><a class="nav-link" href="#recognition">Recognition</a></li>
         <li><a class="nav-link" href="#contact">Contact</a></li>
         <li class="ms-lg-2">
           <a class="nav-cta" href="#contact">Let's connect ↗</a>
@@ -976,7 +1054,6 @@
   <!-- HERO -->
   <section class="hero" id="home">
 
-    <!-- Keep sanoj.jpg in the same folder as index.html -->
     <img
       class="hero-profile-photo"
       src="sanoj.jpg"
@@ -1483,6 +1560,83 @@
           a story shaped by the things we feel, the things we lose,
           and the things we still carry.
         </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AWARDS & RECOGNITION -->
+  <section class="section recognition-section" id="recognition">
+    <div class="container">
+
+      <div class="section-heading reveal">
+        <span class="section-number">06</span>
+        <div>
+          <small>AWARDS &amp; RECOGNITION</small>
+          <h2>A milestone in my <em>writing journey.</em></h2>
+        </div>
+      </div>
+
+      <p class="body-copy mb-5 reveal" style="max-width:720px">
+        Alongside my creative journey, my contribution to the book
+        <strong>1221 മാജിക് വാക്കുകൾ</strong> became a memorable milestone.
+        The certificate records the publication's inclusion in the Kerala Book of Records.
+      </p>
+
+      <div class="row g-4">
+        <div class="col-lg-7 reveal">
+          <article class="recognition-card">
+            <div class="recognition-image-wrap">
+              <a href="kbr-trophy.jpg" target="_blank" rel="noopener noreferrer"
+                 aria-label="Open the Kerala Book of Records trophy photograph">
+                <img class="recognition-image"
+                     src="kbr-trophy.jpg"
+                     alt="Kerala Book of Records trophy and medal belonging to Sanoj N. Paulose"
+                     width="1200" height="1500" loading="lazy">
+              </a>
+            </div>
+            <div class="recognition-copy">
+              <span class="recognition-badge">Recognition</span>
+              <h3>Kerala Book of Records</h3>
+              <p>
+                A recognition associated with my contribution to
+                <em>1221 മാജിക് വാക്കുകൾ</em>, a collection of short quotes
+                from 1,221 authors.
+              </p>
+              <div class="recognition-date">
+                <i class="bi bi-calendar3"></i>
+                <span>01 June 2022</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-lg-5 reveal delay">
+          <article class="recognition-card">
+            <div class="recognition-image-wrap">
+              <a href="kbr-achievement.jpg" target="_blank" rel="noopener noreferrer"
+                 aria-label="Open the certificate, trophy and book photograph">
+                <img class="recognition-image"
+                     src="kbr-achievement.jpg"
+                     alt="Kerala Book of Records participation certificate, trophy and 1221 Magic Words book"
+                     width="1200" height="1500" loading="lazy">
+              </a>
+            </div>
+            <div class="recognition-copy">
+              <span class="recognition-badge">Published Contribution</span>
+              <h3>1221 മാജിക് വാക്കുകൾ</h3>
+              <p>
+                The Manjari Books collection featuring short quotes by
+                1,221 authors. The certificate dated 01 June 2022 describes
+                the recognition as a Certificate of Participation.
+              </p>
+              <div class="recognition-date">
+                <i class="bi bi-book"></i>
+                <span>Manjari Books</span>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
 
     </div>
