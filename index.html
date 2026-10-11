@@ -1,37 +1,32 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Sanoj N. Paulose — AI Developer & Writer</title>
-  <meta name="description" content="Official portfolio of Sanoj N. Paulose — AI and Machine Learning graduate, developer, and writer. Explore projects, skills, education, and creative work.">
+  <meta name="description" content="Sanoj N. Paulose — Artificial Intelligence and Machine Learning student, AI developer, and creative technologist.">
+  <meta name="keywords" content="Sanoj N Paulose, Artificial Intelligence, Machine Learning, Python, SQL, C, Deepfake Detection, AI Chatbot, Sleep Analysis AI">
   <meta name="author" content="Sanoj N. Paulose">
-  <meta name="theme-color" content="#171717">
-  <meta property="og:title" content="Sanoj N. Paulose | Portfolio">
-  <meta property="og:description" content="Artificial intelligence, creative technology, and storytelling.">
+  <meta property="og:title" content="Sanoj N. Paulose | AI Portfolio">
+  <meta property="og:description" content="AI, machine learning, software projects and creative work by Sanoj N. Paulose.">
   <meta property="og:type" content="website">
+
+  <title>Sanoj N. Paulose | AI &amp; Machine Learning Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #171717;
-      --bg-soft: #202020;
-      --panel: #242424;
       --orange: #f4a900;
-      --orange-light: #ffd166;
-      --white: #f8f7f3;
-      --muted: #a3a3a3;
-      --line: #ffffff16;
-      --font-display: "Manrope", sans-serif;
-      --font-body: "DM Sans", sans-serif;
-      --nav-height: 78px;
+      --ink: #202124;
+      --muted: #73767c;
+      --line: #e8e8e5;
+      --soft: #fafaf8;
     }
 
     * {
@@ -40,1701 +35,1122 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 100px;
-      background: var(--bg);
+      scroll-padding-top: 85px;
     }
 
     body {
       margin: 0;
-      background: var(--bg);
-      color: var(--white);
-      font-family: var(--font-body);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
       overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
     }
 
-    body::selection {
-      background: var(--orange);
-      color: #111;
+    h1, h2, h3, h4 {
+      font-family: "Poppins", sans-serif;
+      letter-spacing: -.045em;
+    }
+
+    em {
+      font-style: normal;
+      color: var(--orange);
     }
 
     a {
-      color: inherit;
       text-decoration: none;
     }
 
-    img {
+    .navbar {
+      padding: 16px 0;
+      background: #ffffffed;
+      backdrop-filter: blur(12px);
+      transition: .3s;
+    }
+
+    .navbar.scrolled {
+      padding: 9px 0;
+      box-shadow: 0 5px 20px #00000012;
+    }
+
+    .navbar-brand {
+      font: 800 1.15rem "Poppins";
+      color: var(--ink);
+    }
+
+    .brand-icon {
+      display: inline-grid;
+      place-items: center;
+      background: var(--orange);
+      color: white;
+      width: 27px;
+      height: 27px;
+      margin-right: 5px;
+    }
+
+    .nav-link {
+      font-size: .8rem;
+      font-weight: 700;
+      color: #555 !important;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--orange) !important;
+    }
+
+    .nav-cta,
+    .btn-orange {
+      display: inline-block;
+      background: var(--orange);
+      color: white;
+      border: 1px solid var(--orange);
+      padding: 11px 17px;
+      font-size: .8rem;
+      font-weight: 700;
+      border-radius: 2px;
+      transition: .3s;
+    }
+
+    .nav-cta:hover,
+    .btn-orange:hover {
+      background: #df9900;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      min-height: 690px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      color: white;
+      background:
+        linear-gradient(90deg, #101114ed, #1011149c),
+        url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=2000&q=85")
+        center/cover;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      padding-top: 110px;
+      padding-bottom: 55px;
       max-width: 100%;
     }
 
-    button, a {
-      -webkit-tap-highlight-color: transparent;
+    .hero-profile-photo {
+      position: absolute;
+      z-index: 1;
+      right: 9%;
+      top: 50%;
+      transform: translateY(-42%);
+      width: clamp(210px, 26vw, 360px);
+      height: clamp(210px, 26vw, 360px);
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      border: 5px solid #f4a900;
+      box-shadow: 0 0 0 14px #f4a90020, 0 24px 70px #0008;
     }
 
-    .container {
-      max-width: 1200px;
-    }
-
-    .display-font,
-    h1, h2, h3, h4 {
-      font-family: var(--font-display);
-      letter-spacing: -.055em;
-    }
-
-    .orange {
+    .eyebrow,
+    .orange-label {
       color: var(--orange);
-    }
-
-    .muted {
-      color: var(--muted);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: 2px;
     }
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--orange);
-      text-transform: uppercase;
-      font-size: .68rem;
+      display: inline-block;
+      border: 1px solid #ffffff55;
+      padding: 10px 13px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.8rem, 9vw, 7.5rem);
       font-weight: 800;
-      letter-spacing: .2em;
+      line-height: .93;
+      margin: 16px 0 25px;
     }
 
-    .eyebrow::before {
-      content: "";
-      width: 24px;
-      height: 1px;
-      background: var(--orange);
-    }
-
-    .section-space {
-      padding: 125px 0;
-    }
-
-    .section-title {
-      max-width: 850px;
-      font-size: clamp(2.7rem, 6.8vw, 6rem);
-      font-weight: 800;
-      line-height: .98;
-      letter-spacing: -.075em;
-      margin: 20px 0 0;
-    }
-
-    .section-intro {
-      max-width: 610px;
-      color: var(--muted);
-      line-height: 1.9;
-      font-size: .95rem;
-    }
-
-    /* PRELOADER */
-
-    .loader {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      display: grid;
-      place-items: center;
-      background: var(--bg);
-      transition: opacity .65s ease, visibility .65s ease;
-    }
-
-    .loader.done {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .loader-content {
-      text-align: center;
-    }
-
-    .loader-logo {
-      font: 800 3.5rem var(--font-display);
-      letter-spacing: -.1em;
-    }
-
-    .loader-logo span {
-      color: var(--orange);
-    }
-
-    .loader-line {
-      width: 150px;
-      height: 2px;
-      margin: 18px auto 0;
-      background: #ffffff20;
-      overflow: hidden;
-    }
-
-    .loader-line::after {
-      content: "";
-      display: block;
-      width: 45%;
-      height: 100%;
-      background: var(--orange);
-      animation: loaderMove .9s ease-in-out infinite alternate;
-    }
-
-    @keyframes loaderMove {
-      from { transform: translateX(-100%); }
-      to { transform: translateX(230%); }
-    }
-
-    /* NAVIGATION */
-
-    .site-nav {
-      position: fixed;
-      inset: 0 0 auto;
-      z-index: 1000;
-      min-height: var(--nav-height);
-      display: flex;
-      align-items: center;
-      background: #171717a8;
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-      border-bottom: 1px solid transparent;
-      transition: background .3s, border-color .3s;
-    }
-
-    .site-nav.scrolled {
-      background: #171717eF;
-      border-color: var(--line);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .logo {
-      font: 800 1.25rem var(--font-display);
-      letter-spacing: -.07em;
-      white-space: nowrap;
-    }
-
-    .logo-mark {
-      display: inline-grid;
-      place-items: center;
-      width: 31px;
-      height: 31px;
-      margin-right: 6px;
-      background: var(--orange);
-      color: #171717;
-      border-radius: 9px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .nav-links a {
-      color: #b8b8b8;
-      font-size: .77rem;
-      font-weight: 600;
-      transition: color .25s;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--orange);
-    }
-
-    .nav-contact {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid #ffffff35;
-      border-radius: 100px;
-      padding: 11px 17px;
-      font-size: .77rem;
+    .hero-role {
+      font-size: clamp(.9rem, 1.8vw, 1.1rem);
       font-weight: 700;
-      transition: background .3s, color .3s, border-color .3s;
+      line-height: 1.8;
+      color: #eee;
     }
 
-    .nav-contact:hover {
-      background: var(--orange);
-      color: #171717;
-      border-color: var(--orange);
-    }
-
-    .menu-toggle {
-      display: none;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      width: 43px;
-      height: 43px;
-      color: white;
-      background: transparent;
-      font-size: 1.3rem;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 100svh;
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      padding: 145px 0 45px;
-      background:
-        radial-gradient(ellipse at 76% 45%, #f4a90013, transparent 38%),
-        linear-gradient(135deg, #171717, #1d1d1d 55%, #121212);
-    }
-
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
-      opacity: .18;
-      background-image:
-        linear-gradient(#ffffff0b 1px, transparent 1px),
-        linear-gradient(90deg, #ffffff0b 1px, transparent 1px);
-      background-size: 70px 70px;
-      mask-image: linear-gradient(to bottom, black, transparent 90%);
-    }
-
-    .hero-light {
-      position: absolute;
-      z-index: -1;
-      width: 520px;
-      height: 520px;
-      border-radius: 50%;
-      background: #f4a9000c;
-      filter: blur(80px);
-      right: 5%;
-      top: 15%;
-      animation: lightDrift 10s ease-in-out infinite alternate;
-      pointer-events: none;
-    }
-
-    @keyframes lightDrift {
-      from { transform: translate(-25px, 0) scale(.9); }
-      to { transform: translate(20px, 35px) scale(1.13); }
-    }
-
-    .hero-copy {
-      position: relative;
-      z-index: 3;
-      max-width: 760px;
-    }
-
-    .availability {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      border: 1px solid #ffffff20;
-      border-radius: 100px;
-      padding: 9px 13px;
-      background: #ffffff06;
-      color: #dedede;
-      font-size: .7rem;
-      animation: riseIn .8s .1s both;
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      background: #85d59a;
-      border-radius: 50%;
-      box-shadow: 0 0 12px #85d59a90;
-    }
-
-    .hero-kicker {
-      margin: 35px 0 14px;
-      font-size: .76rem;
-      color: #aaa;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      animation: riseIn .8s .2s both;
-    }
-
-    .hero-title {
-      font-size: clamp(4rem, 10vw, 9rem);
-      font-weight: 800;
-      line-height: .87;
-      letter-spacing: -.105em;
-      margin: 0;
-    }
-
-    .hero-title .line {
-      display: block;
-      overflow: hidden;
-      padding-bottom: .08em;
-    }
-
-    .hero-title .line span {
-      display: block;
-      animation: titleReveal 1.05s cubic-bezier(.2,.75,.15,1) both;
-    }
-
-    .hero-title .line:nth-child(2) span {
-      animation-delay: .16s;
-    }
-
-    .hero-title .accent {
-      color: var(--orange);
-    }
-
-    @keyframes titleReveal {
-      from {
-        transform: translateY(110%);
-        opacity: 0;
-        filter: blur(8px);
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-        filter: blur(0);
-      }
-    }
-
-    @keyframes riseIn {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-subtitle {
-      font-size: clamp(1rem, 2vw, 1.35rem);
-      font-weight: 600;
-      color: #dedede;
-      margin-top: 30px;
-      animation: riseIn .8s .55s both;
-    }
-
-    .hero-subtitle span {
+    .hero-role span {
       color: var(--orange);
     }
 
     .hero-description {
-      max-width: 540px;
-      color: #a5a5a5;
-      font-size: .95rem;
+      max-width: 570px;
+      color: #c1c1c1;
       line-height: 1.9;
-      margin: 18px 0 28px;
-      animation: riseIn .8s .65s both;
+      margin: 20px 0 28px;
     }
 
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      animation: riseIn .8s .8s both;
-    }
-
-    .btn-primary-custom,
-    .btn-ghost-custom {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      min-height: 51px;
-      padding: 0 22px;
-      border-radius: 100px;
-      font-size: .8rem;
-      font-weight: 800;
-      transition: transform .3s, background .3s, color .3s, box-shadow .3s;
-    }
-
-    .btn-primary-custom {
-      background: var(--orange);
-      color: #171717;
-    }
-
-    .btn-primary-custom:hover {
-      color: #171717;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 40px #f4a90035;
-      background: var(--orange-light);
-    }
-
-    .btn-ghost-custom {
-      color: white;
-      border: 1px solid #ffffff30;
-    }
-
-    .btn-ghost-custom:hover {
-      color: var(--orange);
-      border-color: var(--orange);
-      transform: translateY(-3px);
-    }
-
-    .hero-photo-area {
+    .hero-orbit {
       position: absolute;
-      right: 6%;
-      top: 50%;
-      width: clamp(280px, 33vw, 470px);
-      aspect-ratio: 1;
-      transform: translateY(-45%);
-      display: grid;
-      place-items: center;
-      z-index: 1;
-      animation: photoAppear 1.2s .35s both;
-    }
-
-    @keyframes photoAppear {
-      from { opacity: 0; transform: translate(30px, -40%); }
-      to { opacity: 1; transform: translate(0, -45%); }
-    }
-
-    .photo-orbit {
-      position: absolute;
-      inset: 0;
-      border: 1px solid #f4a90065;
+      width: 320px;
+      height: 320px;
+      border: 1px solid #ffffff35;
       border-radius: 50%;
-      animation: orbitRotate 25s linear infinite;
+      right: 8%;
+      top: 25%;
+      animation: rotate 25s linear infinite;
     }
 
-    .photo-orbit::before {
+    .hero-orbit:before {
       content: "";
       position: absolute;
-      width: 13px;
-      height: 13px;
-      top: 15%;
-      left: 16%;
+      inset: 40px;
+      border: 1px solid #f4a90099;
+      border-radius: 50%;
+    }
+
+    .hero-orbit:after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 50px;
       background: var(--orange);
       border-radius: 50%;
-      box-shadow: 0 0 22px #f4a900;
+      left: 50%;
+      top: 25%;
+      box-shadow: 0 0 70px #f4a90080;
     }
 
-    .photo-orbit-inner {
-      position: absolute;
-      inset: 25px;
-      border: 1px solid #ffffff19;
-      border-radius: 50%;
-      animation: orbitRotate 35s linear infinite reverse;
+    .hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 80px;
+      font-size: .62rem;
+      letter-spacing: 2px;
+      color: #aaa;
     }
 
-    .photo-halo {
-      position: absolute;
-      inset: 12%;
-      border-radius: 50%;
-      background: #f4a90019;
-      filter: blur(50px);
-      animation: haloPulse 5s ease-in-out infinite alternate;
+    .section {
+      padding: 100px 0;
     }
 
-    @keyframes haloPulse {
-      from { transform: scale(.88); opacity: .45; }
-      to { transform: scale(1.1); opacity: .9; }
+    .section-heading {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 45px;
     }
 
-    @keyframes orbitRotate {
-      to { transform: rotate(360deg); }
-    }
-
-    .hero-profile-photo {
-      width: 72%;
-      height: 72%;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 50%;
-      border: 3px solid #f4a900b5;
-      box-shadow: 0 0 0 12px #f4a9000c, 0 30px 100px #0008;
-      animation: portraitFloat 6s ease-in-out infinite;
-    }
-
-    @keyframes portraitFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-
-    .hero-caption {
-      position: absolute;
-      right: -1%;
-      bottom: 12%;
-      border: 1px solid #ffffff20;
-      border-radius: 14px;
-      padding: 14px 18px;
-      background: #202020c9;
-      backdrop-filter: blur(16px);
-      animation: captionFloat 6s ease-in-out infinite;
-    }
-
-    .hero-caption strong {
-      display: block;
+    .section-number {
+      background: var(--orange);
+      color: white;
+      padding: 9px 12px;
+      font-weight: 800;
       font-size: .8rem;
     }
 
-    .hero-caption span {
-      color: var(--muted);
-      font-size: .68rem;
-    }
-
-    @keyframes captionFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-7px); }
-    }
-
-    .hero-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      margin-top: 90px;
-      padding-top: 20px;
-      border-top: 1px solid #ffffff18;
-      color: #777;
-      font-size: .65rem;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-      animation: riseIn 1s 1s both;
-    }
-
-    .scroll-indicator {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .scroll-indicator i {
-      color: var(--orange);
-      animation: nudgeDown 1.4s ease-in-out infinite;
-    }
-
-    @keyframes nudgeDown {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(5px); }
-    }
-
-    /* INTRO STRIP */
-
-    .intro-strip {
-      padding: 23px 0;
-      overflow: hidden;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: #1d1d1d;
-    }
-
-    .marquee {
-      display: flex;
-      width: max-content;
-      animation: marqueeMove 28s linear infinite;
-    }
-
-    .marquee span {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      padding-right: 30px;
-      color: #bcbcbc;
-      font: 800 .8rem var(--font-display);
-      letter-spacing: .18em;
-      text-transform: uppercase;
-    }
-
-    .marquee i {
-      color: var(--orange);
-      font-size: 1rem;
-    }
-
-    @keyframes marqueeMove {
-      to { transform: translateX(-50%); }
-    }
-
-    /* SECTION HEADINGS */
-
-    .section-topline {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 25px;
-      margin-bottom: 55px;
-    }
-
-    .section-index {
-      display: inline-block;
-      color: var(--orange);
-      font-size: .7rem;
+    .section-heading small {
+      color: #999;
+      font-size: .67rem;
       font-weight: 800;
-      letter-spacing: .2em;
-      margin-bottom: 17px;
+      letter-spacing: 2px;
     }
 
-    .section-note {
-      max-width: 330px;
-      margin: 0 0 5px;
-      color: var(--muted);
-      font-size: .86rem;
-      line-height: 1.8;
-    }
-
-    /* ABOUT */
-
-    .about-section {
-      background: var(--bg);
-    }
-
-    .about-feature {
-      height: 100%;
-      min-height: 330px;
-      position: relative;
-      overflow: hidden;
-      padding: 35px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background:
-        radial-gradient(circle at 85% 15%, #f4a90022, transparent 35%),
-        linear-gradient(145deg, #242424, #191919);
-    }
-
-    .about-feature-icon {
-      display: grid;
-      place-items: center;
-      width: 58px;
-      height: 58px;
-      border-radius: 18px;
-      background: var(--orange);
-      color: #171717;
-      font-size: 1.6rem;
-      margin-bottom: 50px;
-    }
-
-    .about-feature h3 {
-      font-size: clamp(2rem, 3.4vw, 3.4rem);
+    .section-heading h2 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
       font-weight: 800;
-      line-height: 1.05;
-      max-width: 390px;
-    }
-
-    .about-feature .feature-number {
-      position: absolute;
-      right: 25px;
-      bottom: -25px;
-      color: #ffffff07;
-      font: 800 10rem var(--font-display);
-    }
-
-    .about-copy {
-      padding: 15px 0 15px 25px;
-    }
-
-    .about-copy h3 {
-      font-size: 1.7rem;
-      font-weight: 800;
-      margin-bottom: 20px;
+      margin-top: 5px;
     }
 
     .body-copy {
       color: var(--muted);
       font-size: .9rem;
-      line-height: 1.95;
+      line-height: 1.9;
+    }
+
+    .about-card {
+      background: var(--soft);
+      border-left: 4px solid var(--orange);
+      padding: 27px;
+    }
+
+    .about-symbol {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #fff1cc;
+      color: #bd8000;
+      font-size: 2rem;
+      margin-bottom: 20px;
     }
 
     .tag-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 9px;
-      margin: 25px 0;
+      gap: 8px;
+      margin: 20px 0;
     }
 
     .tag-list span {
-      padding: 9px 13px;
-      border: 1px solid #ffffff20;
-      border-radius: 100px;
-      color: #c7c7c7;
-      font-size: .7rem;
-      transition: color .25s, border-color .25s, background .25s;
-    }
-
-    .tag-list span:hover {
-      color: var(--orange);
-      border-color: #f4a90070;
-      background: #f4a9000a;
-    }
-
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--orange);
-      font-weight: 800;
-      font-size: .82rem;
-    }
-
-    .text-link i {
-      transition: transform .25s;
-    }
-
-    .text-link:hover {
-      color: var(--orange-light);
-    }
-
-    .text-link:hover i {
-      transform: translate(4px, -3px);
-    }
-
-    /* FEATURE BANNER */
-
-    .feature-banner {
-      position: relative;
-      overflow: hidden;
-      padding: 75px 0;
-      background: var(--orange);
-      color: #171717;
-    }
-
-    .feature-banner::before,
-    .feature-banner::after {
-      content: "";
-      position: absolute;
-      border: 1px solid #1717171d;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .feature-banner::before {
-      width: 480px;
-      height: 480px;
-      right: -100px;
-      top: -300px;
-    }
-
-    .feature-banner::after {
-      width: 320px;
-      height: 320px;
-      right: -20px;
-      top: -220px;
-    }
-
-    .banner-label {
+      background: #fff6df;
+      color: #805c00;
+      padding: 8px 10px;
       font-size: .68rem;
-      font-weight: 800;
-      letter-spacing: .2em;
+      font-weight: 700;
     }
 
-    .feature-banner h2 {
-      font-size: clamp(2.5rem, 6vw, 5.5rem);
-      line-height: .98;
-      font-weight: 800;
-      max-width: 850px;
-      margin: 22px 0;
+    .showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #222427;
+      color: white;
     }
 
-    .feature-banner p {
-      max-width: 570px;
-      color: #34290d;
-      line-height: 1.9;
-      font-size: .9rem;
-    }
-
-    .banner-arrow {
-      display: inline-grid;
+    .showcase-art {
+      min-height: 340px;
+      background: linear-gradient(135deg, #c6d1bd, #53684e);
+      display: grid;
       place-items: center;
-      width: 60px;
-      height: 60px;
-      border: 1px solid #17171765;
-      border-radius: 50%;
-      color: #171717;
-      font-size: 1.4rem;
-      transition: background .3s, transform .3s;
-    }
-
-    .banner-arrow:hover {
-      background: #171717;
-      color: var(--orange);
-      transform: rotate(45deg);
-    }
-
-    /* EDUCATION */
-
-    .education-section {
-      background: #1d1d1d;
-    }
-
-    .timeline {
       position: relative;
-      border-left: 1px solid #ffffff22;
-      margin-left: 8px;
-      padding-left: 35px;
-    }
-
-    .timeline-item {
-      position: relative;
-      padding: 0 0 40px;
-    }
-
-    .timeline-item:last-child {
-      padding-bottom: 0;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      left: -42px;
-      top: 4px;
-      border: 3px solid var(--orange);
-      background: #1d1d1d;
-      border-radius: 50%;
-      transition: background .3s, transform .3s;
-    }
-
-    .timeline-item:hover::before {
-      background: var(--orange);
-      transform: scale(1.25);
-    }
-
-    .timeline-date {
-      color: var(--orange);
-      font-size: .68rem;
-      letter-spacing: .12em;
-      font-weight: 800;
-    }
-
-    .timeline-item h3 {
-      font-size: clamp(1.1rem, 2vw, 1.45rem);
-      font-weight: 800;
-      margin: 10px 0;
-      letter-spacing: -.035em;
-    }
-
-    .timeline-item p {
-      color: var(--muted);
-      font-size: .85rem;
-      line-height: 1.8;
-      margin: 0;
-    }
-
-    /* SKILLS */
-
-    .skills-section {
-      background: var(--bg);
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-    }
-
-    .skill-card {
-      min-height: 180px;
-      padding: 25px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: linear-gradient(145deg, #222, #1a1a1a);
-      transition: transform .35s, border-color .35s, background .35s;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-6px);
-      border-color: #f4a90065;
-      background: linear-gradient(145deg, #29251b, #1a1a1a);
-    }
-
-    .skill-card i {
-      display: block;
-      color: var(--orange);
-      font-size: 1.8rem;
-      margin-bottom: 28px;
-    }
-
-    .skill-card h3 {
-      font-size: 1.05rem;
-      font-weight: 800;
-      margin-bottom: 7px;
-    }
-
-    .skill-card p {
-      color: var(--muted);
-      font-size: .75rem;
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    .skills-footer {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 25px;
-    }
-
-    .skills-footer span {
-      color: #c6c6c6;
-      border-bottom: 1px solid #ffffff25;
-      padding: 7px 0;
-      margin-right: 17px;
-      font-size: .78rem;
-    }
-
-    /* PROJECTS */
-
-    .projects-section {
-      background: #1d1d1d;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .project-card {
-      min-width: 0;
       overflow: hidden;
-      border: 1px solid #ffffff18;
-      border-radius: 22px;
-      background: #222;
-      transition: transform .4s, border-color .4s, box-shadow .4s;
-      transform-style: preserve-3d;
     }
 
-    .project-card:hover {
-      transform: translateY(-7px);
-      border-color: #f4a90070;
-      box-shadow: 0 20px 60px #0003;
-    }
-
-    .project-visual {
-      min-height: 270px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-      background: #292929;
-    }
-
-    .project-visual::before {
+    .showcase-art:before {
       content: "";
       position: absolute;
       width: 250px;
       height: 250px;
-      border: 1px solid #f4a90045;
       border-radius: 50%;
-      animation: orbitRotate 25s linear infinite;
-    }
-
-    .project-visual::after {
-      content: "";
-      position: absolute;
-      width: 175px;
-      height: 175px;
-      border: 1px solid #ffffff20;
-      border-radius: 50%;
-    }
-
-    .project-symbol {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      place-items: center;
-      width: 110px;
-      height: 110px;
-      border-radius: 28px;
-      color: #171717;
       background: var(--orange);
-      font-size: 3rem;
-      box-shadow: 0 20px 65px #f4a90020;
-      transition: transform .4s;
+      top: -90px;
+      right: -40px;
     }
 
-    .project-card:hover .project-symbol {
-      transform: scale(1.08) rotate(-5deg);
+    .mock-device {
+      position: relative;
+      z-index: 1;
+      width: 160px;
+      height: 260px;
+      border: 7px solid #222;
+      border-radius: 22px;
+      background: linear-gradient(145deg, #fff7e4, #f4b11e);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #222;
+      box-shadow: 0 20px 50px #0004;
+      transform: rotate(-7deg);
+      transition: .4s;
     }
 
-    .visual-green {
-      background: radial-gradient(circle, #314a3b, #202721 75%);
+    .mock-device:hover {
+      transform: rotate(0) translateY(-5px);
     }
 
-    .visual-purple {
-      background: radial-gradient(circle, #463a5c, #22202a 75%);
-    }
-
-    .visual-silver {
-      background: radial-gradient(circle, #424242, #1c1c1c 75%);
-    }
-
-    .visual-orange {
-      background: radial-gradient(circle, #674819, #24201a 75%);
-    }
-
-    .visual-green .project-symbol { background: #b7e4c7; }
-    .visual-purple .project-symbol { background: #c9b6ff; }
-    .visual-silver .project-symbol { background: #ededed; }
-
-    .project-content {
-      padding: 25px;
-    }
-
-    .project-category {
-      color: var(--orange);
-      font-size: .65rem;
-      letter-spacing: .15em;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .project-content h3 {
-      font-size: 1.35rem;
-      font-weight: 800;
-      margin: 10px 0;
-    }
-
-    .project-content p {
-      color: var(--muted);
-      font-size: .85rem;
-      line-height: 1.8;
+    .mock-device i {
+      font-size: 2.6rem;
       margin-bottom: 20px;
     }
 
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      font-size: .78rem;
+    .mock-device strong {
+      font: 800 1.1rem "Poppins";
+      text-align: center;
+    }
+
+    .showcase-copy {
+      align-self: center;
+      padding: 50px;
+    }
+
+    .showcase-copy h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
       font-weight: 800;
+      margin: 15px 0;
+    }
+
+    .showcase-copy p {
+      color: #bbb;
+      line-height: 1.8;
+    }
+
+    .showcase-copy a {
+      display: inline-block;
       color: white;
-      transition: color .25s;
+      border-bottom: 1px solid var(--orange);
+      padding: 10px 0;
+      font-size: .8rem;
+      font-weight: 700;
     }
 
-    .project-link:hover {
-      color: var(--orange);
+    .soft-bg {
+      background: var(--soft);
     }
 
-    /* CREATIVE THINKING */
-
-    .thinking-section {
-      background: var(--bg);
+    .skill-icon {
+      display: grid;
+      place-items: center;
+      width: 75px;
+      height: 75px;
+      border: 7px solid #eee;
+      border-top-color: var(--orange);
+      border-right-color: var(--orange);
+      border-radius: 50%;
+      margin: 0 auto 12px;
+      font-size: 1.4rem;
     }
 
-    .thinking-card {
-      position: relative;
+    .skill-circle {
+      text-align: center;
+      flex: 1;
+    }
+
+    .skill-circle strong {
+      font-size: .7rem;
+    }
+
+    .skill-bar {
+      margin: 20px 0;
+    }
+
+    .skill-bar label {
+      display: flex;
+      justify-content: space-between;
+      font-size: .75rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .track {
+      height: 7px;
+      background: #e5e5e2;
       overflow: hidden;
-      padding: clamp(30px, 6vw, 70px);
-      border: 1px solid #ffffff1b;
-      border-radius: 25px;
-      background:
-        radial-gradient(ellipse at 100% 0%, #f4a90014, transparent 40%),
-        #202020;
     }
 
-    .thinking-quote {
-      font: 800 clamp(2rem, 5vw, 4.3rem)/1.1 var(--font-display);
-      letter-spacing: -.07em;
-      max-width: 900px;
+    .track span {
+      display: block;
+      height: 100%;
+      width: var(--level);
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: 1.2s;
     }
 
-    .thinking-quote span {
+    .reveal.show .track span {
+      transform: scaleX(1);
+    }
+
+    .timeline {
+      border-left: 1px solid #ddd;
+      padding-left: 24px;
+      margin-top: 25px;
+    }
+
+    .timeline article {
+      position: relative;
+      padding-bottom: 28px;
+    }
+
+    .timeline article:before {
+      content: "";
+      position: absolute;
+      left: -30px;
+      top: 5px;
+      width: 11px;
+      height: 11px;
+      background: white;
+      border: 3px solid var(--orange);
+      border-radius: 50%;
+    }
+
+    .timeline small {
+      color: #999;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .timeline h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin: 7px 0;
+    }
+
+    .timeline p {
+      color: var(--muted);
+      font-size: .85rem;
+      line-height: 1.8;
+    }
+
+    .project-card {
+      background: white;
+      border: 1px solid var(--line);
+      height: 100%;
+      overflow: hidden;
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 20px 45px #00000010;
+    }
+
+    .project-art {
+      min-height: 250px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .art-one {
+      background: linear-gradient(135deg, #191b22, #424753);
+    }
+
+    .art-two {
+      background: linear-gradient(135deg, #e3ebdc, #8eaa84);
+    }
+
+    .art-three {
+      background: linear-gradient(135deg, #fff0c4, #e6a50a);
+    }
+
+    .art-four {
+      background: linear-gradient(135deg, #242126, #65515f);
+    }
+
+    .project-visual {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 25px;
+      transition: transform .4s ease;
+    }
+
+    .project-card:hover .project-visual {
+      transform: scale(1.05);
+    }
+
+    .project-visual small {
+      display: block;
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 13px;
       color: var(--orange);
     }
 
-    .thinking-card p {
-      max-width: 650px;
-      color: var(--muted);
-      line-height: 1.9;
-      margin: 25px 0 0;
+    .project-visual strong {
+      display: block;
+      color: white;
+      font: 800 clamp(1.5rem, 3vw, 2.5rem) "Poppins";
+      line-height: 1.1;
     }
 
-    /* WRITING */
+    .art-two .project-visual strong,
+    .art-three .project-visual strong {
+      color: #202124;
+    }
+
+    .fake-button {
+      width: 60px;
+      height: 4px;
+      margin: 20px auto 0;
+      background: var(--orange);
+    }
+
+    .project-info {
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .project-info small {
+      color: #999;
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .project-info h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin: 7px 0 0;
+    }
+
+    .project-info a {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      background: #fff1cc;
+      color: #805c00;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+      transition: .3s;
+    }
+
+    .project-info a:hover {
+      background: var(--orange);
+      color: white;
+    }
+
+    .testimonial {
+      display: flex;
+      align-items: flex-start;
+      gap: 25px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      padding: 35px;
+    }
+
+    .testimonial > i {
+      color: var(--orange);
+      font-size: 2rem;
+    }
+
+    .testimonial h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
 
     .writing-section {
-      background: #1d1d1d;
+      background: #f7f5f0;
     }
 
     .writing-panel {
       display: grid;
-      grid-template-columns: 1fr .85fr;
-      gap: 55px;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 45px;
       align-items: center;
     }
 
     .writing-copy h3 {
-      font-size: clamp(2.2rem, 4.5vw, 4.2rem);
-      line-height: 1.02;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.25;
       font-weight: 800;
-      margin: 20px 0;
+      margin: 18px 0;
     }
 
-    .writing-copy p {
-      color: var(--muted);
-      font-size: .9rem;
-      line-height: 1.95;
-      max-width: 520px;
-    }
-
-    .book-stage {
-      display: grid;
-      place-items: center;
-      padding: 30px;
-      perspective: 1000px;
-    }
-
-    .book-cover {
-      width: min(100%, 330px);
-      min-height: 430px;
-      padding: 35px;
-      position: relative;
-      overflow: hidden;
+    .book-card {
+      min-height: 390px;
+      padding: 40px;
+      background: #202124;
+      color: white;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      color: #f8f1e4;
-      background: linear-gradient(145deg, #2d2b28, #141414);
-      border-left: 8px solid #0c0c0c;
-      box-shadow: 18px 20px 0 #f4a900, 25px 35px 65px #0007;
-      transition: transform .6s;
-      transform: rotateY(-7deg) rotateZ(-2deg);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 15px 15px 0 #f4a900;
     }
 
-    .book-cover:hover {
-      transform: rotateY(0) rotateZ(0) translateY(-7px);
-    }
-
-    .book-cover::before,
-    .book-cover::after {
+    .book-card:before {
       content: "";
       position: absolute;
-      border: 1px solid #f4a90065;
+      width: 260px;
+      height: 260px;
+      border: 1px solid #f4a90075;
       border-radius: 50%;
-      pointer-events: none;
+      right: -100px;
+      top: -70px;
     }
 
-    .book-cover::before {
-      width: 270px;
-      height: 270px;
-      right: -105px;
-      top: 60px;
+    .book-card:after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border: 1px solid #ffffff30;
+      border-radius: 50%;
+      right: -50px;
+      top: -30px;
     }
 
-    .book-cover::after {
-      width: 190px;
-      height: 190px;
-      right: -65px;
-      top: 100px;
-    }
-
-    .book-small {
+    .book-kicker,
+    .book-bottom {
       position: relative;
       z-index: 1;
-      color: #c9bda8;
       font-size: .6rem;
       font-weight: 800;
-      letter-spacing: .18em;
+      letter-spacing: 2px;
+      color: #b8b8b8;
     }
 
     .book-title {
       position: relative;
       z-index: 1;
-      font: 800 clamp(3.5rem, 7vw, 5.3rem)/.87 var(--font-display);
-      letter-spacing: -.1em;
-      margin: 45px 0;
+      font: 800 clamp(4rem, 8vw, 6.7rem)/.85 "Poppins";
+      letter-spacing: -.08em;
     }
 
-    .book-title span {
+    .book-title em {
       color: var(--orange);
     }
 
-    .book-line {
-      position: relative;
-      z-index: 1;
-      width: 55px;
-      height: 4px;
+    .book-title span {
+      color: white;
+    }
+
+    .book-rule {
+      width: 65px;
+      height: 5px;
       background: var(--orange);
+      margin-top: 20px;
     }
 
-    .book-quote {
+    .book-thought {
       position: relative;
       z-index: 1;
-      max-width: 210px;
-      color: #e1d5c2;
-      font: italic 1rem var(--font-display);
-      line-height: 1.6;
-      margin: 20px 0;
-    }
-
-    .book-tagline {
-      color: #b4aa99;
-      font-size: .6rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-    }
-
-    .writing-motto {
-      margin-top: 75px;
-      padding-top: 35px;
-      border-top: 1px solid var(--line);
-    }
-
-    .writing-motto h3 {
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      font-weight: 800;
-    }
-
-    .writing-motto p {
-      color: var(--muted);
-      max-width: 570px;
-      line-height: 1.9;
-    }
-
-    /* RECOGNITION */
-
-    .recognition-section {
-      background: var(--bg);
-    }
-
-    .recognition-intro {
-      max-width: 700px;
-      color: var(--muted);
+      color: #ddd;
+      font-family: "Poppins", sans-serif;
       font-size: .9rem;
-      line-height: 1.9;
-      margin: -25px 0 40px;
+      max-width: 260px;
+      line-height: 1.7;
+    }
+
+    .thought-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 35px;
+      margin-top: 65px;
+      padding-top: 35px;
+      border-top: 1px solid #ddd;
+    }
+
+    .thought-row small {
+      color: #999;
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .thought-row h3 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800;
+      margin-top: 8px;
+    }
+
+    .thought-row p {
+      max-width: 470px;
+    }
+
+    /* AWARDS & RECOGNITION */
+    .recognition-section {
+      background: #fafaf8;
+      border-top: 1px solid #e8e8e5;
     }
 
     .recognition-card {
       height: 100%;
+      background: #fff;
+      border: 1px solid #e8e8e5;
+      transition: transform .35s, box-shadow .35s;
       overflow: hidden;
-      border: 1px solid #ffffff1c;
-      border-radius: 22px;
-      background: #202020;
-      transition: transform .35s, border-color .35s, box-shadow .35s;
     }
 
     .recognition-card:hover {
-      transform: translateY(-6px);
-      border-color: #f4a90065;
-      box-shadow: 0 20px 50px #0003;
+      transform: translateY(-5px);
+      box-shadow: 0 18px 45px #20212412;
     }
 
     .recognition-image-wrap {
+      background: #f1eee8;
       overflow: hidden;
-      background: #292929;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
     }
 
     .recognition-image {
       display: block;
       width: 100%;
-      height: 330px;
-      object-fit: cover;
-      transition: transform .55s;
+      height: clamp(190px, 23vw, 300px);
+      max-height: 300px;
+      object-fit: contain;
+      object-position: center;
+      transition: transform .5s;
+    }
+
+    @media (max-width: 575.98px) {
+      .recognition-image-wrap {
+        padding: 10px;
+      }
+
+      .recognition-image {
+        height: 210px;
+        max-height: 210px;
+      }
     }
 
     .recognition-card:hover .recognition-image {
-      transform: scale(1.035);
+      transform: scale(1.025);
     }
 
     .recognition-copy {
-      padding: 27px;
-    }
-
-    .recognition-badge {
-      display: inline-block;
-      color: var(--orange);
-      border: 1px solid #f4a90045;
-      border-radius: 100px;
-      padding: 7px 11px;
-      font-size: .63rem;
-      font-weight: 800;
-      letter-spacing: .12em;
-      text-transform: uppercase;
+      padding: 25px;
     }
 
     .recognition-copy h3 {
-      font-size: 1.35rem;
+      font-size: 1.2rem;
       font-weight: 800;
-      margin: 16px 0 12px;
+      margin: 12px 0;
+      letter-spacing: -.03em;
     }
 
     .recognition-copy p {
       color: var(--muted);
       font-size: .85rem;
       line-height: 1.85;
-      margin: 0;
+      margin-bottom: 0;
+    }
+
+    .recognition-badge {
+      display: inline-block;
+      padding: 7px 10px;
+      color: #805c00;
+      background: #fff1cc;
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
     }
 
     .recognition-date {
       display: flex;
       align-items: center;
-      gap: 9px;
-      color: var(--orange-light);
-      font-size: .75rem;
-      margin-top: 18px;
-    }
-
-    /* CONTACT */
-
-    .contact-section {
-      background: #1d1d1d;
-    }
-
-    .contact-panel {
-      position: relative;
-      overflow: hidden;
-      padding: clamp(30px, 7vw, 85px);
-      border: 1px solid #ffffff1b;
-      border-radius: 26px;
-      background:
-        radial-gradient(ellipse at 100% 0%, #f4a90015, transparent 45%),
-        #222;
-    }
-
-    .contact-panel h2 {
-      font-size: clamp(3rem, 7vw, 6.7rem);
-      font-weight: 800;
-      letter-spacing: -.09em;
-      line-height: .95;
-      margin: 20px 0;
-    }
-
-    .contact-description {
-      max-width: 520px;
-      color: var(--muted);
-      line-height: 1.9;
-    }
-
-    .contact-links {
-      display: grid;
-      gap: 12px;
-      margin-top: 35px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 15px 17px;
-      border: 1px solid #ffffff1a;
-      border-radius: 12px;
-      background: #ffffff04;
-      overflow-wrap: anywhere;
-      transition: border-color .3s, background .3s, transform .3s;
-    }
-
-    .contact-item:hover {
-      border-color: #f4a90065;
-      background: #f4a90008;
-      transform: translateX(4px);
-    }
-
-    .contact-item i {
-      color: var(--orange);
-      font-size: 1.15rem;
-    }
-
-    .contact-item span {
-      font-size: .82rem;
-      font-weight: 600;
-    }
-
-    /* FOOTER */
-
-    .site-footer {
-      padding: 30px 0;
-      background: #141414;
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .footer-inner p {
-      margin: 0;
-      color: #858585;
-      font-size: .72rem;
-    }
-
-    .footer-logo {
-      font: 800 1rem var(--font-display);
-    }
-
-    .footer-logo span {
-      color: var(--orange);
-    }
-
-    .back-top {
-      display: inline-flex;
-      align-items: center;
       gap: 8px;
-      color: #c2c2c2;
-      font-size: .72rem;
-      font-weight: 800;
-      transition: color .25s;
+      margin-top: 17px;
+      color: #8b6508;
+      font-size: .75rem;
+      font-weight: 700;
     }
 
-    .back-top:hover {
-      color: var(--orange);
+    /* CINEMATIC APPLE-INSPIRED MOTION */
+    .hero {
+      background-size: 100% 100%, 100% 100%;
+      animation: cinematicBackground 24s ease-in-out infinite alternate;
     }
 
-    /* SCROLL REVEALS */
+    @keyframes cinematicBackground {
+      from { background-position: 0 0, center center; }
+      to { background-position: 0 0, center 46%; }
+    }
+
+    @keyframes rotate {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes cinematicFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @keyframes orbitBreath {
+      from { opacity: .45; scale: .98; }
+      to { opacity: 1; scale: 1.02; }
+    }
+
+    .btn-orange,
+    .nav-cta {
+      transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+    }
+
+    .btn-orange:hover,
+    .nav-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 9px 30px #f4a90045;
+    }
+
+    .section-heading h2 em {
+      display: inline-block;
+      transition: text-shadow .35s;
+    }
+
+    .section-heading h2:hover em {
+      text-shadow: 0 0 24px #f4a90035;
+    }
+
+    .about-card,
+    .recognition-card,
+    .testimonial {
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+
+    .about-card:hover,
+    .recognition-card:hover,
+    .testimonial:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 45px #20212412;
+    }
+
+    .tag-list span {
+      transition: transform .25s ease, background .25s ease;
+    }
+
+    .tag-list span:hover {
+      transform: translateY(-3px);
+      background: #ffebba;
+    }
+
+    .skill-icon {
+      transition: transform .35s ease;
+    }
+
+    .skill-circle:hover .skill-icon {
+      transform: rotate(8deg) scale(1.06);
+    }
+
+    .project-card {
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+
+    .project-art:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #ffffff12, transparent 55%);
+      pointer-events: none;
+    }
 
     .reveal {
       opacity: 0;
-      transform: translateY(32px);
-      filter: blur(3px);
-      transition:
-        opacity .8s ease,
-        transform .8s cubic-bezier(.2,.7,.2,1),
-        filter .8s ease;
+      transform: translateY(28px);
+      transition: opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1);
     }
 
-    .reveal.visible {
+    .reveal.show {
       opacity: 1;
       transform: translateY(0);
-      filter: blur(0);
     }
 
-    .reveal-delay {
-      transition-delay: .13s;
+    .delay {
+      transition-delay: .15s;
     }
 
-    .reveal-delay-2 {
-      transition-delay: .25s;
+    .delay-2 {
+      transition-delay: .3s;
     }
 
-    /* RESPONSIVE */
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1fr .8fr;
+      gap: 45px;
+      align-items: center;
+      background: #202124;
+      color: white;
+      padding: clamp(30px, 6vw, 70px);
+      position: relative;
+      overflow: hidden;
+    }
 
-    @media (max-width: 1100px) {
-      .nav-links {
-        gap: 15px;
+    .contact-panel:after {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border: 1px solid #f4a90055;
+      border-radius: 50%;
+      right: -100px;
+      bottom: -210px;
+      box-shadow: 0 0 0 35px #f4a9000b, 0 0 0 70px #f4a90008;
+      pointer-events: none;
+    }
+
+    .contact-panel h2 {
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1.1;
+      font-weight: 800;
+      margin: 20px 0;
+    }
+
+    .contact-panel .body-copy {
+      color: #bbb;
+    }
+
+    .contact-links {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .contact-links a:not(.btn-orange) {
+      color: #eee;
+      font-size: .85rem;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-links a i {
+      color: var(--orange);
+      margin-right: 10px;
+    }
+
+    footer {
+      background: #17181b;
+      color: #aaa;
+      padding: 28px 0;
+    }
+
+    footer .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    footer a:first-child {
+      color: white;
+      font: 800 1.4rem "Poppins";
+    }
+
+    footer a:first-child span {
+      color: var(--orange);
+    }
+
+    footer p {
+      margin: 0;
+      font-size: .72rem;
+      text-align: center;
+    }
+
+    footer a:last-child {
+      color: var(--orange);
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 991.98px) {
+      .hero {
+        min-height: 650px;
       }
 
-      .hero-photo-area {
-        right: 2%;
-        width: 35vw;
+      .hero-profile-photo {
+        right: 5%;
+        width: 240px;
+        height: 240px;
+        opacity: .85;
       }
 
-      .hero-copy {
-        max-width: 650px;
+      .hero-orbit {
+        right: 3%;
+        width: 280px;
+        height: 280px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.5rem, 10vw, 6rem);
+      }
+
+      .showcase-copy {
+        padding: 35px;
+      }
+
+      .writing-panel {
+        gap: 30px;
       }
     }
 
-    @media (max-width: 991px) {
-      :root {
-        --nav-height: 70px;
-      }
-
-      .menu-toggle {
-        display: inline-grid;
-        place-items: center;
-      }
-
-      .nav-inner {
-        flex-wrap: wrap;
-      }
-
-      .nav-links {
-        display: none;
-        flex-basis: 100%;
-        align-items: stretch;
-        flex-direction: column;
-        gap: 0;
-        padding: 14px;
-        border: 1px solid var(--line);
-        border-radius: 15px;
-        background: #1b1b1bf7;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links li a {
-        display: block;
-        padding: 12px;
-      }
-
-      .nav-contact {
-        display: none;
+    @media (max-width: 767.98px) {
+      .section {
+        padding: 75px 0;
       }
 
       .hero {
         min-height: auto;
-        padding-top: 120px;
-      }
-
-      .hero-photo-area {
-        position: relative;
-        top: auto;
-        right: auto;
-        width: min(60vw, 370px);
-        margin: 55px auto 15px;
-        transform: none;
-        animation: photoAppearMobile 1s .35s both;
-      }
-
-      @keyframes photoAppearMobile {
-        from { opacity: 0; transform: translateY(25px); }
-        to { opacity: 1; transform: translateY(0); }
       }
 
       .hero-inner {
-        display: flex;
-        flex-direction: column;
+        padding-top: 135px;
+        padding-bottom: 35px;
       }
 
-      .hero-copy {
-        max-width: 100%;
+      .hero-profile-photo {
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
+        width: 150px;
+        height: 150px;
+        margin: 0 0 30px;
       }
 
-      .hero-meta {
-        margin-top: 55px;
+      .hero-orbit {
+        width: 200px;
+        height: 200px;
+        top: 12%;
+        right: -55px;
+        opacity: .5;
       }
 
-      .about-copy {
-        padding: 10px 0 0;
+      .hero h1 {
+        font-size: clamp(3.3rem, 14vw, 5.5rem);
       }
 
-      .writing-panel {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .book-stage {
-        padding-top: 25px;
-      }
-    }
-
-    @media (max-width: 767px) {
-      .section-space {
-        padding: 85px 0;
-      }
-
-      .section-topline {
-        display: block;
-        margin-bottom: 35px;
-      }
-
-      .section-note {
-        margin-top: 20px;
-      }
-
-      .hero-title {
-        font-size: clamp(3.5rem, 15vw, 6rem);
-      }
-
-      .hero-kicker {
-        margin-top: 28px;
-      }
-
-      .hero-description {
-        font-size: .88rem;
-      }
-
-      .hero-photo-area {
-        width: min(68vw, 300px);
+      .hero-bottom {
         margin-top: 45px;
-      }
-
-      .hero-caption {
-        right: -5%;
-        bottom: 5%;
-      }
-
-      .hero-meta {
-        font-size: .55rem;
-        letter-spacing: .08em;
-      }
-
-      .skills-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
-      }
-
-      .skill-card {
-        min-height: 160px;
-        padding: 19px;
-      }
-
-      .skill-card i {
-        margin-bottom: 22px;
-      }
-
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .project-visual {
-        min-height: 235px;
-      }
-
-      .recognition-image {
-        height: auto;
-        max-height: 440px;
-        object-fit: contain;
-      }
-
-      .recognition-image-wrap {
-        display: grid;
-        place-items: center;
-      }
-
-      .writing-motto {
-        margin-top: 50px;
-      }
-
-      .footer-inner {
+        gap: 15px;
         flex-wrap: wrap;
       }
-    }
 
-    @media (max-width: 420px) {
-      .hero-title {
-        font-size: 3.3rem;
+      .showcase,
+      .writing-panel,
+      .contact-panel {
+        grid-template-columns: 1fr;
       }
 
-      .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
+      .showcase-art {
+        min-height: 280px;
       }
 
-      .hero-buttons a {
-        width: 100%;
+      .showcase-copy {
+        padding: 30px;
       }
 
-      .hero-meta {
+      .book-card {
+        min-height: 340px;
+      }
+
+      .thought-row {
         align-items: flex-start;
+        flex-direction: column;
       }
 
-      .skills-grid {
-        grid-template-columns: 1fr 1fr;
+      .testimonial {
+        padding: 25px;
       }
 
-      .skill-card {
-        padding: 15px;
-      }
-
-      .contact-item span {
-        font-size: .72rem;
-      }
-
-      .book-cover {
-        min-height: 390px;
-        padding: 28px;
+      footer .container {
+        flex-direction: column;
       }
     }
-
-    /* REDUCED MOTION */
 
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
       *::after {
+        scroll-behavior: auto !important;
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
         transition-duration: .01ms !important;
       }
 
       .reveal {
         opacity: 1;
         transform: none;
-        filter: none;
       }
     }
   </style>
@@ -1742,872 +1158,768 @@
 
 <body>
 
-  <!-- PRELOADER -->
+<!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+  <div class="container">
+    <a class="navbar-brand" href="#home">
+      <span class="brand-icon">S</span> SANOJ N. PAULOSE
+    </a>
 
-  <div class="loader" id="loader" aria-label="Loading portfolio">
-    <div class="loader-content">
-      <div class="loader-logo">S<span>.</span></div>
-      <div class="loader-line"></div>
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse" data-bs-target="#navMenu"
+      aria-controls="navMenu" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#writing">Writing</a></li>
+        <li class="nav-item"><a class="nav-link" href="#recognition">Recognition</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="nav-cta" href="#contact">Let's Talk ↗</a>
+        </li>
+      </ul>
     </div>
   </div>
-
-  <!-- NAVIGATION -->
-
-  <nav class="site-nav" id="siteNav">
-    <div class="container nav-inner">
-
-      <a href="#home" class="logo" aria-label="Sanoj home">
-        <span class="logo-mark">S</span>Sanoj<span class="orange">.</span>
-      </a>
-
-      <button class="menu-toggle" id="menuToggle"
-        aria-label="Toggle navigation" aria-expanded="false">
-        <i class="bi bi-list"></i>
-      </button>
-
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#writing">Writing</a></li>
-        <li><a href="#recognition">Recognition</a></li>
-      </ul>
-
-      <a href="#contact" class="nav-contact">
-        Let's connect <i class="bi bi-arrow-up-right"></i>
-      </a>
-
-    </div>
-  </nav>
-
-  <main>
-
-    <!-- HERO -->
-
-    <section class="hero" id="home">
-      <div class="hero-grid"></div>
-      <div class="hero-light"></div>
-
-      <div class="container hero-inner">
-
-        <div class="hero-copy">
-
-          <div class="availability">
-            <span class="status-dot"></span>
-            AI · MACHINE LEARNING · CREATIVE TECHNOLOGY
-          </div>
-
-          <p class="hero-kicker">Hello, I'm Sanoj N. Paulose</p>
-
-          <h1 class="hero-title">
-            <span class="line"><span>Sanoj N.</span></span>
-            <span class="line"><span class="accent">Paulose.</span></span>
-          </h1>
-
-          <p class="hero-subtitle">
-            AI Developer <span>·</span> Creative Technologist
-            <span>·</span> Writer
-          </p>
-
-          <p class="hero-description">
-            Exploring intelligent systems, building AI-powered projects,
-            and expressing ideas through code, creativity, and storytelling.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="#projects" class="btn-primary-custom">
-              Explore my work <i class="bi bi-arrow-up-right"></i>
-            </a>
-
-            <a href="#about" class="btn-ghost-custom">
-              Discover my story <i class="bi bi-arrow-down-right"></i>
-            </a>
-          </div>
-
-        </div>
-
-        <div class="hero-photo-area">
-          <div class="photo-halo"></div>
-          <div class="photo-orbit"></div>
-          <div class="photo-orbit-inner"></div>
-
-          <img
-            src="sanoj.jpg"
-            alt="Sanoj N. Paulose"
-            class="hero-profile-photo"
-            width="400"
-            height="400"
-            fetchpriority="high">
-
-          <div class="hero-caption">
-            <strong>Sanoj N. Paulose</strong>
-            <span>AI · Code · Stories</span>
-          </div>
-        </div>
-
-        <div class="hero-meta">
-          <span>Portfolio / 2026</span>
-          <span class="scroll-indicator">
-            Scroll to explore <i class="bi bi-arrow-down"></i>
-          </span>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- MOVING KEYWORDS -->
-
-    <div class="intro-strip" aria-label="Areas of interest">
-      <div class="marquee" aria-hidden="true">
-        <span>
-          Artificial Intelligence <i class="bi bi-asterisk"></i>
-          Machine Learning <i class="bi bi-asterisk"></i>
-          Computer Vision <i class="bi bi-asterisk"></i>
-          Creative Technology <i class="bi bi-asterisk"></i>
-          Storytelling <i class="bi bi-asterisk"></i>
-        </span>
-        <span>
-          Artificial Intelligence <i class="bi bi-asterisk"></i>
-          Machine Learning <i class="bi bi-asterisk"></i>
-          Computer Vision <i class="bi bi-asterisk"></i>
-          Creative Technology <i class="bi bi-asterisk"></i>
-          Storytelling <i class="bi bi-asterisk"></i>
-        </span>
-      </div>
-    </div>
-
-    <!-- ABOUT -->
-
-    <section class="section-space about-section" id="about">
-      <div class="container">
-
-        <div class="section-topline reveal">
-          <div>
-            <span class="section-index">01 / ABOUT ME</span>
-            <h2 class="section-title">Curiosity is my<br><span class="orange">starting point.</span></h2>
-          </div>
-
-          <p class="section-note">
-            Technology is what I build with. Curiosity is what keeps me building.
-          </p>
-        </div>
-
-        <div class="row g-4 align-items-stretch">
-
-          <div class="col-lg-5 reveal">
-            <div class="about-feature">
-              <div class="about-feature-icon">
-                <i class="bi bi-cpu"></i>
-              </div>
-
-              <span class="eyebrow">THE WAY I THINK</span>
-
-              <h3 class="mt-4">
-                Building ideas into <span class="orange">intelligent experiences.</span>
-              </h3>
-
-              <span class="feature-number">01</span>
-            </div>
-          </div>
-
-          <div class="col-lg-7 reveal reveal-delay">
-            <div class="about-copy">
-
-              <h3>Hi, I'm Sanoj N. Paulose.</h3>
-
-              <p class="body-copy">
-                I’m an Artificial Intelligence and Machine Learning graduate
-                interested in AI systems, computer vision, prompt engineering,
-                and creative technology. I enjoy exploring how intelligent
-                tools can solve problems and create useful digital experiences.
-              </p>
-
-              <p class="body-copy">
-                My projects combine technical experimentation with creative
-                thinking, from deepfake image detection and sleep analysis
-                to AI chatbots and other digital concepts.
-              </p>
-
-              <p class="body-copy">
-                Beyond technology, I’m a writer who explores emotions,
-                memories, relationships, and the thoughts that often remain
-                unspoken. Writing gives me another way to explore the world.
-              </p>
-
-              <div class="tag-list">
-                <span>Artificial Intelligence</span>
-                <span>Machine Learning</span>
-                <span>Computer Vision</span>
-                <span>Prompt Engineering</span>
-                <span>Creative Writing</span>
-              </div>
-
-              <a class="text-link" href="#education">
-                Explore my journey <i class="bi bi-arrow-up-right"></i>
-              </a>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURE BANNER -->
-
-    <section class="feature-banner">
-      <div class="container">
-        <div class="row align-items-center g-4">
-
-          <div class="col-lg-10">
-            <span class="banner-label">THINK DIFFERENTLY. BUILD MEANINGFULLY.</span>
-
-            <h2>
-              Where technology meets
-              <span style="color:#fff">imagination.</span>
-            </h2>
-
-            <p>
-              From intelligent systems to creative stories, I enjoy
-              connecting ideas that might seem unrelated — and discovering
-              what becomes possible when they meet.
-            </p>
-          </div>
-
-          <div class="col-lg-2 text-lg-end">
-            <a href="#projects" class="banner-arrow" aria-label="Explore projects">
-              <i class="bi bi-arrow-up-right"></i>
-            </a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-
-    <section class="section-space education-section" id="education">
-      <div class="container">
-
-        <div class="section-topline reveal">
-          <div>
-            <span class="section-index">02 / EDUCATION</span>
-            <h2 class="section-title">Learning is a<br><span class="orange">continuous journey.</span></h2>
-          </div>
-
-          <p class="section-note">
-            The academic milestones behind my journey into AI and technology.
-          </p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-8">
-
-            <div class="timeline">
-
-              <article class="timeline-item reveal">
-                <span class="timeline-date">EXPECTED GRADUATION · 2028</span>
-                <h3>M.Sc. Computer Science — Specialized in Artificial Intelligence</h3>
-                <p>Digital University of Kerala · Expected graduation: 2028</p>
-              </article>
-
-              <article class="timeline-item reveal">
-                <span class="timeline-date">GRADUATED · 2026</span>
-                <h3>B.Sc. Artificial Intelligence &amp; Machine Learning</h3>
-                <p>Bharathiar University · Graduation: 2026</p>
-              </article>
-
-              <article class="timeline-item reveal">
-                <span class="timeline-date">COMPLETED · 2020</span>
-                <h3>Higher Secondary Education — Commerce</h3>
-                <p>Sanjos College, Kuttanellur · Completed: 2020</p>
-              </article>
-
-              <article class="timeline-item reveal">
-                <span class="timeline-date">COMPLETED · 2018</span>
-                <h3>Secondary Education</h3>
-                <p>St. Augustine HSS, Kuttanellur · Completed: 2018</p>
-              </article>
-
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-
-    <section class="section-space skills-section" id="skills">
-      <div class="container">
-
-        <div class="section-topline reveal">
-          <div>
-            <span class="section-index">03 / SKILLS</span>
-            <h2 class="section-title">Tools for turning<br><span class="orange">ideas into reality.</span></h2>
-          </div>
-
-          <p class="section-note">
-            Programming foundations and technical interests that guide my work.
-          </p>
-        </div>
-
-        <div class="skills-grid">
-
-          <article class="skill-card reveal">
-            <i class="bi bi-code-slash"></i>
-            <h3>Python</h3>
-            <p>Programming, experimentation, and AI workflows.</p>
-          </article>
-
-          <article class="skill-card reveal reveal-delay">
-            <i class="bi bi-database"></i>
-            <h3>SQL</h3>
-            <p>Working with structured data and database concepts.</p>
-          </article>
-
-          <article class="skill-card reveal reveal-delay-2">
-            <i class="bi bi-terminal"></i>
-            <h3>C Programming</h3>
-            <p>Programming fundamentals and problem-solving.</p>
-          </article>
-
-          <article class="skill-card reveal">
-            <i class="bi bi-cpu"></i>
-            <h3>Artificial Intelligence</h3>
-            <p>Exploring intelligent systems and practical applications.</p>
-          </article>
-
-          <article class="skill-card reveal reveal-delay">
-            <i class="bi bi-diagram-3"></i>
-            <h3>Machine Learning</h3>
-            <p>Learning from data and experimenting with models.</p>
-          </article>
-
-          <article class="skill-card reveal reveal-delay-2">
-            <i class="bi bi-eye"></i>
-            <h3>Computer Vision</h3>
-            <p>Image analysis, detection, and visual intelligence.</p>
-          </article>
-
-        </div>
-
-        <div class="skills-footer reveal">
-          <span>Prompt Engineering</span>
-          <span>Data Analysis</span>
-          <span>Creative Technology</span>
-          <span>AI Project Development</span>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-
-    <section class="section-space projects-section" id="projects">
-      <div class="container">
-
-        <div class="section-topline reveal">
-          <div>
-            <span class="section-index">04 / SELECTED WORK</span>
-            <h2 class="section-title">Ideas I've been<br><span class="orange">bringing to life.</span></h2>
-          </div>
-
-          <p class="section-note">
-            A collection of AI experiments, technical concepts, and creative work.
-          </p>
-        </div>
-
-        <div class="project-grid">
-
-          <article class="project-card reveal">
-            <div class="project-visual">
-              <div class="project-symbol">
-                <i class="bi bi-shield-check"></i>
-              </div>
-            </div>
-
-            <div class="project-content">
-              <span class="project-category">AI · COMPUTER VISION</span>
-              <h3>Deepfake Image Detection</h3>
-
-              <p>
-                An AI project focused on identifying manipulated images,
-                with image tracing and web leak detection as part of
-                the proposed workflow.
-              </p>
-
-              <a class="project-link"
-                 href="https://github.com/sanojnpaulose"
-                 target="_blank" rel="noopener noreferrer">
-                Explore on GitHub <i class="bi bi-arrow-up-right"></i>
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card reveal reveal-delay">
-            <div class="project-visual visual-green">
-              <div class="project-symbol">
-                <i class="bi bi-moon-stars"></i>
-              </div>
-            </div>
-
-            <div class="project-content">
-              <span class="project-category">AI · ANALYSIS</span>
-              <h3>Sleep Analysis AI</h3>
-
-              <p>
-                A project concept exploring how AI-based analysis can
-                help interpret sleep-related data and patterns.
-              </p>
-
-              <a class="project-link"
-                 href="https://github.com/sanojnpaulose"
-                 target="_blank" rel="noopener noreferrer">
-                Explore on GitHub <i class="bi bi-arrow-up-right"></i>
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-visual visual-purple">
-              <div class="project-symbol">
-                <i class="bi bi-chat-square-dots"></i>
-              </div>
-            </div>
-
-            <div class="project-content">
-              <span class="project-category">LLM · PROMPT ENGINEERING</span>
-              <h3>AI Chatbot with Prompt Engineering</h3>
-
-              <p>
-                An AI chatbot project focused on prompt design,
-                conversational interaction, and useful responses.
-              </p>
-
-              <a class="project-link"
-                 href="https://github.com/sanojnpaulose"
-                 target="_blank" rel="noopener noreferrer">
-                Explore on GitHub <i class="bi bi-arrow-up-right"></i>
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card reveal reveal-delay">
-            <div class="project-visual visual-orange">
-              <div class="project-symbol">
-                <i class="bi bi-heart"></i>
-              </div>
-            </div>
-
-            <div class="project-content">
-              <span class="project-category">CREATIVE PROJECT</span>
-              <h3>Echoes of Love</h3>
-
-              <p>
-                A creative work exploring emotional experiences,
-                memories, and the stories that connect people.
-              </p>
-
-              <a class="project-link" href="#writing">
-                Explore creative work <i class="bi bi-arrow-up-right"></i>
-              </a>
-            </div>
-          </article>
-
-        </div>
-
-        <div class="mt-5 reveal">
-          <a class="text-link"
-             href="https://github.com/sanojnpaulose"
-             target="_blank" rel="noopener noreferrer">
-            View my GitHub profile <i class="bi bi-arrow-up-right"></i>
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CREATIVE THINKING -->
-
-    <section class="section-space thinking-section">
-      <div class="container">
-
-        <div class="section-topline reveal">
-          <div>
-            <span class="section-index">05 / MY PERSPECTIVE</span>
-            <h2 class="section-title">Beyond the<br><span class="orange">code.</span></h2>
-          </div>
-        </div>
-
-        <div class="thinking-card reveal">
-          <span class="eyebrow">TECHNOLOGY WITH A HUMAN SIDE</span>
-
-          <h3 class="thinking-quote mt-4">
-            “The most interesting ideas often begin with a
-            <span>what if?</span>”
-          </h3>
-
-          <p>
-            I’m interested in the intersection of technology, human
-            experiences, and creative thought. Whether I’m exploring AI
-            or writing a story, I enjoy asking questions, examining
-            possibilities, and looking beyond the obvious answer.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- WRITING -->
-
-    <section class="section-space writing-section" id="writing">
-      <div class="container">
-
-        <div class="section-topline reveal">
-          <div>
-            <span class="section-index">06 / CREATIVE WRITING</span>
-            <h2 class="section-title">Some things are<br>better expressed <span class="orange">in stories.</span></h2>
-          </div>
-
-          <p class="section-note">
-            Another side of my world — writing, reflection, and imagination.
-          </p>
-        </div>
-
-        <div class="writing-panel">
-
-          <div class="writing-copy reveal">
-            <span class="eyebrow">WRITER · THINKER · STORYTELLER</span>
-
-            <h3>
-              Between what happens
-              and what could have happened.
-            </h3>
-
-            <p>
-              I write about emotions, memories, relationships, and the
-              thoughts that often remain unspoken. My stories explore
-              the quieter parts of being human — the questions we carry,
-              the people we remember, and the possibilities we imagine.
-            </p>
-
-            <p>
-              <strong>WHAT IF!</strong> is my novel, shaped by the
-              possibilities hidden inside a simple question.
-            </p>
-
-            <div class="tag-list">
-              <span>Fiction</span>
-              <span>Memory</span>
-              <span>Emotion</span>
-              <span>Imagination</span>
-            </div>
-          </div>
-
-          <div class="book-stage reveal reveal-delay">
-            <div class="book-cover">
-              <span class="book-small">A NOVEL BY SANOJ N. PAULOSE</span>
-
-              <div>
-                <div class="book-title">WHAT<br><span>IF!</span></div>
-                <div class="book-line"></div>
-
-                <p class="book-quote">
-                  Love. Loss. Longing.
-                </p>
-              </div>
-
-              <span class="book-tagline">SOME QUESTIONS NEVER LEAVE US.</span>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="writing-motto reveal">
-          <span class="eyebrow">THE IMPRESSION</span>
-          <h3 class="mt-3">Love. Loss. <span class="orange">Longing.</span></h3>
-          <p>
-            Three words that capture the emotional world surrounding
-            <strong>WHAT IF!</strong> — the feelings we hold, the things
-            we lose, and the memories that stay with us.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- RECOGNITION -->
-
-    <section class="section-space recognition-section" id="recognition">
-      <div class="container">
-
-        <div class="section-topline reveal">
-          <div>
-            <span class="section-index">07 / RECOGNITION</span>
-            <h2 class="section-title">A milestone in my<br><span class="orange">writing journey.</span></h2>
-          </div>
-
-          <p class="section-note">
-            A published contribution and a memorable moment from 2022.
-          </p>
-        </div>
-
-        <p class="recognition-intro reveal">
-          My contribution to <strong>1221 മാജിക് വാക്കുകൾ</strong>,
-          a collection associated with Manjari Books, is a meaningful
-          milestone in my creative journey.
-        </p>
-
-        <div class="row g-4">
-
-          <div class="col-lg-7 reveal">
-            <article class="recognition-card">
-
-              <div class="recognition-image-wrap">
-                <a href="kbr-trophy.jpg" target="_blank" rel="noopener noreferrer"
-                   aria-label="View trophy photograph">
-                  <img
-                    class="recognition-image"
-                    src="kbr-trophy.jpg"
-                    alt="Trophy and medal associated with the recognition"
-                    loading="lazy">
-                </a>
-              </div>
-
-              <div class="recognition-copy">
-                <span class="recognition-badge">Recognition</span>
-                <h3>Kerala Book of Records</h3>
-
-                <p>
-                  A recognition associated with the publication
-                  <em>1221 മാജിക് വാക്കുകൾ</em>, a collection of short
-                  quotes from 1,221 authors.
-                </p>
-
-                <div class="recognition-date">
-                  <i class="bi bi-calendar3"></i>
-                  <span>01 June 2022</span>
-                </div>
-              </div>
-
-            </article>
-          </div>
-
-          <div class="col-lg-5 reveal reveal-delay">
-            <article class="recognition-card">
-
-              <div class="recognition-image-wrap">
-                <a href="kbr-achievement.jpg" target="_blank" rel="noopener noreferrer"
-                   aria-label="View certificate and book photograph">
-                  <img
-                    class="recognition-image"
-                    src="kbr-achievement.jpg"
-                    alt="Participation certificate, trophy, and 1221 Magic Words book"
-                    loading="lazy">
-                </a>
-              </div>
-
-              <div class="recognition-copy">
-                <span class="recognition-badge">Published Contribution</span>
-                <h3>1221 മാജിക് വാക്കുകൾ</h3>
-
-                <p>
-                  A book published by Manjari Books featuring short quotes
-                  from 1,221 authors. The certificate records participation
-                  and the publication's inclusion in the Kerala Book of Records.
-                </p>
-
-                <div class="recognition-date">
-                  <i class="bi bi-book"></i>
-                  <span>Manjari Books</span>
-                </div>
-              </div>
-
-            </article>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-
-    <section class="section-space contact-section" id="contact">
-      <div class="container">
-
-        <div class="contact-panel reveal">
-
-          <span class="eyebrow">LET'S CONNECT</span>
-
-          <h2>
-            Have an idea?<br>
-            Let's make it <span class="orange">real.</span>
-          </h2>
-
-          <p class="contact-description">
-            Interested in AI, machine learning, creative collaboration,
-            or a new project? Feel free to reach out.
-          </p>
-
-          <div class="contact-links">
-
-            <a class="contact-item" href="mailto:sanojnpaulose@gmail.com">
-              <i class="bi bi-envelope"></i>
-              <span>sanojnpaulose@gmail.com</span>
-              <i class="bi bi-arrow-up-right ms-auto"></i>
-            </a>
-
-            <a class="contact-item"
-               href="https://github.com/sanojnpaulose"
-               target="_blank" rel="noopener noreferrer">
-              <i class="bi bi-github"></i>
-              <span>GitHub — sanojnpaulose</span>
-              <i class="bi bi-arrow-up-right ms-auto"></i>
-            </a>
-
-            <a class="contact-item"
-               href="https://www.linkedin.com/in/sanoj-np-bab360289"
-               target="_blank" rel="noopener noreferrer">
-              <i class="bi bi-linkedin"></i>
-              <span>LinkedIn Profile</span>
-              <i class="bi bi-arrow-up-right ms-auto"></i>
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-
-      <a href="#home" class="footer-logo">
-        Sanoj<span>.</span>
-      </a>
-
-      <p>
-        © <span id="currentYear"></span> Sanoj N. Paulose.
-        Built with curiosity and code.
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-orbit" aria-hidden="true"></div>
+
+    <img
+      src="sanoj.jpg"
+      class="hero-profile-photo"
+      alt="Portrait of Sanoj N. Paulose"
+      width="500"
+      height="500"
+      fetchpriority="high"
+    >
+
+    <div class="container hero-inner">
+      <div class="eyebrow">AI &amp; MACHINE LEARNING · CREATIVE THINKER</div>
+
+      <h1>
+        SANOJ<br>
+        <em>PAULOSE.</em>
+      </h1>
+
+      <p class="hero-role">
+        AI Developer <span>×</span> Creative Thinker <span>×</span> Writer
       </p>
 
-      <a href="#home" class="back-top">
-        BACK TO TOP <i class="bi bi-arrow-up"></i>
-      </a>
+      <p class="hero-description">
+        Exploring the intersection of artificial intelligence, human
+        experiences, and creative expression. I build with code, think
+        through questions, and tell stories through words.
+      </p>
+
+      <div class="d-flex flex-wrap gap-3">
+        <a href="#projects" class="btn-orange">Explore My Work ↗</a>
+        <a href="#about" class="btn btn-outline-light rounded-0 px-4 py-3">
+          More About Me
+        </a>
+      </div>
+
+      <div class="hero-bottom">
+        <span>BASED IN KERALA, INDIA</span>
+        <span>AI · CODE · STORIES</span>
+        <span>SCROLL TO EXPLORE ↓</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+
+      <div class="section-heading reveal">
+        <span class="section-number">01</span>
+        <div>
+          <small>GET TO KNOW ME</small>
+          <h2>Curiosity is my <em>starting point.</em></h2>
+        </div>
+      </div>
+
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-7 reveal">
+          <p class="body-copy">
+            I'm Sanoj N. Paulose, an Artificial Intelligence and Machine
+            Learning graduate with a deep interest in intelligent systems,
+            creative problem-solving, and the relationship between
+            technology and people.
+          </p>
+
+          <p class="body-copy">
+            My work moves between technical experimentation and creative
+            expression. From exploring AI-powered applications to writing
+            stories, I enjoy asking questions, learning new ideas, and
+            turning them into something meaningful.
+          </p>
+
+          <div class="tag-list">
+            <span>Artificial Intelligence</span>
+            <span>Machine Learning</span>
+            <span>Python</span>
+            <span>Creative Writing</span>
+            <span>Problem Solving</span>
+          </div>
+        </div>
+
+        <div class="col-lg-5 reveal delay">
+          <div class="about-card h-100">
+            <div class="about-symbol">
+              <i class="bi bi-cpu"></i>
+            </div>
+
+            <span class="orange-label">MY APPROACH</span>
+
+            <h3 class="fw-bold mt-3">Logic meets imagination.</h3>
+
+            <p class="body-copy mb-0">
+              I believe technology becomes more meaningful when technical
+              thinking is paired with curiosity, creativity, and an
+              understanding of human experiences.
+            </p>
+          </div>
+        </div>
+      </div>
 
     </div>
-  </footer>
+  </section>
 
-  <script>
-    // PRELOADER
-    window.addEventListener("load", () => {
-      const loader = document.getElementById("loader");
+  <!-- FEATURED SHOWCASE -->
+  <section class="section pt-0">
+    <div class="container">
+      <div class="showcase reveal">
 
-      setTimeout(() => {
-        loader.classList.add("done");
-      }, 350);
-    });
+        <div class="showcase-art">
+          <div class="mock-device">
+            <i class="bi bi-stars"></i>
+            <strong>AI<br>INNOVATION</strong>
+          </div>
+        </div>
 
-    // NAVBAR SCROLL EFFECT
-    const siteNav = document.getElementById("siteNav");
+        <div class="showcase-copy">
+          <span class="orange-label">BUILDING WITH PURPOSE</span>
 
-    function updateNavbar() {
-      siteNav.classList.toggle("scrolled", window.scrollY > 25);
-    }
+          <h2>Ideas deserve<br>a life <em>beyond code.</em></h2>
 
-    window.addEventListener("scroll", updateNavbar, { passive: true });
-    updateNavbar();
+          <p>
+            I enjoy exploring practical AI concepts and building projects
+            that connect technical ideas with real-world possibilities.
+            Every project is an opportunity to experiment, learn, and
+            improve.
+          </p>
 
-    // MOBILE NAVIGATION
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
+          <a href="#projects">DISCOVER MY PROJECTS ↗</a>
+        </div>
 
-    menuToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
+      </div>
+    </div>
+  </section>
 
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
-      menuToggle.innerHTML = isOpen
-        ? '<i class="bi bi-x-lg"></i>'
-        : '<i class="bi bi-list"></i>';
-    });
+  <!-- EDUCATION -->
+  <section class="section soft-bg" id="education">
+    <div class="container">
 
-    navLinks.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.innerHTML = '<i class="bi bi-list"></i>';
+      <div class="section-heading reveal">
+        <span class="section-number">02</span>
+        <div>
+          <small>MY LEARNING JOURNEY</small>
+          <h2>Built on <em>learning.</em></h2>
+        </div>
+      </div>
+
+      <div class="row g-5">
+        <div class="col-lg-6 reveal">
+          <span class="orange-label">EDUCATION</span>
+
+          <div class="timeline">
+
+            <article>
+              <small>EXPECTED 2028</small>
+              <h3>M.Sc. Computer Science — Artificial Intelligence</h3>
+              <p>Digital University of Kerala</p>
+            </article>
+
+            <article>
+              <small>2023 — 2026</small>
+              <h3>B.Sc. Artificial Intelligence &amp; Machine Learning</h3>
+              <p>Bharathiar University</p>
+            </article>
+
+            <article>
+              <small>2020</small>
+              <h3>Higher Secondary Education — Commerce</h3>
+              <p>Sanjos College, Kuttanellur</p>
+            </article>
+
+            <article>
+              <small>2018</small>
+              <h3>Secondary Education</h3>
+              <p>St. Augustine HSS, Kuttanellur</p>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="col-lg-6 reveal delay">
+          <span class="orange-label">WHAT DRIVES ME</span>
+
+          <div class="about-card mt-4">
+            <div class="about-symbol">
+              <i class="bi bi-lightbulb"></i>
+            </div>
+
+            <h3 class="fw-bold">Always exploring.</h3>
+
+            <p class="body-copy">
+              Learning doesn't stop at a qualification. I'm interested
+              in how AI, psychology, creativity, and human behaviour can
+              connect to shape more thoughtful technology.
+            </p>
+
+            <p class="body-copy mb-0">
+              My goal is to keep developing practical skills while
+              staying open to new ideas and perspectives.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="container">
+
+      <div class="section-heading reveal">
+        <span class="section-number">03</span>
+        <div>
+          <small>TOOLS I WORK WITH</small>
+          <h2>Turning ideas into <em>systems.</em></h2>
+        </div>
+      </div>
+
+      <div class="row g-4 text-center mb-5 reveal">
+
+        <div class="col-4">
+          <div class="skill-circle">
+            <div class="skill-icon"><i class="bi bi-code-slash"></i></div>
+            <strong>PYTHON</strong>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <div class="skill-circle">
+            <div class="skill-icon"><i class="bi bi-database"></i></div>
+            <strong>SQL</strong>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <div class="skill-circle">
+            <div class="skill-icon"><i class="bi bi-terminal"></i></div>
+            <strong>C</strong>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row g-5">
+        <div class="col-lg-6 reveal">
+
+          <div class="skill-bar">
+            <label><span>Python</span><span>Programming</span></label>
+            <div class="track"><span style="--level:85%"></span></div>
+          </div>
+
+          <div class="skill-bar">
+            <label><span>SQL</span><span>Database</span></label>
+            <div class="track"><span style="--level:75%"></span></div>
+          </div>
+
+          <div class="skill-bar">
+            <label><span>C</span><span>Programming</span></label>
+            <div class="track"><span style="--level:65%"></span></div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-6 reveal delay">
+          <div class="about-card h-100">
+            <span class="orange-label">AREAS OF INTEREST</span>
+
+            <h3 class="fw-bold mt-3">A growing technical toolkit.</h3>
+
+            <div class="tag-list">
+              <span>Artificial Intelligence</span>
+              <span>Machine Learning</span>
+              <span>Deep Learning</span>
+              <span>Data Analysis</span>
+              <span>Prompt Engineering</span>
+              <span>Web Development</span>
+              <span>Problem Solving</span>
+            </div>
+
+            <p class="body-copy mb-0">
+              I continue to strengthen my foundations through hands-on
+              experiments, project work, and independent learning.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section soft-bg" id="projects">
+    <div class="container">
+
+      <div class="section-heading reveal">
+        <span class="section-number">04</span>
+        <div>
+          <small>SELECTED WORK</small>
+          <h2>Ideas in <em>action.</em></h2>
+        </div>
+      </div>
+
+      <p class="body-copy mb-5 reveal" style="max-width:720px">
+        A selection of AI experiments and creative projects that reflect
+        my interests in intelligent systems, useful applications, and
+        storytelling.
+      </p>
+
+      <div class="row g-4">
+
+        <div class="col-md-6 reveal">
+          <article class="project-card">
+
+            <div class="project-art art-one">
+              <div class="project-visual">
+                <small>AI · COMPUTER VISION</small>
+                <strong>DEEPFAKE<br>DETECTION</strong>
+                <div class="fake-button"></div>
+              </div>
+            </div>
+
+            <div class="project-info">
+              <div>
+                <small>AI PROJECT</small>
+                <h3>Deepfake Image Detection</h3>
+              </div>
+
+              <a href="https://github.com/sanojnpaulose"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="View GitHub projects">↗</a>
+            </div>
+
+          </article>
+        </div>
+
+        <div class="col-md-6 reveal delay">
+          <article class="project-card">
+
+            <div class="project-art art-two">
+              <div class="project-visual">
+                <small>AI · WELLNESS</small>
+                <strong>SLEEP<br>ANALYSIS AI</strong>
+                <div class="fake-button"></div>
+              </div>
+            </div>
+
+            <div class="project-info">
+              <div>
+                <small>AI PROJECT</small>
+                <h3>Sleep Analysis AI</h3>
+              </div>
+
+              <a href="https://github.com/sanojnpaulose"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="View GitHub projects">↗</a>
+            </div>
+
+          </article>
+        </div>
+
+        <div class="col-md-6 reveal">
+          <article class="project-card">
+
+            <div class="project-art art-three">
+              <div class="project-visual">
+                <small>LLM · PROMPT ENGINEERING</small>
+                <strong>AI<br>CHATBOT</strong>
+                <div class="fake-button"></div>
+              </div>
+            </div>
+
+            <div class="project-info">
+              <div>
+                <small>AI PROJECT</small>
+                <h3>AI Chatbot with Prompt Engineering</h3>
+              </div>
+
+              <a href="https://github.com/sanojnpaulose"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="View GitHub projects">↗</a>
+            </div>
+
+          </article>
+        </div>
+
+        <div class="col-md-6 reveal delay">
+          <article class="project-card">
+
+            <div class="project-art art-four">
+              <div class="project-visual">
+                <small>CREATIVE WORK</small>
+                <strong>Echoes<br>of Love</strong>
+                <div class="fake-button"></div>
+              </div>
+            </div>
+
+            <div class="project-info">
+              <div>
+                <small>CREATIVE PROJECT</small>
+                <h3>Echoes of Love</h3>
+              </div>
+
+              <a href="#contact" aria-label="Contact about project">↗</a>
+            </div>
+
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CREATIVE THINKING -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-heading reveal">
+        <span class="section-number">05</span>
+        <div>
+          <small>HOW I THINK</small>
+          <h2>Beyond the <em>code</em></h2>
+        </div>
+      </div>
+
+      <div class="testimonial reveal">
+        <i class="bi bi-lightbulb"></i>
+
+        <div>
+          <h3 class="fw-bold">Technology with a creative side.</h3>
+
+          <p class="body-copy mb-0">
+            I’m interested in projects that connect intelligent systems
+            with human experiences — whether through AI tools, thoughtful
+            interfaces, or creative work like
+            <strong>Echoes of Love</strong>.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WRITING -->
+  <section class="section writing-section" id="writing">
+    <div class="container">
+
+      <div class="section-heading reveal">
+        <span class="section-number">05</span>
+        <div>
+          <small>ANOTHER SIDE OF ME</small>
+          <h2>Beyond technology, <em>I write.</em></h2>
+        </div>
+      </div>
+
+      <div class="writing-panel reveal">
+
+        <div class="writing-copy">
+          <span class="orange-label">
+            WRITER · THINKER · STORYTELLER
+          </span>
+
+          <h3>
+            Some thoughts become stories.<br>
+            Some stories stay with us.
+          </h3>
+
+          <p class="body-copy">
+            I write about the quiet complexity of people, the weight
+            of memories, and the questions we carry inside. My writing
+            is a space where emotion meets imagination — where even
+            silence can have something to say.
+          </p>
+
+          <div class="tag-list">
+            <span>Thoughts</span>
+            <span>Stories</span>
+            <span>Emotions</span>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-kicker">A NOVEL BY SANOJ N. PAULOSE</div>
+
+          <div class="book-title">
+            WHAT<br><em>IF</em><span>!</span>
+          </div>
+
+          <div class="book-rule"></div>
+
+          <p class="book-thought">
+            “Some books leave a silence behind.”
+          </p>
+
+          <div class="book-bottom">
+            FICTION · MEMORY · POSSIBILITY
+          </div>
+        </div>
+
+      </div>
+
+      <div class="thought-row reveal delay">
+        <div>
+          <small>THREE WORDS FOR <em>WHAT IF</em></small>
+          <h3>Love. Loss. <em>Longing.</em></h3>
+        </div>
+
+        <p class="body-copy">
+          My three-word impression of <strong>WHAT IF</strong>:
+          a story shaped by the things we feel, the things we lose,
+          and the things we still carry.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AWARDS & RECOGNITION -->
+  <section class="section recognition-section" id="recognition">
+    <div class="container">
+
+      <div class="section-heading reveal">
+        <span class="section-number">06</span>
+        <div>
+          <small>AWARDS &amp; RECOGNITION</small>
+          <h2>A milestone in my <em>writing journey.</em></h2>
+        </div>
+      </div>
+
+      <p class="body-copy mb-5 reveal" style="max-width:720px">
+        Alongside my creative journey, my contribution to the book
+        <strong>1221 മാജിക് വാക്കുകൾ</strong> became a memorable milestone.
+        The certificate records the publication's inclusion in the Kerala Book of Records.
+      </p>
+
+      <div class="row g-4">
+        <div class="col-lg-7 reveal">
+          <article class="recognition-card">
+            <div class="recognition-image-wrap">
+              <a href="kbr-trophy.jpg" target="_blank" rel="noopener noreferrer"
+                 aria-label="Open the Kerala Book of Records trophy photograph">
+                <img class="recognition-image"
+                     src="kbr-trophy.jpg"
+                     alt="Kerala Book of Records trophy and medal belonging to Sanoj N. Paulose"
+                     width="1200" height="1500" loading="lazy">
+              </a>
+            </div>
+            <div class="recognition-copy">
+              <span class="recognition-badge">Recognition</span>
+              <h3>Kerala Book of Records</h3>
+              <p>
+                A recognition associated with my contribution to
+                <em>1221 മാജിക് വാക്കുകൾ</em>, a collection of short quotes
+                from 1,221 authors.
+              </p>
+              <div class="recognition-date">
+                <i class="bi bi-calendar3"></i>
+                <span>01 June 2022</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-lg-5 reveal delay">
+          <article class="recognition-card">
+            <div class="recognition-image-wrap">
+              <a href="kbr-achievement.jpg" target="_blank" rel="noopener noreferrer"
+                 aria-label="Open the certificate, trophy and book photograph">
+                <img class="recognition-image"
+                     src="kbr-achievement.jpg"
+                     alt="Kerala Book of Records participation certificate, trophy and 1221 Magic Words book"
+                     width="1200" height="1500" loading="lazy">
+              </a>
+            </div>
+            <div class="recognition-copy">
+              <span class="recognition-badge">Published Contribution</span>
+              <h3>1221 മാജിക് വാക്കുകൾ</h3>
+              <p>
+                The Manjari Books collection featuring short quotes by
+                1,221 authors. The certificate dated 01 June 2022 describes
+                the recognition as a Certificate of Participation.
+              </p>
+              <div class="recognition-date">
+                <i class="bi bi-book"></i>
+                <span>Manjari Books</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+
+      <div class="contact-panel reveal">
+
+        <div>
+          <span class="orange-label">LET'S CONNECT</span>
+
+          <h2>
+            Let's build<br>
+            something <em>meaningful.</em>
+          </h2>
+
+          <p class="body-copy">
+            Interested in AI, machine learning, collaboration,
+            or a creative project? Reach out.
+          </p>
+        </div>
+
+        <div class="contact-links">
+
+          <a href="mailto:sanojnpaulose@gmail.com">
+            <i class="bi bi-envelope"></i>
+            sanojnpaulose@gmail.com
+          </a>
+
+          <a
+            href="https://github.com/sanojnpaulose"
+            target="_blank"
+            rel="noopener">
+            <i class="bi bi-github"></i>
+            github.com/sanojnpaulose
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/sanoj-np-bab360289"
+            target="_blank"
+            rel="noopener">
+            <i class="bi bi-linkedin"></i>
+            LinkedIn Profile ↗
+          </a>
+
+          <a class="btn-orange mt-2" href="mailto:sanojnpaulose@gmail.com">
+            Send me an email ↗
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <a href="#home">S<span>.</span></a>
+
+    <p>
+      © <span id="year"></span>
+      Sanoj N. Paulose · Built with curiosity and code.
+    </p>
+
+    <a href="#home">BACK TO TOP ↑</a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById("navbar");
+
+  window.addEventListener("scroll", () => {
+    navbar.classList.toggle("scrolled", window.scrollY > 25);
+  });
+
+  // Reveal elements when they enter the viewport
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
       });
+    },
+    { threshold: 0.12 }
+  );
+
+  document.querySelectorAll(".reveal").forEach(el => {
+    revealObserver.observe(el);
+  });
+
+  // Active navigation links
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  const sectionObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") === "#" + entry.target.id
+            );
+          });
+        }
+      });
+    },
+    { rootMargin: "-35% 0px -55% 0px" }
+  );
+
+  document.querySelectorAll("main section[id]").forEach(section => {
+    sectionObserver.observe(section);
+  });
+
+  // Close mobile menu after clicking a navigation link
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      const menu = document.getElementById("navMenu");
+
+      if (menu.classList.contains("show")) {
+        bootstrap.Collapse.getOrCreateInstance(menu).hide();
+      }
     });
+  });
 
-    // SCROLL REVEAL
-    const revealElements = document.querySelectorAll(".reveal");
-
-    if ("IntersectionObserver" in window) {
-      const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.12,
-        rootMargin: "0px 0px -30px 0px"
-      });
-
-      revealElements.forEach(element => revealObserver.observe(element));
-    } else {
-      revealElements.forEach(element => element.classList.add("visible"));
-    }
-
-    // ACTIVE NAV LINK
-    const sections = document.querySelectorAll("main section[id]");
-    const sectionLinks = navLinks.querySelectorAll("a");
-
-    if ("IntersectionObserver" in window) {
-      const sectionObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            sectionLinks.forEach(link => {
-              link.classList.toggle(
-                "active",
-                link.getAttribute("href") === "#" + entry.target.id
-              );
-            });
-          }
-        });
-      }, {
-        rootMargin: "-35% 0px -55% 0px"
-      });
-
-      sections.forEach(section => sectionObserver.observe(section));
-    }
-
-    // CURRENT YEAR
-    document.getElementById("currentYear").textContent =
-      new Date().getFullYear();
-
-    // RESPECT REDUCED-MOTION PREFERENCES
-    const reducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    );
-
-    if (reducedMotion.matches) {
-      document.documentElement.style.scrollBehavior = "auto";
-    }
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  // Automatically update copyright year
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
 
 </body>
 </html>
