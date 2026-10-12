@@ -24,9 +24,6 @@
       --muted: #73767c;
       --line: #e8e8e5;
       --soft: #fafaf8;
-      --motion-ease: cubic-bezier(.22, 1, .36, 1);
-      --motion-fast: 420ms var(--motion-ease);
-      --motion-slow: 850ms var(--motion-ease);
     }
 
     * { box-sizing: border-box; }
@@ -41,7 +38,6 @@
       color: var(--ink);
       font-family: "DM Sans", sans-serif;
       overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
     }
 
     h1, h2, h3, h4 {
@@ -55,23 +51,6 @@
     }
 
     a { text-decoration: none; }
-
-    ::selection {
-      background: #f4a90055;
-      color: var(--ink);
-    }
-
-    .scroll-progress {
-      position: fixed;
-      z-index: 2000;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 3px;
-      background: var(--orange);
-      box-shadow: 0 0 12px #f4a90055;
-      pointer-events: none;
-    }
 
     .navbar {
       padding: 16px 0;
@@ -121,7 +100,7 @@
       font-size: .8rem;
       font-weight: 700;
       border-radius: 2px;
-      transition: transform var(--motion-fast), background var(--motion-fast), box-shadow var(--motion-fast);
+      transition: .3s;
     }
 
     .nav-cta:hover,
@@ -129,10 +108,9 @@
       background: #df9900;
       color: white;
       transform: translateY(-2px);
-      box-shadow: 0 10px 28px #f4a90035;
     }
 
-    /* HERO */
+    /* CINEMATIC HERO */
     .hero {
       min-height: 690px;
       display: flex;
@@ -167,13 +145,7 @@
       border-radius: 50%;
       border: 5px solid #f4a900;
       box-shadow: 0 0 0 14px #f4a90020, 0 24px 70px #0008;
-      animation: portraitFloat 7s ease-in-out infinite;
-      transition: box-shadow 700ms var(--motion-ease), border-color 700ms var(--motion-ease);
-    }
-
-    .hero-profile-photo:hover {
-      border-color: #ffd66b;
-      box-shadow: 0 0 0 18px #f4a90020, 0 30px 90px #0009;
+      animation: profileFloat 6s ease-in-out infinite;
     }
 
     .eyebrow,
@@ -196,6 +168,7 @@
       font-weight: 800;
       line-height: .93;
       margin: 16px 0 25px;
+      animation: heroTextIn 1s ease both;
     }
 
     .hero-role {
@@ -222,7 +195,7 @@
       border-radius: 50%;
       right: 8%;
       top: 25%;
-      animation: rotate 38s linear infinite;
+      animation: rotate 25s linear infinite;
       pointer-events: none;
     }
 
@@ -254,21 +227,6 @@
       letter-spacing: 2px;
       color: #aaa;
     }
-
-    .hero-inner .eyebrow,
-    .hero-inner > p,
-    .hero-inner h1,
-    .hero-inner > a,
-    .hero-inner .hero-bottom {
-      animation: appleRise 900ms var(--motion-ease) both;
-    }
-
-    .hero-inner .eyebrow { animation-delay: 80ms; }
-    .hero-inner h1 { animation-delay: 160ms; }
-    .hero-inner .hero-role { animation-delay: 240ms; }
-    .hero-inner .hero-description { animation-delay: 320ms; }
-    .hero-inner > a { animation-delay: 400ms; }
-    .hero-inner .hero-bottom { animation-delay: 520ms; }
 
     .section { padding: 100px 0; }
 
@@ -306,17 +264,10 @@
       line-height: 1.9;
     }
 
-    /* ABOUT */
     .about-card {
       background: var(--soft);
       border-left: 4px solid var(--orange);
       padding: 27px;
-      transition: transform 600ms var(--motion-ease), box-shadow 600ms var(--motion-ease);
-    }
-
-    .about-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 18px 45px #2021240d;
     }
 
     .about-symbol {
@@ -344,15 +295,8 @@
       padding: 8px 10px;
       font-size: .68rem;
       font-weight: 700;
-      transition: transform var(--motion-fast), background var(--motion-fast);
     }
 
-    .tag-list span:hover {
-      transform: translateY(-3px);
-      background: #ffedbf;
-    }
-
-    /* SHOWCASE */
     .showcase {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -395,7 +339,7 @@
       color: #222;
       box-shadow: 0 20px 50px #0004;
       transform: rotate(-7deg);
-      transition: transform 700ms var(--motion-ease);
+      transition: .4s;
     }
 
     .mock-device:hover { transform: rotate(0) translateY(-5px); }
@@ -430,7 +374,6 @@
 
     .soft-bg { background: var(--soft); }
 
-    /* SKILLS */
     .skill-icon {
       display: grid;
       place-items: center;
@@ -442,8 +385,6 @@
       border-radius: 50%;
       margin: 0 auto 12px;
       font-size: 1.4rem;
-      box-shadow: 0 0 0 0 #f4a90000;
-      transition: transform 550ms var(--motion-ease), box-shadow 550ms var(--motion-ease);
     }
 
     .skill-circle { text-align: center; flex: 1; }
@@ -462,7 +403,6 @@
       height: 7px;
       background: #e5e5e2;
       overflow: hidden;
-      border-radius: 99px;
     }
 
     .track span {
@@ -472,70 +412,20 @@
       background: var(--orange);
       transform: scaleX(0);
       transform-origin: left;
-      transition: transform 1s var(--motion-ease);
-      border-radius: 99px;
+      transition: 1.2s;
     }
 
     .reveal.show .track span { transform: scaleX(1); }
 
-    #skills .skill-circle {
-      opacity: 0;
-      transform: translateY(22px) scale(.88);
-      transition: opacity .6s ease, transform .6s var(--motion-ease);
-    }
-
-    #skills .col-lg-5.reveal.show .skill-circle {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    #skills .col-lg-5.reveal.show .skill-circle:nth-child(2) {
-      transition-delay: .12s;
-    }
-
-    #skills .col-lg-5.reveal.show .skill-circle:nth-child(3) {
-      transition-delay: .24s;
-    }
-
-    #skills .skill-circle:hover .skill-icon {
-      transform: translateY(-7px) scale(1.04);
-      box-shadow: 0 0 0 8px #f4a90017, 0 12px 28px #f4a90025;
-    }
-
-    #skills .col-lg-7.reveal.show .track span {
-      transform: scaleX(1);
-    }
-
-    #skills .col-lg-7.reveal.show .skill-bar:nth-of-type(1) .track span {
-      transition-delay: .08s;
-    }
-
-    #skills .col-lg-7.reveal.show .skill-bar:nth-of-type(2) .track span {
-      transition-delay: .20s;
-    }
-
-    #skills .col-lg-7.reveal.show .skill-bar:nth-of-type(3) .track span {
-      transition-delay: .32s;
-    }
-
-    #skills .col-lg-7.reveal.show .skill-bar:nth-of-type(4) .track span {
-      transition-delay: .44s;
-    }
-
-    /* EDUCATION */
     .timeline {
       border-left: 1px solid #ddd;
       padding-left: 24px;
       margin-top: 25px;
-      position: relative;
     }
 
     .timeline article {
       position: relative;
       padding-bottom: 28px;
-      opacity: 0;
-      transform: translateX(-28px);
-      transition: opacity 700ms var(--motion-ease), transform 700ms var(--motion-ease);
     }
 
     .timeline article:before {
@@ -548,28 +438,6 @@
       background: white;
       border: 3px solid var(--orange);
       border-radius: 50%;
-      z-index: 1;
-      transition: background 450ms ease, box-shadow 450ms ease, transform 450ms var(--motion-ease);
-    }
-
-    .timeline.show article {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .timeline.show article:nth-child(1) { transition-delay: .08s; }
-    .timeline.show article:nth-child(2) { transition-delay: .20s; }
-    .timeline.show article:nth-child(3) { transition-delay: .32s; }
-    .timeline.show article:nth-child(4) { transition-delay: .44s; }
-
-    .timeline.show article:before {
-      background: var(--orange);
-      box-shadow: 0 0 0 6px #f4a90020;
-    }
-
-    .timeline article:hover:before {
-      transform: scale(1.25);
-      box-shadow: 0 0 0 7px #f4a90020;
     }
 
     .timeline small {
@@ -591,46 +459,15 @@
       margin: 0;
     }
 
-    .timeline::after {
-      content: "";
-      position: absolute;
-      left: -1px;
-      top: 0;
-      width: 2px;
-      height: 0;
-      background: var(--orange);
-      transition: height 1.3s var(--motion-ease);
-    }
-
-    .timeline.show::after { height: 100%; }
-
-    /* PROJECTS */
-    .project-card {
-      height: 100%;
-      transition: transform 650ms var(--motion-ease), opacity 650ms var(--motion-ease);
-    }
-
-    .project-card:hover { transform: translateY(-8px); }
+    .project-card { height: 100%; transition: .35s; }
+    .project-card:hover { transform: translateY(-5px); }
 
     .project-art {
       height: 260px;
       display: grid;
       place-items: center;
       overflow: hidden;
-      position: relative;
     }
-
-    .project-art::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(120deg, transparent 20%, #ffffff55 48%, transparent 72%);
-      transform: translateX(-130%);
-      transition: transform 950ms var(--motion-ease);
-    }
-
-    .project-card:hover .project-art::after { transform: translateX(130%); }
 
     .art-one { background: linear-gradient(135deg, #f8d57e, #f4a900); }
     .art-two { background: linear-gradient(135deg, #dddeda, #aab7a5); }
@@ -645,13 +482,10 @@
       padding: 25px;
       box-shadow: 0 20px 40px #0003;
       transform: rotate(-3deg);
-      transition: transform 700ms var(--motion-ease), box-shadow 700ms var(--motion-ease);
+      transition: .4s;
     }
 
-    .project-card:hover .project-visual {
-      transform: rotate(0) scale(1.04);
-      box-shadow: 0 28px 55px #00000025;
-    }
+    .project-card:hover .project-visual { transform: rotate(0) scale(1.04); }
 
     .project-visual small {
       font-size: .55rem;
@@ -692,25 +526,17 @@
     .project-info a { color: inherit; font-size: 1.4rem; }
     .projects-dark { background: #222427; color: white; }
 
-    /* CREATIVE THINKING */
     .testimonial {
       background: var(--soft);
       border: 1px solid #eee;
       padding: 28px;
       display: flex;
       gap: 20px;
-      transition: transform 600ms var(--motion-ease), box-shadow 600ms var(--motion-ease);
-    }
-
-    .testimonial:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 18px 45px #2021240d;
     }
 
     .testimonial i { font-size: 2.5rem; color: var(--orange); }
     .testimonial p { color: var(--muted); line-height: 1.8; }
 
-    /* WRITING */
     .writing-section { background: #fafaf8; }
 
     .writing-panel {
@@ -744,40 +570,29 @@
       flex-direction: column;
       justify-content: space-between;
       overflow: hidden;
-      transition: transform 700ms var(--motion-ease), box-shadow 700ms var(--motion-ease);
-    }
-
-    .book-card:hover {
-      transform: translateY(-5px) rotate(-.5deg);
-      box-shadow: 16px 18px 0 #f4a900;
-    }
-
-    .book-card:before,
-    .book-card:after {
-      content: "";
-      position: absolute;
-      border: 1px solid #f4a90055;
-      border-radius: 50%;
-      transition: transform 900ms var(--motion-ease);
     }
 
     .book-card:before {
+      content: "";
+      position: absolute;
       width: 230px;
       height: 230px;
+      border: 1px solid #f4a90055;
+      border-radius: 50%;
       right: -85px;
       top: 70px;
     }
 
     .book-card:after {
+      content: "";
+      position: absolute;
       width: 145px;
       height: 145px;
+      border: 1px solid #f4a90066;
+      border-radius: 50%;
       right: -42px;
       top: 112px;
-      border-color: #f4a90066;
     }
-
-    .book-card:hover:before { transform: scale(1.08); }
-    .book-card:hover:after { transform: scale(1.12); }
 
     .book-kicker,
     .book-bottom {
@@ -835,99 +650,6 @@
 
     .thought-row p { max-width: 420px; margin: 0; }
 
-    /* AWARDS & RECOGNITION */
-    .recognition-section {
-      background: #fafaf8;
-      border-top: 1px solid #e8e8e5;
-    }
-
-    #recognition {
-      padding-top: 62px;
-      padding-bottom: 62px;
-    }
-
-    #recognition .section-heading { margin-bottom: 22px; }
-
-    #recognition .section-heading h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-    }
-
-    #recognition .body-copy { margin-bottom: 28px !important; }
-
-    .recognition-card {
-      height: 100%;
-      background: #fff;
-      border: 1px solid var(--line);
-      overflow: hidden;
-      transition: transform .3s ease, box-shadow .3s ease;
-    }
-
-    .recognition-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 32px #20212412;
-    }
-
-    .recognition-image-wrap {
-      background: #f1eee8;
-      overflow: hidden;
-      height: 280px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .recognition-image {
-      display: block;
-      width: 100%;
-      height: 280px;
-      min-height: 0;
-      max-height: 280px;
-      object-fit: contain;
-      object-position: center;
-      padding: 8px;
-      background: #f1eee8;
-      transition: transform 800ms var(--motion-ease);
-    }
-
-    .recognition-card:hover .recognition-image { transform: scale(1.035); }
-    .recognition-copy { padding: 16px 18px; }
-
-    .recognition-copy h3 {
-      font-size: 1.05rem;
-      font-weight: 800;
-      margin: 10px 0;
-      letter-spacing: -.03em;
-    }
-
-    .recognition-copy p {
-      color: var(--muted);
-      font-size: .82rem;
-      line-height: 1.7;
-      margin-bottom: 0;
-    }
-
-    .recognition-badge {
-      display: inline-block;
-      padding: 7px 10px;
-      color: #805c00;
-      background: #fff1cc;
-      font-size: .65rem;
-      font-weight: 800;
-      letter-spacing: 1.3px;
-      text-transform: uppercase;
-    }
-
-    .recognition-date {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 10px;
-      color: #8b6508;
-      font-size: .72rem;
-      font-weight: 700;
-    }
-
-    /* CONTACT */
     .contact-panel {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -956,10 +678,8 @@
       text-decoration: none;
       font-size: .8rem;
       font-weight: 700;
-      transition: color 350ms ease, transform 350ms var(--motion-ease);
     }
 
-    .contact-links a:hover { transform: translateX(5px); }
     .contact-links i { color: var(--orange); margin-right: 10px; }
 
     footer {
@@ -979,46 +699,111 @@
     footer a { color: white; text-decoration: none; font-weight: 700; }
     footer a span { color: var(--orange); }
 
-    /* APPLE-STYLE SCROLL REVEAL */
+    /* Scroll reveal */
     .reveal {
       opacity: 0;
-      transform: translate3d(0, 34px, 0) scale(.99);
-      filter: blur(3px);
-      transition:
-        opacity 900ms var(--motion-ease),
-        transform 900ms var(--motion-ease),
-        filter 900ms var(--motion-ease);
-      will-change: opacity, transform, filter;
+      transform: translateY(25px);
+      transition: opacity .8s ease, transform .8s ease;
     }
 
     .reveal.show {
       opacity: 1;
-      transform: translate3d(0, 0, 0) scale(1);
-      filter: blur(0);
+      transform: none;
     }
 
-    .delay { transition-delay: 140ms; }
+    .delay { transition-delay: .15s; }
 
     @keyframes rotate {
       to { transform: rotate(360deg); }
     }
 
-    @keyframes appleRise {
-      from {
-        opacity: 0;
-        transform: translate3d(0, 22px, 0);
-        filter: blur(4px);
-      }
-      to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-        filter: blur(0);
-      }
+    @keyframes profileFloat {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -12px; }
     }
 
-    @keyframes portraitFloat {
-      0%, 100% { translate: 0 0; }
-      50% { translate: 0 -10px; }
+    @keyframes heroTextIn {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Awards and recognition — large images, uncropped */
+    .recognition-section {
+      background: #fafaf8;
+      border-top: 1px solid #e8e8e5;
+    }
+
+    .recognition-card {
+      height: 100%;
+      background: #fff;
+      border: 1px solid #e8e8e5;
+      transition: transform .35s, box-shadow .35s;
+      overflow: hidden;
+    }
+
+    .recognition-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 45px #20212412;
+    }
+
+    .recognition-image-wrap {
+      background: #f1eee8;
+      overflow: hidden;
+      min-height: 440px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .recognition-image {
+      display: block;
+      width: 100%;
+      height: clamp(420px, 48vw, 620px);
+      min-height: 420px;
+      max-height: 620px;
+      object-fit: contain;
+      object-position: center;
+      padding: 12px;
+      background: #f1eee8;
+      transition: transform .5s;
+    }
+
+    .recognition-card:hover .recognition-image { transform: scale(1.025); }
+    .recognition-copy { padding: 25px; }
+
+    .recognition-copy h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin: 12px 0;
+      letter-spacing: -.03em;
+    }
+
+    .recognition-copy p {
+      color: var(--muted);
+      font-size: .85rem;
+      line-height: 1.85;
+      margin-bottom: 0;
+    }
+
+    .recognition-badge {
+      display: inline-block;
+      padding: 7px 10px;
+      color: #805c00;
+      background: #fff1cc;
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    .recognition-date {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 17px;
+      color: #8b6508;
+      font-size: .75rem;
+      font-weight: 700;
     }
 
     @media (max-width: 991px) {
@@ -1073,16 +858,12 @@
       .hero-bottom { margin-top: 60px; }
       .project-art { height: 230px; }
 
-      #recognition {
-        padding-top: 45px;
-        padding-bottom: 45px;
-      }
-
-      #recognition .recognition-image-wrap,
-      #recognition .recognition-image {
-        height: 240px;
-        min-height: 0;
-        max-height: 240px;
+      .recognition-image-wrap { min-height: 360px; }
+      .recognition-image {
+        height: auto;
+        min-height: 360px;
+        max-height: none;
+        object-fit: contain;
       }
     }
 
@@ -1112,21 +893,171 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
         scroll-behavior: auto !important;
-        filter: none !important;
+      }
+    }
+  
+    /* EDUCATION: reveal each timeline entry with a gentle stagger */
+    #education .timeline article {
+      opacity: 0;
+      transform: translateX(-28px);
+      transition: opacity .65s ease, transform .65s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    #education .timeline.show article {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    #education .timeline.show article:nth-child(1) { transition-delay: .08s; }
+    #education .timeline.show article:nth-child(2) { transition-delay: .20s; }
+    #education .timeline.show article:nth-child(3) { transition-delay: .32s; }
+    #education .timeline.show article:nth-child(4) { transition-delay: .44s; }
+
+    #education .timeline article::before {
+      transition: background .4s ease, box-shadow .4s ease;
+    }
+
+    #education .timeline.show article::before {
+      background: var(--orange);
+      box-shadow: 0 0 0 6px #f4a90020;
+    }
+
+    /* SKILLS: animate icons and progress bars as their columns appear */
+    #skills .skill-circle {
+      opacity: 0;
+      transform: translateY(22px) scale(.88);
+      transition: opacity .6s ease, transform .6s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    #skills .col-lg-5.reveal.show .skill-circle {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    #skills .col-lg-5.reveal.show .skill-circle:nth-child(2) {
+      transition-delay: .12s;
+    }
+
+    #skills .col-lg-5.reveal.show .skill-circle:nth-child(3) {
+      transition-delay: .24s;
+    }
+
+    #skills .skill-icon {
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+
+    #skills .skill-circle:hover .skill-icon {
+      transform: translateY(-6px) rotate(7deg);
+      box-shadow: 0 8px 22px #f4a90030;
+    }
+
+    #skills .track span {
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    #skills .col-lg-7.reveal.show .track span {
+      transform: scaleX(1);
+    }
+
+    #skills .col-lg-7.reveal.show .skill-bar:nth-of-type(1) .track span {
+      transition-delay: .08s;
+    }
+
+    #skills .col-lg-7.reveal.show .skill-bar:nth-of-type(2) .track span {
+      transition-delay: .20s;
+    }
+
+    #skills .col-lg-7.reveal.show .skill-bar:nth-of-type(3) .track span {
+      transition-delay: .32s;
+    }
+
+    #skills .col-lg-7.reveal.show .skill-bar:nth-of-type(4) .track span {
+      transition-delay: .44s;
+    }
+
+    /* AWARDS & RECOGNITION: compact spacing and smaller images */
+    #recognition {
+      padding-top: 62px;
+      padding-bottom: 62px;
+    }
+
+    #recognition .section-heading {
+      margin-bottom: 22px;
+    }
+
+    #recognition .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    #recognition .body-copy {
+      margin-bottom: 28px !important;
+    }
+
+    #recognition .recognition-card {
+      border: 1px solid var(--line);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    #recognition .recognition-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 32px #20212412;
+    }
+
+    #recognition .recognition-image-wrap {
+      min-height: 0;
+      height: 280px;
+    }
+
+    #recognition .recognition-image {
+      height: 280px;
+      min-height: 0;
+      max-height: 280px;
+      padding: 8px;
+      object-fit: contain;
+    }
+
+    #recognition .recognition-copy {
+      padding: 16px 18px;
+    }
+
+    #recognition .recognition-copy h3 {
+      font-size: 1.05rem;
+      margin: 10px 0;
+    }
+
+    #recognition .recognition-copy p {
+      font-size: .82rem;
+      line-height: 1.7;
+    }
+
+    #recognition .recognition-date {
+      margin-top: 10px;
+      font-size: .72rem;
+    }
+
+    @media (max-width: 767px) {
+      #recognition {
+        padding-top: 45px;
+        padding-bottom: 45px;
       }
 
-      .reveal {
-        opacity: 1;
-        transform: none;
+      #recognition .recognition-image-wrap,
+      #recognition .recognition-image {
+        height: 240px;
+        min-height: 0;
+        max-height: 240px;
       }
+    }
 
-      #education .timeline::after { height: 100%; }
-
+    @media (prefers-reduced-motion: reduce) {
       #education .timeline article,
       #skills .skill-circle,
       #skills .track span {
@@ -1135,12 +1066,219 @@
         transition: none;
       }
     }
+
+  
+
+    /* APPLE-INSPIRED MOTION SYSTEM — restrained, smooth, premium */
+    :root {
+      --motion-ease: cubic-bezier(.22, 1, .36, 1);
+      --motion-fast: 420ms var(--motion-ease);
+      --motion-slow: 850ms var(--motion-ease);
+    }
+
+    body { -webkit-font-smoothing: antialiased; }
+
+    ::selection { background: #f4a90055; color: var(--ink); }
+
+    /* Thin scroll progress indicator */
+    .scroll-progress {
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--orange);
+      box-shadow: 0 0 12px #f4a90055;
+      pointer-events: none;
+    }
+
+    /* Smooth, cinematic section entrances */
+    .reveal {
+      opacity: 0;
+      transform: translate3d(0, 34px, 0) scale(.99);
+      filter: blur(3px);
+      transition:
+        opacity 900ms var(--motion-ease),
+        transform 900ms var(--motion-ease),
+        filter 900ms var(--motion-ease);
+      will-change: opacity, transform, filter;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+      filter: blur(0);
+    }
+
+    .delay { transition-delay: 140ms; }
+
+    /* Hero typography and portrait: slow, subtle motion */
+    .hero-inner .eyebrow,
+    .hero-inner > p,
+    .hero-inner h1,
+    .hero-inner > a,
+    .hero-inner .hero-bottom {
+      animation: appleRise 900ms var(--motion-ease) both;
+    }
+
+    .hero-inner .eyebrow { animation-delay: 80ms; }
+    .hero-inner h1 { animation-delay: 160ms; }
+    .hero-inner .hero-role { animation-delay: 240ms; }
+    .hero-inner .hero-description { animation-delay: 320ms; }
+    .hero-inner > a { animation-delay: 400ms; }
+    .hero-inner .hero-bottom { animation-delay: 520ms; }
+
+    .hero-profile-photo {
+      animation: portraitFloat 7s ease-in-out infinite;
+      transition: box-shadow 700ms var(--motion-ease), border-color 700ms var(--motion-ease);
+    }
+
+    .hero-profile-photo:hover {
+      border-color: #ffd66b;
+      box-shadow: 0 0 0 18px #f4a90020, 0 30px 90px #0009;
+    }
+
+    .hero-orbit { animation-duration: 38s; }
+
+    /* Premium hover feedback across interactive elements */
+    .btn-orange, .nav-cta, .project-info a, .contact-links a,
+    .tag-list span, .about-card, .testimonial, .skill-icon {
+      transition-timing-function: var(--motion-ease);
+    }
+
+    .btn-orange, .nav-cta {
+      transition: transform var(--motion-fast), background var(--motion-fast), box-shadow var(--motion-fast);
+    }
+
+    .btn-orange:hover, .nav-cta:hover {
+      box-shadow: 0 10px 28px #f4a90035;
+    }
+
+    .tag-list span { transition: transform var(--motion-fast), background var(--motion-fast); }
+    .tag-list span:hover { transform: translateY(-3px); background: #ffedbf; }
+
+    .about-card, .testimonial {
+      transition: transform 600ms var(--motion-ease), box-shadow 600ms var(--motion-ease);
+    }
+
+    .about-card:hover, .testimonial:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 45px #2021240d;
+    }
+
+    /* Project cards reveal with a gentle lift, not a hard bounce */
+    .project-card {
+      transition: transform 650ms var(--motion-ease), opacity 650ms var(--motion-ease);
+      transform: translateY(0);
+    }
+
+    .project-card:hover { transform: translateY(-8px); }
+
+    .project-art { position: relative; }
+
+    .project-art::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(120deg, transparent 20%, #ffffff55 48%, transparent 72%);
+      transform: translateX(-130%);
+      transition: transform 950ms var(--motion-ease);
+    }
+
+    .project-card:hover .project-art::after { transform: translateX(130%); }
+
+    .project-visual { transition: transform 700ms var(--motion-ease), box-shadow 700ms var(--motion-ease); }
+    .project-card:hover .project-visual { box-shadow: 0 28px 55px #00000025; }
+
+    /* Skill icon halo and fluid progress bars */
+    #skills .skill-icon {
+      box-shadow: 0 0 0 0 #f4a90000;
+      transition: transform 550ms var(--motion-ease), box-shadow 550ms var(--motion-ease);
+    }
+
+    #skills .skill-circle:hover .skill-icon {
+      transform: translateY(-7px) scale(1.04);
+      box-shadow: 0 0 0 8px #f4a90017, 0 12px 28px #f4a90025;
+    }
+
+    #skills .track { border-radius: 99px; }
+    #skills .track span { border-radius: 99px; }
+
+    /* Education timeline line and nodes animate into focus */
+    #education .timeline { position: relative; }
+
+    #education .timeline::after {
+      content: "";
+      position: absolute;
+      left: -1px;
+      top: 0;
+      width: 2px;
+      height: 0;
+      background: var(--orange);
+      transition: height 1.3s var(--motion-ease);
+    }
+
+    #education .timeline.show::after { height: 100%; }
+
+    #education .timeline article {
+      transition: opacity 700ms var(--motion-ease), transform 700ms var(--motion-ease);
+    }
+
+    #education .timeline article::before {
+      z-index: 1;
+      transition: background 450ms ease, box-shadow 450ms ease, transform 450ms var(--motion-ease);
+    }
+
+    #education .timeline article:hover::before {
+      transform: scale(1.25);
+      box-shadow: 0 0 0 7px #f4a90020;
+    }
+
+    /* Writing card: slow ambient movement */
+    .book-card { transition: transform 700ms var(--motion-ease), box-shadow 700ms var(--motion-ease); }
+    .book-card:hover { transform: translateY(-5px) rotate(-.5deg); box-shadow: 16px 18px 0 #f4a900; }
+    .book-card::before, .book-card::after { transition: transform 900ms var(--motion-ease); }
+    .book-card:hover::before { transform: scale(1.08); }
+    .book-card:hover::after { transform: scale(1.12); }
+
+    /* Recognition images gently zoom inside the frame */
+    #recognition .recognition-image-wrap { overflow: hidden; }
+    #recognition .recognition-image { transition: transform 800ms var(--motion-ease); }
+    #recognition .recognition-card:hover .recognition-image { transform: scale(1.035); }
+
+    /* Contact links glide slightly into place */
+    .contact-links a { transition: color 350ms ease, transform 350ms var(--motion-ease); }
+    .contact-links a:hover { transform: translateX(5px); }
+
+    @keyframes appleRise {
+      from { opacity: 0; transform: translate3d(0, 22px, 0); filter: blur(4px); }
+      to { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+    }
+
+    @keyframes portraitFloat {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -10px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+        filter: none !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+      #education .timeline::after { height: 100%; }
+    }
+
   </style>
 </head>
 
 <body>
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-
   <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
     <div class="container">
       <a class="navbar-brand" href="#home">
@@ -1173,6 +1311,7 @@
   </nav>
 
   <main>
+    <!-- HERO -->
     <section class="hero" id="home">
       <img class="hero-profile-photo"
         src="sanoj.jpg"
@@ -1210,6 +1349,7 @@
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section class="section" id="about">
       <div class="container">
         <div class="section-heading reveal">
@@ -1263,6 +1403,7 @@
       </div>
     </section>
 
+    <!-- SHOWCASE -->
     <section class="showcase">
       <div class="showcase-art">
         <div class="mock-device">
@@ -1284,6 +1425,7 @@
       </div>
     </section>
 
+    <!-- EDUCATION -->
     <section class="section soft-bg" id="education">
       <div class="container">
         <div class="section-heading reveal">
@@ -1322,6 +1464,7 @@
       </div>
     </section>
 
+    <!-- SKILLS -->
     <section class="section" id="skills">
       <div class="container">
         <div class="section-heading reveal">
@@ -1382,6 +1525,7 @@
       </div>
     </section>
 
+    <!-- PROJECTS -->
     <section class="section projects-dark" id="projects">
       <div class="container">
         <div class="section-heading reveal">
@@ -1407,7 +1551,7 @@
                   <small>ARTIFICIAL INTELLIGENCE</small>
                   <h3>Deepfake Image Detection</h3>
                 </div>
-                <a href="https://github.com/sanojnpaulose/SleepGuard-AI-Web" target="_blank" rel="noopener" aria-label="GitHub">↗</a>
+                <a href="https://github.com/sanojnpaulose" target="_blank" rel="noopener" aria-label="GitHub">↗</a>
               </div>
             </article>
           </div>
@@ -1417,14 +1561,14 @@
               <div class="project-art art-two">
                 <div class="project-visual">
                   <small>AI / WELLNESS</small>
-                  <strong>Sleep<br>Analysis AI</strong>
+                  <strong>SleepGuard<br>AI</strong>
                   <div class="fake-button"></div>
                 </div>
               </div>
               <div class="project-info">
                 <div>
                   <small>AI ANALYSIS</small>
-                  <h3>Sleep Analysis AI</h3>
+                  <h3>SleepGuard AI</h3>
                 </div>
                 <a href="https://github.com/sanojnpaulose" target="_blank" rel="noopener" aria-label="GitHub">↗</a>
               </div>
@@ -1472,6 +1616,7 @@
       </div>
     </section>
 
+    <!-- CREATIVE THINKING -->
     <section class="section">
       <div class="container">
         <div class="section-heading reveal">
@@ -1496,6 +1641,7 @@
       </div>
     </section>
 
+    <!-- WRITING -->
     <section class="section writing-section" id="writing">
       <div class="container">
         <div class="section-heading reveal">
@@ -1544,6 +1690,7 @@
       </div>
     </section>
 
+    <!-- RECOGNITION -->
     <section class="section recognition-section" id="recognition">
       <div class="container">
         <div class="section-heading reveal">
@@ -1618,6 +1765,7 @@
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section class="section" id="contact">
       <div class="container">
         <div class="contact-panel reveal">
@@ -1650,6 +1798,7 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       <a href="#home">S<span>.</span></a>
@@ -1661,24 +1810,14 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    // Scroll progress indicator
+    // Scroll progress indicator — subtle Apple-style page feedback
     const scrollProgress = document.getElementById("scrollProgress");
-
     const updateScrollProgress = () => {
-      const scrollable =
-        document.documentElement.scrollHeight - window.innerHeight;
-
-      const progress = scrollable > 0
-        ? (window.scrollY / scrollable) * 100
-        : 0;
-
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
       scrollProgress.style.width = `${progress}%`;
     };
-
-    window.addEventListener("scroll", updateScrollProgress, {
-      passive: true
-    });
-
+    window.addEventListener("scroll", updateScrollProgress, { passive: true });
     window.addEventListener("resize", updateScrollProgress);
     updateScrollProgress();
 
@@ -1702,8 +1841,8 @@
       { threshold: 0.12 }
     );
 
-    document.querySelectorAll(".reveal").forEach(element => {
-      revealObserver.observe(element);
+    document.querySelectorAll(".reveal").forEach(el => {
+      revealObserver.observe(el);
     });
 
     // Active navigation links
@@ -1741,8 +1880,7 @@
     });
 
     // Automatically update copyright year
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
