@@ -2033,6 +2033,59 @@ html:not([data-theme="dark"]) #cinematic-cursor-ring.is-hover{
 @media (pointer:coarse){#cinematic-cursor,#cinematic-cursor-ring{display:none!important}}
 </style>
 
+
+<style id="sanoj-hero-full-side-portrait">
+/* Hero redesign: portrait fills one side instead of floating */
+.hero{position:relative!important;min-height:100svh!important;display:flex!important;align-items:center!important;overflow:hidden!important}
+.hero-profile-photo{position:absolute!important;left:0!important;right:auto!important;top:0!important;transform:none!important;width:43%!important;height:100%!important;max-width:none!important;object-fit:cover!important;object-position:center 28%!important;border:0!important;border-radius:0!important;outline:0!important;outline-offset:0!important;padding:0!important;box-shadow:none!important;filter:none!important;opacity:1!important;mix-blend-mode:normal!important;mask-image:linear-gradient(to right,#000 0%,#000 72%,transparent 100%)!important;-webkit-mask-image:linear-gradient(to right,#000 0%,#000 72%,transparent 100%)!important;animation:none!important;z-index:0!important}
+.hero::before{content:""!important;position:absolute!important;inset:0!important;z-index:1!important;pointer-events:none!important;background:linear-gradient(90deg,rgba(7,8,11,.03) 0%,rgba(7,8,11,.08) 28%,rgba(7,8,11,.72) 43%,#07080b 60%,#07080b 100%)!important}
+.hero-inner{position:relative!important;z-index:2!important;width:57%!important;max-width:none!important;margin-left:40%!important;margin-right:3%!important;padding-top:125px!important;padding-bottom:70px!important}
+.hero-orbit{left:20%!important;z-index:1!important;opacity:.35!important}
+@media(max-width:767px){.hero{min-height:100svh!important;align-items:flex-end!important}.hero-profile-photo{width:100%!important;height:56%!important;object-position:center 24%!important;mask-image:linear-gradient(to bottom,#000 0%,#000 58%,transparent 100%)!important;-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 58%,transparent 100%)!important}.hero::before{background:linear-gradient(180deg,rgba(7,8,11,.02) 0%,rgba(7,8,11,.12) 25%,rgba(7,8,11,.88) 52%,#07080b 72%,#07080b 100%)!important}.hero-inner{width:100%!important;margin:0!important;padding:340px 22px 54px!important}.hero-orbit{display:none!important}.hero h1{font-size:clamp(2.8rem,12vw,4.5rem)!important}}
+@media(min-width:768px) and (max-width:1024px){.hero-profile-photo{width:42%!important;object-position:42% center!important}.hero-inner{width:59%!important;margin-left:38%!important;padding-top:130px!important}.hero h1{font-size:clamp(3.2rem,7vw,5.5rem)!important}}
+</style>
+
+<style id="nav-cta-size-fix">
+/* Keep the navbar Let's Talk button compact and balanced */
+.nav-cta {
+  font-size: 0.82rem !important;
+  line-height: 1.15 !important;
+  padding: 10px 16px !important;
+  min-height: 0 !important;
+  letter-spacing: .035em !important;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .nav-cta { font-size: .78rem !important; padding: 9px 13px !important; }
+}
+</style>
+
+
+<style id="hero-portrait-right-side-fix">
+/* Keep the hero portrait on the RIGHT; text stays on the LEFT. */
+@media (min-width: 768px) {
+  .hero { position: relative !important; }
+  .hero-profile-photo {
+    left: auto !important; right: 0 !important; top: 0 !important;
+    transform: none !important; width: 46% !important; height: 100% !important;
+    max-width: none !important; object-fit: cover !important;
+    object-position: center 28% !important; border: 0 !important;
+    border-radius: 0 !important; outline: 0 !important; padding: 0 !important;
+    box-shadow: none !important; filter: none !important; opacity: 1 !important;
+    mix-blend-mode: normal !important;
+    mask-image: linear-gradient(to left, #000 0%, #000 72%, transparent 100%) !important;
+    -webkit-mask-image: linear-gradient(to left, #000 0%, #000 72%, transparent 100%) !important;
+    animation: none !important; z-index: 0 !important;
+  }
+  .hero-inner { width: 58% !important; max-width: 58% !important; margin-left: 0 !important; margin-right: auto !important; }
+  .hero::before {
+    content: "" !important; position: absolute !important; inset: 0 !important; z-index: 1 !important; pointer-events: none !important;
+    background: linear-gradient(90deg, #07080b 0%, #07080b 42%, rgba(7,8,11,.88) 53%, rgba(7,8,11,.08) 100%) !important;
+  }
+  .hero-inner { z-index: 2 !important; }
+}
+</style>
+
 </head>
 
 <body>
@@ -2949,6 +3002,62 @@ html[data-theme="dark"] body { background-color:#101116 !important; color:#f3f0e
   window.addEventListener('pageshow', forceNight);
 })();
 </script>
+
+
+<style id="day-hero-text-contrast-fix">
+/* Day mode only: restore strong contrast for every first-screen text element. */
+html:not([data-theme="dark"]) .hero,
+html:not([data-theme="dark"]) .hero .hero-inner,
+html:not([data-theme="dark"]) .hero .hero-copy,
+html:not([data-theme="dark"]) .hero .hero-role,
+html:not([data-theme="dark"]) .hero .hero-description,
+html:not([data-theme="dark"]) .hero .hero-bottom,
+html:not([data-theme="dark"]) .hero .hero-bottom p,
+html:not([data-theme="dark"]) .hero .hero-bottom span,
+html:not([data-theme="dark"]) .hero .eyebrow,
+html:not([data-theme="dark"]) .hero .hero-kicker,
+html:not([data-theme="dark"]) .hero .hero-meta,
+html:not([data-theme="dark"]) .hero .hero-inner p,
+html:not([data-theme="dark"]) .hero .hero-inner span,
+html:not([data-theme="dark"]) .hero .hero-inner li { color:#201b17!important; text-shadow:none!important; }
+html:not([data-theme="dark"]) .hero h1,
+html:not([data-theme="dark"]) .hero h1 strong,
+html:not([data-theme="dark"]) .hero h1 span { color:#201b17!important; -webkit-text-fill-color:#201b17!important; text-shadow:none!important; }
+html:not([data-theme="dark"]) .hero h1 em { color:#c94f1d!important; -webkit-text-fill-color:#c94f1d!important; -webkit-text-stroke:0!important; }
+html:not([data-theme="dark"]) .hero a:not(.btn-orange),
+html:not([data-theme="dark"]) .hero .text-link { color:#8d3b18!important; }
+html:not([data-theme="dark"]) .hero .btn-orange { color:#fffaf5!important; background:#c94f1d!important; }
+html:not([data-theme="dark"]) .hero .hero-profile-photo { z-index:0!important; }
+html:not([data-theme="dark"]) .hero .hero-inner { position:relative!important; z-index:2!important; }
+</style>
+
+
+<style id="day-hero-black-text-to-white-only">
+/* Only the unreadable dark text on the first/hero screen is changed to white in day mode. */
+html:not([data-theme="dark"]) .hero .hero-role,
+html:not([data-theme="dark"]) .hero .hero-description,
+html:not([data-theme="dark"]) .hero .hero-bottom,
+html:not([data-theme="dark"]) .hero .hero-bottom p,
+html:not([data-theme="dark"]) .hero .hero-bottom span,
+html:not([data-theme="dark"]) .hero .eyebrow,
+html:not([data-theme="dark"]) .hero .hero-kicker,
+html:not([data-theme="dark"]) .hero .hero-meta,
+html:not([data-theme="dark"]) .hero .hero-inner p,
+html:not([data-theme="dark"]) .hero .hero-inner span,
+html:not([data-theme="dark"]) .hero .hero-inner li,
+html:not([data-theme="dark"]) .hero h1,
+html:not([data-theme="dark"]) .hero h1 strong,
+html:not([data-theme="dark"]) .hero h1 span,
+html:not([data-theme="dark"]) .hero a:not(.btn-orange),
+html:not([data-theme="dark"]) .hero .text-link {
+  color:#fffaf5 !important;
+  -webkit-text-fill-color:#fffaf5 !important;
+  text-shadow:0 1px 12px rgba(0,0,0,.24) !important;
+}
+/* Keep the signature orange words and CTA styling as-is. */
+html:not([data-theme="dark"]) .hero h1 em { color:#f08a4b !important; -webkit-text-fill-color:#f08a4b !important; -webkit-text-stroke:0 !important; }
+html:not([data-theme="dark"]) .hero .btn-orange { color:#fffaf5 !important; -webkit-text-fill-color:#fffaf5 !important; }
+</style>
 
 </body>
 </html>
