@@ -11,13 +11,10 @@
   <meta property="og:type" content="website">
   <title>Sanoj N. Paulose — AI, Code & Creative Technology</title>
 
-  <!-- NEW: apply the saved day/night choice before the page paints (prevents a flash) -->
+  <!-- Start every fresh page visit in cinematic night mode. Viewers can pull the bulb to switch to day mode. -->
   <script>
-    try {
-      if (localStorage.getItem("sanoj-theme") === "dark") {
-        document.documentElement.setAttribute("data-theme", "dark");
-      }
-    } catch (e) {}
+    document.documentElement.setAttribute("data-theme", "dark");
+    try { localStorage.setItem("sanoj-theme", "dark"); } catch (e) {}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2834,6 +2831,24 @@ html[data-theme="dark"] .project-visual strong{color:#f5f3ef!important}
 html[data-theme="dark"] .project-visual small{color:#c3c4ca!important}
 @media(max-width:767px){html:not([data-theme="dark"]) .project-visual{padding:18px!important}}
 </style>
+
+
+<!-- HARD FIX: force night theme on every fresh page load; the bulb remains the only theme switch. -->
+<style id="force-night-default">
+html[data-theme="dark"] { color-scheme: dark !important; }
+html[data-theme="dark"] body { background-color:#101116 !important; color:#f3f0ea; }
+</style>
+<script id="force-night-default-script">
+(function(){
+  const forceNight = () => {
+    document.documentElement.setAttribute('data-theme','dark');
+    try { localStorage.setItem('sanoj-theme','dark'); } catch(e) {}
+  };
+  forceNight();
+  document.addEventListener('DOMContentLoaded', forceNight, { once:true });
+  window.addEventListener('pageshow', forceNight);
+})();
+</script>
 
 </body>
 </html>
