@@ -1890,6 +1890,52 @@ html[data-theme="dark"] #navbar .lamp-hint{color:#f5f3ef!important;background:#1
 }
 </style>
 
+
+<style id="what-if-premium-cover-frame">
+/* WHAT IF — premium framed book-cover treatment */
+#writing .writing-panel{position:relative;overflow:hidden;isolation:isolate}
+#writing .book-card{
+  position:relative!important;isolation:isolate!important;
+  width:min(100%,360px)!important;min-height:470px!important;
+  aspect-ratio:3/4!important;height:auto!important;
+  padding:clamp(25px,3vw,36px)!important;
+  border:1px solid rgba(255,255,255,.55)!important;
+  border-radius:5px 12px 12px 5px!important;
+  background:radial-gradient(ellipse at 85% 20%,#4a3a2b 0%,#292629 34%,#171719 78%)!important;
+  color:#fff8ec!important;
+  box-shadow:inset 5px 0 0 rgba(255,255,255,.08),inset 9px 0 0 rgba(0,0,0,.28),
+    0 0 0 5px #f5eee2,0 0 0 7px #d9a13c,18px 22px 0 rgba(217,161,60,.42),
+    0 28px 55px rgba(0,0,0,.22)!important;
+  transform:perspective(1100px) rotateY(-5deg)!important;
+  transition:transform .45s ease,box-shadow .45s ease!important;
+}
+#writing .book-card:before{z-index:0!important;border-color:rgba(244,169,0,.34)!important;width:245px!important;height:245px!important;right:-90px!important;top:70px!important}
+#writing .book-card:after{z-index:0!important;border-color:rgba(244,169,0,.46)!important;width:160px!important;height:160px!important;right:-48px!important;top:112px!important}
+#writing .book-card:hover{
+  transform:perspective(1100px) rotateY(0deg) translateY(-7px)!important;
+  box-shadow:inset 5px 0 0 rgba(255,255,255,.08),inset 9px 0 0 rgba(0,0,0,.28),
+    0 0 0 5px #f5eee2,0 0 0 7px #f4a900,22px 27px 0 rgba(217,161,60,.5),
+    0 35px 70px rgba(0,0,0,.28)!important;
+}
+#writing .book-kicker,#writing .book-bottom{color:#e8d6b8!important;letter-spacing:1.7px!important;line-height:1.7!important}
+#writing .book-title{color:#fff8ec!important;letter-spacing:-3px!important;line-height:.92!important;text-shadow:0 3px 18px rgba(0,0,0,.22)}
+#writing .book-title em{color:#f4a900!important;font-style:normal!important}
+#writing .book-title span{color:#ffb52e!important}
+#writing .book-rule{background:linear-gradient(90deg,#f4a900,#ffcf70)!important;border-radius:3px!important}
+#writing .book-thought{color:#f1e5d2!important;line-height:1.75!important}
+html:not([data-theme="dark"]) #writing .writing-panel{background:linear-gradient(135deg,#fffdf8,#f6f0e5)!important;border-color:#e7dcc9!important;box-shadow:0 18px 50px rgba(92,65,25,.08)!important}
+html:not([data-theme="dark"]) #writing .writing-copy h3{color:#202124!important}
+html:not([data-theme="dark"]) #writing .writing-copy .body-copy{color:#56534d!important}
+html[data-theme="dark"] #writing .writing-panel{background:linear-gradient(135deg,#171719,#202024)!important;border-color:#39363a!important}
+html[data-theme="dark"] #writing .book-card{box-shadow:inset 5px 0 0 rgba(255,255,255,.08),inset 9px 0 0 rgba(0,0,0,.28),0 0 0 5px #242326,0 0 0 7px #f4a900,18px 22px 0 rgba(244,169,0,.25),0 28px 55px rgba(0,0,0,.42)!important}
+@media(max-width:700px){
+ #writing .writing-panel{grid-template-columns:1fr!important;gap:34px!important}
+ #writing .book-card{width:min(88%,330px)!important;min-height:430px!important;transform:none!important}
+ #writing .book-title{font-size:clamp(3.6rem,16vw,5rem)!important}
+}
+@media(prefers-reduced-motion:reduce){#writing .book-card{transition:none!important}}
+</style>
+
 </head>
 
 <body>
@@ -2759,5 +2805,35 @@ html[data-theme="dark"] #navbar .lamp-hint{color:#f5f3ef!important;background:#1
  document.querySelectorAll('.hero .btn-orange,.nav-cta').forEach(el=>el.addEventListener('pointerleave',()=>{el.style.translate='';}));
 })();
 </script>
+
+<style id="daytime-attractiveness-and-project-contrast-fix">
+/* Day mode: brighter, warmer, and more polished without changing the content. */
+html:not([data-theme="dark"]) body{background:#fbf8f2!important}
+html:not([data-theme="dark"]) .hero{background:radial-gradient(ellipse at 78% 30%,rgba(255,166,77,.28),transparent 34%),radial-gradient(ellipse at 15% 85%,rgba(255,214,160,.36),transparent 38%),linear-gradient(125deg,#fffaf1 0%,#f5eee4 52%,#f9e3ce 100%)!important}
+html:not([data-theme="dark"]) .navbar{background:rgba(255,251,244,.94)!important;box-shadow:0 8px 28px rgba(74,49,27,.07)!important;backdrop-filter:blur(16px)}
+html:not([data-theme="dark"]) .section,html:not([data-theme="dark"]) .showcase,html:not([data-theme="dark"]) .projects-dark,html:not([data-theme="dark"]) .writing-section,html:not([data-theme="dark"]) .recognition-section{background:#fbf8f2!important}
+html:not([data-theme="dark"]) .section-heading h2{color:#25221f!important}
+html:not([data-theme="dark"]) .section-heading h2 em,html:not([data-theme="dark"]) .hero h1 em{color:#d95b22!important}
+html:not([data-theme="dark"]) .about-card,html:not([data-theme="dark"]) .skill-card,html:not([data-theme="dark"]) .education-item,html:not([data-theme="dark"]) .recognition-card,html:not([data-theme="dark"]) .testimonial,html:not([data-theme="dark"]) .writing-panel,html:not([data-theme="dark"]) .contact-panel{box-shadow:0 16px 44px rgba(70,48,27,.075)!important}
+html:not([data-theme="dark"]) .project-card{overflow:hidden;border:1px solid #e8d9c9!important;border-radius:18px!important;box-shadow:0 14px 34px rgba(74,49,27,.09)!important}
+/* The project art panels are illustrative mockups, not photographs. Give each a clear card and legible ink. */
+html:not([data-theme="dark"]) .project-visual{background:linear-gradient(145deg,#fffefa,#f4eee5)!important;color:#24211e!important;border:1px solid rgba(84,58,35,.12)!important;border-radius:12px!important;box-shadow:0 20px 42px rgba(49,35,23,.2)!important}
+html:not([data-theme="dark"]) .project-visual small{color:#6b6259!important;font-weight:700!important}
+html:not([data-theme="dark"]) .project-visual strong{color:#25221f!important;text-shadow:none!important}
+html:not([data-theme="dark"]) .project-visual p,html:not([data-theme="dark"]) .project-visual span,html:not([data-theme="dark"]) .project-visual div{ text-shadow:none }
+html:not([data-theme="dark"]) .project-info{background:#fffdf9!important;color:#24211e!important}
+html:not([data-theme="dark"]) .project-info h3,html:not([data-theme="dark"]) .project-info p,html:not([data-theme="dark"]) .project-info small{color:#34302b!important}
+html:not([data-theme="dark"]) .art-one{background:linear-gradient(135deg,#ffdf9e,#f6a64b)!important}
+html:not([data-theme="dark"]) .art-two{background:linear-gradient(135deg,#d9e8d9,#91b49c)!important}
+html:not([data-theme="dark"]) .art-three{background:linear-gradient(135deg,#e7ddff,#aaa0e7)!important}
+html:not([data-theme="dark"]) .art-four{background:linear-gradient(135deg,#2b3039,#555c68)!important}
+html:not([data-theme="dark"]) .project-card:hover{box-shadow:0 24px 48px rgba(74,49,27,.15)!important}
+/* Explicitly retain readable contrast in night mode too. */
+html[data-theme="dark"] .project-visual{background:linear-gradient(145deg,#202127,#15161b)!important;color:#f5f3ef!important;border:1px solid #383940!important;border-radius:12px!important}
+html[data-theme="dark"] .project-visual strong{color:#f5f3ef!important}
+html[data-theme="dark"] .project-visual small{color:#c3c4ca!important}
+@media(max-width:767px){html:not([data-theme="dark"]) .project-visual{padding:18px!important}}
+</style>
+
 </body>
 </html>
