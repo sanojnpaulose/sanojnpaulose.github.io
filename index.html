@@ -1708,7 +1708,7 @@ body>*:not(#cinematic-canvas):not(#cinematic-cursor):not(#cinematic-cursor-ring)
 .nav-link:hover::after,.nav-link.active::after{transform:translateX(0)}
 .hero{min-height:100svh!important;display:flex;align-items:center;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 75% 48%,rgba(255,106,42,.12),transparent 38%),linear-gradient(120deg,#07080b 20%,#111117 100%)!important}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,8,11,.96) 0%,rgba(7,8,11,.68) 45%,rgba(7,8,11,.08) 100%);z-index:-1}
-.hero::after{content:"SNP";position:absolute;right:-.05em;bottom:-.24em;font-size:clamp(250px,46vw,780px);line-height:.8;letter-spacing:-.13em;font-weight:900;color:rgba(255,255,255,.025);pointer-events:none;z-index:-1}
+.hero::after{content:"SNP";position:absolute;right:-.05em;bottom:-.24em;font-size:clamp(250px,46vw,780px);line-height:.8;letter-spacing:-.13em;font-weight:900;color:rgba(255,255,255,.075);pointer-events:none;z-index:0}
 .hero-inner{padding-top:110px!important;padding-bottom:100px!important;max-width:1400px!important}
 .hero .eyebrow{display:inline-flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,.17);padding:10px 14px;border-radius:100px;font-size:10px;letter-spacing:.19em;background:rgba(255,255,255,.035);backdrop-filter:blur(8px)}
 .hero .eyebrow::before{content:"";width:6px;height:6px;background:var(--cin-accent);border-radius:50%;box-shadow:0 0 14px var(--cin-accent);animation:signalPulse 1.8s infinite}
@@ -1721,7 +1721,7 @@ body>*:not(#cinematic-canvas):not(#cinematic-cursor):not(#cinematic-cursor-ring)
 .hero-description{max-width:490px!important;color:#aaaab3!important;font-size:clamp(14px,1.3vw,17px)!important;line-height:1.85!important}
 .hero-profile-photo{position:absolute!important;right:clamp(4%,10vw,16%);top:50%!important;transform:translateY(-47%) rotate(3deg)!important;width:clamp(230px,30vw,430px)!important;height:clamp(300px,40vw,540px)!important;object-fit:cover!important;border-radius:48% 48% 5px 5px!important;filter:grayscale(100%) contrast(1.1)!important;opacity:.82!important;mix-blend-mode:screen;box-shadow:0 0 0 1px rgba(255,255,255,.15),0 40px 100px rgba(0,0,0,.6)!important;animation:portraitFloat 7s ease-in-out infinite!important;z-index:0!important;mask-image:linear-gradient(to bottom,#000 70%,transparent 100%)}
 @keyframes portraitFloat{0%,100%{translate:0 0;rotate:2deg}50%{translate:0 -14px;rotate:-1deg}}
-.hero-inner{z-index:2!important}
+.hero-inner{z-index:2!important;position:relative!important}
 .hero .btn-orange,.nav-cta{border-radius:100px!important;padding:15px 23px!important;transition:transform .35s var(--cin-ease),box-shadow .35s!important;box-shadow:0 0 0 rgba(255,106,42,0)}
 .hero .btn-orange:hover,.nav-cta:hover{transform:translateY(-4px) scale(1.025)!important;box-shadow:0 12px 40px var(--cin-glow)!important}
 .hero-bottom{border-top:1px solid var(--cin-line);padding-top:18px;margin-top:70px!important;color:#85858e!important;letter-spacing:.16em!important;font-size:9px!important}
@@ -2083,6 +2083,105 @@ html:not([data-theme="dark"]) #cinematic-cursor-ring.is-hover{
     background: linear-gradient(90deg, #07080b 0%, #07080b 42%, rgba(7,8,11,.88) 53%, rgba(7,8,11,.08) 100%) !important;
   }
   .hero-inner { z-index: 2 !important; }
+}
+</style>
+
+
+<style id="what-if-writing-section-watermark">
+/* Subtle WHAT IF cover-inspired watermark — writing section only; never on hero */
+#writing .writing-panel{position:relative!important;isolation:isolate!important;overflow:hidden!important}
+#writing .writing-panel::before{
+  content:"";white-space:pre;position:absolute;z-index:-1;pointer-events:none;
+  right:2.5%;top:50%;transform:translateY(-50%) rotate(-7deg);
+  font-family:Georgia,'Times New Roman',serif;font-weight:900;
+  font-size:clamp(6rem,17vw,15rem);line-height:.72;letter-spacing:-.09em;
+  color:rgba(217,161,60,.085);text-align:center;
+  text-shadow:1px 1px 0 rgba(217,161,60,.05);
+}
+html[data-theme="dark"] #writing .writing-panel::before{color:rgba(244,169,0,.09)}
+html:not([data-theme="dark"]) #writing .writing-panel::before{color:rgba(126,83,22,.085)}
+#writing .writing-copy{position:relative;z-index:1}
+#writing .book-card{position:relative;z-index:1}
+@media(max-width:700px){#writing .writing-panel::before{right:-3%;top:42%;font-size:clamp(5.5rem,26vw,9rem);opacity:.8}}
+</style>
+
+
+<style id="snp-watermark-writing-only-fix">
+/* Subtle, complete SNP watermark only in the writing section. */
+.hero::after { content: none !important; display: none !important; }
+#writing .writing-panel {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+}
+#writing .writing-panel::after {
+  content: "SNP" !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  width: max-content !important;
+  max-width: 94% !important;
+  display: block !important;
+  text-align: center !important;
+  transform: translate(-50%, -50%) rotate(-7deg) !important;
+  z-index: 0 !important;
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-size: clamp(6rem, 15vw, 14rem) !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  letter-spacing: .04em !important;
+  color: rgba(126, 83, 13, .105) !important;
+  -webkit-text-stroke: 1px rgba(126, 83, 13, .09) !important;
+  text-shadow: none !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  white-space: nowrap !important;
+}
+#writing .writing-panel > * { position: relative; z-index: 1; }
+html:not([data-theme="dark"]) #writing .writing-panel::after {
+  color: rgba(126, 83, 13, .105) !important;
+  -webkit-text-stroke-color: rgba(126, 83, 13, .09) !important;
+}
+html[data-theme="dark"] #writing .writing-panel::after {
+  color: rgba(244, 169, 0, .12) !important;
+  -webkit-text-stroke-color: rgba(244, 169, 0, .10) !important;
+}
+@media(max-width:700px) {
+  #writing .writing-panel::after {
+    font-size: clamp(5rem, 22vw, 8rem) !important;
+    letter-spacing: .02em !important;
+    transform: translate(-50%, -50%) rotate(-5deg) !important;
+  }
+}
+</style>
+
+
+<style id="snp-watermark-final-fit">
+/* Keep the entire SNP watermark visible inside the writing panel. */
+.hero::after { content: none !important; display: none !important; }
+#writing .writing-panel::after {
+  content: "SNP" !important;
+  left: 50% !important; right: auto !important;
+  width: auto !important; max-width: none !important;
+  white-space: nowrap !important;
+  font-size: clamp(4.5rem, 9vw, 8.5rem) !important;
+  line-height: 1 !important; letter-spacing: .015em !important;
+  transform: translate(-50%, -50%) rotate(-5deg) !important;
+  color: rgba(190, 139, 48, .12) !important;
+  -webkit-text-stroke: .7px rgba(190, 139, 48, .10) !important;
+  text-shadow: none !important;
+  z-index: 0 !important; pointer-events: none !important;
+}
+html[data-theme="dark"] #writing .writing-panel::after {
+  color: rgba(244, 169, 0, .13) !important;
+  -webkit-text-stroke-color: rgba(244, 169, 0, .11) !important;
+}
+#writing .writing-panel > * { position: relative; z-index: 1; }
+@media (max-width: 700px) {
+  #writing .writing-panel::after {
+    font-size: clamp(4rem, 18vw, 6.5rem) !important;
+    letter-spacing: 0 !important;
+  }
 }
 </style>
 
@@ -2519,7 +2618,7 @@ html:not([data-theme="dark"]) #cinematic-cursor-ring.is-hover{
           </div>
 
           <div class="book-card">
-            <div class="book-kicker">A NOVEL BY SANOJ N PAULOSE</div>
+            <div class="book-kicker">A NOVEL BY -sNp...</div>
             <div class="book-title">WHAT<br><em>IF</em><span>!</span></div>
             <div class="book-rule"></div>
             <p class="book-thought">“Some books leave a silence behind.”</p>
@@ -3060,4 +3159,34 @@ html:not([data-theme="dark"]) .hero .btn-orange { color:#fffaf5 !important; -web
 </style>
 
 </body>
-</html>
+</html><style id="snp-watermark-position-final">
+/* Keep the hero clean; show a complete, subtle SNP watermark on the writing panel, away from the book cover. */
+.hero::after { content: none !important; display: none !important; }
+#writing .writing-panel::after {
+  content: "SNP" !important;
+  left: 31% !important;
+  right: auto !important;
+  top: 50% !important;
+  width: auto !important;
+  max-width: none !important;
+  white-space: nowrap !important;
+  font-size: clamp(5rem, 9vw, 8rem) !important;
+  line-height: 1 !important;
+  letter-spacing: .04em !important;
+  transform: translate(-50%, -50%) rotate(-5deg) !important;
+  color: rgba(190,139,48,.10) !important;
+  -webkit-text-stroke: .6px rgba(190,139,48,.10) !important;
+  text-shadow: none !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  user-select: none !important;
+}
+#writing .writing-panel > * { position: relative; z-index: 1; }
+html[data-theme="dark"] #writing .writing-panel::after {
+ color: rgba(244,169,0,.11) !important;
+ -webkit-text-stroke-color: rgba(244,169,0,.10) !important;
+}
+@media(max-width:700px) {
+ #writing .writing-panel::after { left: 50% !important; font-size: clamp(4rem, 18vw, 6rem) !important; }
+}
+</style>
