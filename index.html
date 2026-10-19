@@ -1933,6 +1933,106 @@ html[data-theme="dark"] #writing .book-card{box-shadow:inset 5px 0 0 rgba(255,25
 @media(prefers-reduced-motion:reduce){#writing .book-card{transition:none!important}}
 </style>
 
+
+<style id="day-mode-white-text-fix">
+/* Day mode only: make previously white/invisible copy readable without changing night mode. */
+html:not([data-theme="dark"]) body { color: #24211e !important; }
+html:not([data-theme="dark"]) main h1,
+html:not([data-theme="dark"]) main h2,
+html:not([data-theme="dark"]) main h3,
+html:not([data-theme="dark"]) main h4,
+html:not([data-theme="dark"]) main p,
+html:not([data-theme="dark"]) main li,
+html:not([data-theme="dark"]) main label,
+html:not([data-theme="dark"]) main .section-label,
+html:not([data-theme="dark"]) main .eyebrow,
+html:not([data-theme="dark"]) main .section-kicker,
+html:not([data-theme="dark"]) main .project-info,
+html:not([data-theme="dark"]) main .project-info *,
+html:not([data-theme="dark"]) main .creative-work,
+html:not([data-theme="dark"]) main .creative-work *,
+html:not([data-theme="dark"]) main .writing-section,
+html:not([data-theme="dark"]) main .writing-section * { color: #24211e !important; }
+html:not([data-theme="dark"]) main a:not(.btn):not(.button) { color: #8b4b18 !important; }
+html:not([data-theme="dark"]) main .muted,
+html:not([data-theme="dark"]) main .subtitle,
+html:not([data-theme="dark"]) main .description { color: #514940 !important; }
+html:not([data-theme="dark"]) main .project-visual,
+html:not([data-theme="dark"]) main .project-visual * { text-shadow: none !important; }
+</style>
+
+
+  <style id="day-section-separation-fix">
+    /* Day mode: make each major page section visually distinct without changing night mode. */
+    html:not([data-theme="dark"]) body > main > section,
+    html:not([data-theme="dark"]) main > section {
+      position: relative;
+      border-bottom: 1px solid #e2d7c7;
+      box-shadow: 0 10px 28px rgba(80, 54, 25, 0.035);
+    }
+    html:not([data-theme="dark"]) #about,
+    html:not([data-theme="dark"]) #skills,
+    html:not([data-theme="dark"]) #contact {
+      background: #fffdf8;
+    }
+    html:not([data-theme="dark"]) #education,
+    html:not([data-theme="dark"]) #writing,
+    html:not([data-theme="dark"]) #recognition {
+      background: #f7f1e7;
+      border-top: 1px solid #eadcc8;
+      border-bottom: 1px solid #eadcc8;
+    }
+    html:not([data-theme="dark"]) .showcase,
+    html:not([data-theme="dark"]) #projects {
+      border-top: 1px solid #e0c9a7;
+      border-bottom: 1px solid #e0c9a7;
+    }
+    html:not([data-theme="dark"]) .section-heading {
+      padding-bottom: 18px;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #ead9c2;
+    }
+    html:not([data-theme="dark"]) .section-heading h2::after {
+      content: "";
+      display: block;
+      width: 54px;
+      height: 3px;
+      margin-top: 12px;
+      border-radius: 3px;
+      background: #d88b16;
+    }
+    html:not([data-theme="dark"]) .project-card,
+    html:not([data-theme="dark"]) .recognition-card,
+    html:not([data-theme="dark"]) .writing-panel,
+    html:not([data-theme="dark"]) .contact-panel,
+    html:not([data-theme="dark"]) .testimonial {
+      border: 1px solid #e5d7c5;
+      box-shadow: 0 12px 30px rgba(70, 45, 18, 0.07);
+    }
+    @media (max-width: 768px) {
+      html:not([data-theme="dark"]) body > main > section,
+      html:not([data-theme="dark"]) main > section { border-bottom-width: 2px; }
+    }
+  </style>
+
+
+<!-- DAY MODE CURSOR VISIBILITY FIX -->
+<style id="day-mode-cursor-visibility-fix">
+html:not([data-theme="dark"]) #cinematic-cursor{
+  background:#d95b22!important; mix-blend-mode:normal!important;
+  box-shadow:0 0 0 2px rgba(255,255,255,.92),0 2px 8px rgba(65,39,20,.28)!important;
+}
+html:not([data-theme="dark"]) #cinematic-cursor-ring{
+  border:1.5px solid rgba(75,49,30,.78)!important;
+  background:rgba(255,255,255,.12)!important;
+  box-shadow:0 0 0 1px rgba(255,255,255,.55)!important;
+}
+html:not([data-theme="dark"]) #cinematic-cursor-ring.is-hover{
+  border-color:#d95b22!important; background:rgba(217,91,34,.13)!important;
+}
+@media (pointer:coarse){#cinematic-cursor,#cinematic-cursor-ring{display:none!important}}
+</style>
+
 </head>
 
 <body>
