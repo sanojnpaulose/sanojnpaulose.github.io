@@ -25,7 +25,7 @@
 
   <style>
     :root {
-      --orange: #f4a900;
+      --orange: #ff8a24;
       --ink: #202124;
       --muted: #73767c;
       --line: #e8e8e5;
@@ -3188,5 +3188,250 @@ html[data-theme="dark"] #writing .writing-panel::after {
 }
 @media(max-width:700px) {
  #writing .writing-panel::after { left: 50% !important; font-size: clamp(4rem, 18vw, 6rem) !important; }
+}
+</style>
+
+
+<!-- Night Blue / Red / Orange / White / Burgundy color theme; layout and interactions preserved. -->
+<style id="snp-five-color-theme">
+:root {
+  --orange: #ff8a24 !important;
+  --ink: #f7f8fc;
+  --muted: #b8c2d3;
+  --line: #29384d;
+  --soft: #0b1729;
+  --snp-night-blue: #071426;
+  --snp-red: #e53945;
+  --snp-orange: #ff8a24;
+  --snp-white: #ffffff;
+  --snp-burgundy: #800020;
+}
+html[data-theme="dark"] body { background: #071426 !important; color: #f7f8fc !important; }
+html[data-theme="dark"] .navbar,
+html[data-theme="dark"] .navbar.scrolled { background: rgba(7,20,38,.94) !important; border-bottom: 1px solid rgba(255,255,255,.08); }
+html[data-theme="dark"] .navbar-brand,
+html[data-theme="dark"] .navbar .nav-link,
+html[data-theme="dark"] .section-heading h2,
+html[data-theme="dark"] .about-card,
+html[data-theme="dark"] .skill-card,
+html[data-theme="dark"] .education-item,
+html[data-theme="dark"] .recognition-card,
+html[data-theme="dark"] .testimonial,
+html[data-theme="dark"] .contact-panel { color: #fff !important; }
+html[data-theme="dark"] .hero {
+ background: radial-gradient(ellipse at 78% 25%, rgba(229,57,69,.20), transparent 34%),
+             radial-gradient(ellipse at 15% 88%, rgba(255,138,36,.15), transparent 38%),
+             linear-gradient(125deg,#071426 0%,#0a1b31 58%,#101b31 100%) !important;
+}
+html[data-theme="dark"] .section,
+html[data-theme="dark"] .showcase,
+html[data-theme="dark"] .writing-section,
+html[data-theme="dark"] .recognition-section { background: #071426 !important; color: #f7f8fc !important; }
+html[data-theme="dark"] .projects-dark { background: #0b1729 !important; color: #fff !important; }
+html[data-theme="dark"] .about-card,
+html[data-theme="dark"] .skill-card,
+html[data-theme="dark"] .education-item,
+html[data-theme="dark"] .recognition-card,
+html[data-theme="dark"] .testimonial,
+html[data-theme="dark"] .contact-panel { background: #0c1b30 !important; border-color: #29384d !important; }
+html[data-theme="dark"] .project-card { border-color: rgba(255,138,36,.28) !important; }
+html[data-theme="dark"] .project-info { background: #0c1b30 !important; color: #fff !important; }
+html[data-theme="dark"] .project-info h3,
+html[data-theme="dark"] .project-info p,
+html[data-theme="dark"] .project-info small { color: #f7f8fc !important; }
+html[data-theme="dark"] .project-visual { background: linear-gradient(145deg,#10243c,#0a1526) !important; color: #fff !important; border-color: #31435b !important; }
+html[data-theme="dark"] .project-visual strong { color: #fff !important; }
+html[data-theme="dark"] .project-visual small { color: #c5d0df !important; }
+html[data-theme="dark"] .writing-panel { background: linear-gradient(135deg,#31101f,#800020 58%,#401326) !important; color: #fff !important; border-color: rgba(255,138,36,.45) !important; box-shadow: 12px 12px 0 rgba(255,138,36,.85) !important; }
+html[data-theme="dark"] .writing-panel h1,
+html[data-theme="dark"] .writing-panel h2,
+html[data-theme="dark"] .writing-panel h3,
+html[data-theme="dark"] .writing-panel p { color: #fff !important; }
+html[data-theme="dark"] .writing-panel::after { color: rgba(255,255,255,.09) !important; -webkit-text-stroke-color: rgba(255,255,255,.09) !important; }
+html[data-theme="dark"] em,
+html[data-theme="dark"] .section-heading h2 em,
+html[data-theme="dark"] .hero h1 em { color: #ff8a24 !important; }
+html[data-theme="dark"] .btn-orange,
+html[data-theme="dark"] .btn-primary,
+html[data-theme="dark"] .button-primary { background: #e53945 !important; border-color: #e53945 !important; color: #fff !important; }
+html[data-theme="dark"] .btn-orange:hover,
+html[data-theme="dark"] .btn-primary:hover,
+html[data-theme="dark"] .button-primary:hover { background: #ff8a24 !important; border-color: #ff8a24 !important; color: #071426 !important; }
+html[data-theme="dark"] a:not(.btn):hover,
+html[data-theme="dark"] .nav-link:hover { color: #ff8a24 !important; }
+html[data-theme="dark"] .brand-icon,
+html[data-theme="dark"] .hero-profile-photo { border-color: #ff8a24 !important; }
+html[data-theme="dark"] .art-one { background: linear-gradient(135deg,#e53945,#ff8a24) !important; }
+html[data-theme="dark"] .art-two { background: linear-gradient(135deg,#102a49,#345b83) !important; }
+html[data-theme="dark"] .art-three { background: linear-gradient(135deg,#800020,#c13b51) !important; }
+html[data-theme="dark"] .art-four { background: linear-gradient(135deg,#071426,#26364d) !important; }
+html[data-theme="dark"] .tag,
+html[data-theme="dark"] .badge { background: rgba(229,57,69,.15) !important; color: #ffb3b8 !important; border-color: rgba(229,57,69,.45) !important; }
+html[data-theme="dark"] footer { background: #050e1b !important; color: #dce5f2 !important; }
+/* The original bulb toggle remains functional; day mode uses the same palette in a lighter balance. */
+html:not([data-theme="dark"]) body { background: #f5f7fb !important; color: #071426 !important; }
+html:not([data-theme="dark"]) .navbar { background: rgba(255,255,255,.94) !important; }
+html:not([data-theme="dark"]) .hero { background: radial-gradient(ellipse at 80% 25%,rgba(229,57,69,.12),transparent 34%),radial-gradient(ellipse at 15% 85%,rgba(255,138,36,.17),transparent 38%),linear-gradient(125deg,#fff 0%,#eef3fa 58%,#f9e9e7 100%) !important; }
+html:not([data-theme="dark"]) .section,html:not([data-theme="dark"]) .showcase,html:not([data-theme="dark"]) .writing-section,html:not([data-theme="dark"]) .recognition-section { background:#f5f7fb !important; }
+html:not([data-theme="dark"]) .projects-dark { background:#071426 !important; color:#fff !important; }
+html:not([data-theme="dark"]) .section-heading h2 em,html:not([data-theme="dark"]) .hero h1 em { color:#e53945 !important; }
+html:not([data-theme="dark"]) .writing-panel { background:linear-gradient(135deg,#31101f,#800020 58%,#401326) !important; color:#fff !important; box-shadow:12px 12px 0 #ff8a24 !important; }
+html:not([data-theme="dark"]) .writing-panel h1,html:not([data-theme="dark"]) .writing-panel h2,html:not([data-theme="dark"]) .writing-panel h3,html:not([data-theme="dark"]) .writing-panel p { color:#fff !important; }
+html:not([data-theme="dark"]) .btn-orange { background:#e53945 !important; border-color:#e53945 !important; color:#fff !important; }
+html:not([data-theme="dark"]) .art-one { background:linear-gradient(135deg,#e53945,#ff8a24) !important; }
+html:not([data-theme="dark"]) .art-two { background:linear-gradient(135deg,#102a49,#345b83) !important; }
+html:not([data-theme="dark"]) .art-three { background:linear-gradient(135deg,#800020,#c13b51) !important; }
+html:not([data-theme="dark"]) .art-four { background:linear-gradient(135deg,#071426,#26364d) !important; }
+</style>
+
+
+
+<style id="project-day-and-lets-talk-night-fix">
+/* Day mode: make the Projects section and each project card consistently readable. */
+html:not([data-theme="dark"]) #projects.projects-dark {
+  background: linear-gradient(145deg, #eef3fa 0%, #f7f1f0 58%, #fff3e8 100%) !important;
+  color: #071426 !important;
+}
+html:not([data-theme="dark"]) #projects .section-heading h2,
+html:not([data-theme="dark"]) #projects .section-heading small,
+html:not([data-theme="dark"]) #projects .section-number { color: #071426 !important; }
+html:not([data-theme="dark"]) #projects .section-heading h2 em { color: #b42332 !important; }
+html:not([data-theme="dark"]) #projects .project-card {
+  background: #ffffff !important; border: 1px solid rgba(7,20,38,.12) !important;
+  border-radius: 18px !important; overflow: hidden !important;
+  box-shadow: 0 14px 34px rgba(7,20,38,.10) !important;
+}
+html:not([data-theme="dark"]) #projects .project-info {
+  background: #ffffff !important; color: #071426 !important;
+}
+html:not([data-theme="dark"]) #projects .project-info h3 { color: #071426 !important; }
+html:not([data-theme="dark"]) #projects .project-info small { color: #6c2735 !important; }
+html:not([data-theme="dark"]) #projects .project-info a { color: #b42332 !important; }
+html:not([data-theme="dark"]) #projects .project-visual {
+  background: linear-gradient(145deg,#ffffff,#e8eef7) !important;
+  color: #071426 !important; border: 1px solid rgba(7,20,38,.10) !important;
+}
+html:not([data-theme="dark"]) #projects .project-visual strong { color: #071426 !important; }
+html:not([data-theme="dark"]) #projects .project-visual small { color: #6c2735 !important; }
+/* Night mode: keep Let's Talk clearly visible against the dark navigation. */
+html[data-theme="dark"] .navbar .nav-cta,
+html[data-theme="dark"] .nav-cta {
+  display: inline-flex !important; align-items: center !important; justify-content: center !important;
+  background: linear-gradient(110deg,#e53945 0%,#ff8a24 100%) !important;
+  color: #071426 !important; border: 1px solid #ff8a24 !important;
+  box-shadow: 0 5px 18px rgba(229,57,69,.24) !important;
+  text-decoration: none !important; opacity: 1 !important;
+}
+html[data-theme="dark"] .navbar .nav-cta:hover,
+html[data-theme="dark"] .nav-cta:hover,
+html[data-theme="dark"] .nav-cta:focus-visible {
+  background: #ffffff !important; color: #071426 !important; border-color: #ffffff !important;
+}
+html[data-theme="dark"] .navbar .nav-cta:visited { color: #071426 !important; }
+
+/* Targeted contrast fixes: hero CTAs in both themes */
+html[data-theme="dark"] .hero a.btn-orange,
+html[data-theme="dark"] .hero .btn-orange {
+  background: linear-gradient(110deg, #e53945 0%, #ff8a24 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid #ff8a24 !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.24) !important;
+  box-shadow: 0 8px 24px rgba(229,57,69,.24) !important;
+}
+html[data-theme="dark"] .hero a.btn-orange:hover,
+html[data-theme="dark"] .hero .btn-orange:hover {
+  background: #ffffff !important;
+  color: #071426 !important;
+  border-color: #ffffff !important;
+}
+html:not([data-theme="dark"]) .hero a.btn-orange,
+html:not([data-theme="dark"]) .hero .btn-orange {
+  background: linear-gradient(110deg, #b42332 0%, #e56c19 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid #b42332 !important;
+  box-shadow: 0 8px 22px rgba(180,35,50,.16) !important;
+}
+html:not([data-theme="dark"]) .hero a.btn-orange:hover,
+html:not([data-theme="dark"]) .hero .btn-orange:hover {
+  background: #071426 !important;
+  color: #ffffff !important;
+  border-color: #071426 !important;
+}
+/* “More About Me” uses outline-light, which was too pale in day mode. */
+html:not([data-theme="dark"]) .hero a.btn-outline-light {
+  background: rgba(255,255,255,.78) !important;
+  color: #071426 !important;
+  border: 1.5px solid #6c2735 !important;
+  box-shadow: 0 6px 18px rgba(7,20,38,.07) !important;
+}
+html:not([data-theme="dark"]) .hero a.btn-outline-light:hover,
+html:not([data-theme="dark"]) .hero a.btn-outline-light:focus-visible {
+  background: #071426 !important;
+  color: #ffffff !important;
+  border-color: #071426 !important;
+}
+html[data-theme="dark"] .hero a.btn-outline-light {
+  background: rgba(255,255,255,.04) !important;
+  color: #ffffff !important;
+  border: 1.5px solid #ff8a24 !important;
+}
+html[data-theme="dark"] .hero a.btn-outline-light:hover,
+html[data-theme="dark"] .hero a.btn-outline-light:focus-visible {
+  background: #ffffff !important;
+  color: #071426 !important;
+  border-color: #ffffff !important;
+}
+</style>
+
+<style id="more-about-me-daymode-final-fix">
+/* Final day-mode correction for the More About Me hero CTA only */
+html:not([data-theme="dark"]) .hero a.btn.btn-outline-light[href="#about"] {
+  display: inline-flex !important; align-items: center; justify-content: center;
+  background: #ffffff !important; color: #071426 !important;
+  border: 2px solid #800020 !important;
+  text-decoration: none !important; opacity: 1 !important;
+  text-shadow: none !important; -webkit-text-fill-color: #071426 !important;
+  box-shadow: 0 5px 0 rgba(128,0,32,.12), 0 8px 20px rgba(7,20,38,.08) !important;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .2s ease, box-shadow .2s ease !important;
+}
+html:not([data-theme="dark"]) .hero a.btn.btn-outline-light[href="#about"]:hover,
+html:not([data-theme="dark"]) .hero a.btn.btn-outline-light[href="#about"]:focus-visible,
+html:not([data-theme="dark"]) .hero a.btn.btn-outline-light[href="#about"]:active {
+  background: #800020 !important; color: #ffffff !important; -webkit-text-fill-color: #ffffff !important;
+  border-color: #800020 !important; transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(128,0,32,.22) !important;
+}
+html:not([data-theme="dark"]) .hero a.btn.btn-outline-light[href="#about"]:focus-visible { outline: 3px solid #ff8a24 !important; outline-offset: 3px !important; }
+</style>
+
+
+<style id="paulose-night-black-white-outline-orange-hover">
+/* NIGHT MODE: PAULOSE stays black-filled with a crisp white outline. Hover animates it to orange. */
+html[data-theme="dark"] .hero h1 em {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  -webkit-text-stroke: 1.8px #ffffff !important;
+  text-shadow: 0 0 1px rgba(255,255,255,.35) !important;
+  font-style: normal !important;
+  transition: color .38s ease, -webkit-text-fill-color .38s ease,
+              -webkit-text-stroke-color .38s ease, text-shadow .38s ease,
+              transform .38s cubic-bezier(.2,.8,.2,1) !important;
+  transform-origin: left center;
+}
+html[data-theme="dark"] .hero h1 em:hover {
+  color: #ff8a24 !important;
+  -webkit-text-fill-color: #ff8a24 !important;
+  -webkit-text-stroke: 1.8px #ff8a24 !important;
+  text-shadow: 0 0 10px rgba(255,138,36,.38), 0 0 24px rgba(255,138,36,.2) !important;
+  transform: translateY(-2px) scale(1.015);
+  animation: pauloseOrangeGlow 1.15s ease-in-out infinite alternate;
+}
+@keyframes pauloseOrangeGlow {
+  from { text-shadow: 0 0 7px rgba(255,138,36,.25), 0 0 14px rgba(255,138,36,.12); }
+  to   { text-shadow: 0 0 12px rgba(255,138,36,.55), 0 0 27px rgba(255,138,36,.28); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-theme="dark"] .hero h1 em,
+  html[data-theme="dark"] .hero h1 em:hover { transition: none !important; animation: none !important; }
 }
 </style>
