@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +11,7 @@
   <meta property="og:type" content="website">
   <title>Sanoj N. Paulose — AI, Code & Creative Technology</title>
 
-  <!-- Theme is controlled by the site's day/night bulb. Do not force night mode here. -->
+  <!-- Night mode is the default on every open (data-theme="dark" on <html>). Day mode only appears when the bulb is pulled/clicked. -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -3562,18 +3562,12 @@ html[data-theme="dark"] .project-visual small{color:#c3c4ca!important}
 </style>
 
 
-<!-- Theme defaults to daylight in this preview; the existing bulb toggle switches day/night. -->
+<!-- Night is the default theme; the bulb toggle switches to day mode. -->
 <style id="force-night-default">
 html[data-theme="dark"] { color-scheme: dark !important; }
 html[data-theme="dark"] body { background-color:#101116 !important; color:#f3f0ea; }
 </style>
-<script id="preview-day-default-script">
-(function(){
-  // Preview opens in daylight so the handwritten design is immediately visible.
-  document.documentElement.removeAttribute('data-theme');
-  try { localStorage.setItem('sanoj-theme','light'); } catch(e) {}
-})();
-</script>
+
 
 
 <style id="day-hero-text-contrast-fix">
