@@ -11,11 +11,7 @@
   <meta property="og:type" content="website">
   <title>Sanoj N. Paulose — AI, Code & Creative Technology</title>
 
-  <!-- Start every fresh page visit in cinematic night mode. Viewers can pull the bulb to switch to day mode. -->
-  <script>
-    document.documentElement.setAttribute("data-theme", "dark");
-    try { localStorage.setItem("sanoj-theme", "dark"); } catch (e) {}
-  </script>
+  <!-- Theme is controlled by the site's day/night bulb. Do not force night mode here. -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1620,6 +1616,17 @@
 
     .lamp-hint.show { opacity: 1; transform: translateY(0); }
 
+    /* Night-mode microcopy: a quiet, professional hint beneath the bulb. */
+    html[data-theme="dark"] .lamp-hint {
+      opacity: 1;
+      transform: translateY(0);
+      color: #f6e9c8;
+      background: rgba(25, 26, 30, .96);
+      border: 1px solid rgba(255, 210, 112, .42);
+      box-shadow: 0 5px 18px rgba(0, 0, 0, .28);
+      letter-spacing: 1.1px;
+    }
+
     /* on tablets/phones the lamp hangs from the left, away from the portrait */
     @media (max-width: 991px) {
       .lamp {
@@ -2435,9 +2442,229 @@ html:not([data-theme="dark"]) #education .timeline article::before {
 #education .timeline::after { display: none !important; }
 </style>
 
+
+<style id="snp-daytime-handwritten-background">
+/* Day mode: warm sketchbook / handwritten-inspired atmosphere.
+   Night mode is intentionally left untouched. */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap');
+
+html:not([data-theme="dark"]) body {
+  background-color: #f3e8d7 !important;
+  background-image:
+    radial-gradient(ellipse at 8% 10%, rgba(255,255,255,.82) 0, transparent 35%),
+    radial-gradient(ellipse at 88% 20%, rgba(218,174,122,.20) 0, transparent 31%),
+    radial-gradient(ellipse at 24% 75%, rgba(255,255,255,.50) 0, transparent 34%),
+    repeating-linear-gradient(0deg, rgba(104,79,54,.025) 0px, rgba(104,79,54,.025) 1px, transparent 1px, transparent 5px),
+    linear-gradient(135deg, #f7efe3 0%, #eee0cc 48%, #f8f0e4 100%) !important;
+  background-attachment: fixed !important;
+}
+/* Fine sketchbook grain and hand-drawn margin lines */
+html:not([data-theme="dark"]) body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .42;
+  background-image:
+    repeating-linear-gradient(14deg, transparent 0 110px, rgba(132,95,59,.08) 111px, transparent 112px 225px),
+    repeating-linear-gradient(93deg, transparent 0 170px, rgba(132,95,59,.055) 171px, transparent 172px 310px);
+}
+/* Handwritten annotations in the daylight theme only */
+
+html:not([data-theme="dark"]) .hero {
+  background-image:
+    linear-gradient(90deg, rgba(246,235,218,.88), rgba(246,235,218,.40) 58%, rgba(246,235,218,.10)),
+    url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=2000&q=85") !important;
+  background-blend-mode: screen, luminosity;
+  color: #25231f !important;
+}
+html:not([data-theme="dark"]) .hero-role,
+html:not([data-theme="dark"]) .hero-description { color: #4e463c !important; }
+html:not([data-theme="dark"]) .hero-orbit { border-color: rgba(100,77,54,.24); }
+html:not([data-theme="dark"]) .hero-orbit::before { border-color: rgba(255,138,36,.5); }
+/* Make all day-mode glass read like frosted stationery over a paper canvas */
+html:not([data-theme="dark"]) #about > .container,
+html:not([data-theme="dark"]) #education > .container,
+html:not([data-theme="dark"]) #skills > .container,
+html:not([data-theme="dark"]) #projects > .container,
+html:not([data-theme="dark"]) #recognition > .container,
+html:not([data-theme="dark"]) #writing > .container,
+html:not([data-theme="dark"]) #contact > .container {
+  background: linear-gradient(135deg, rgba(255,252,245,.78), rgba(255,249,238,.49) 58%, rgba(255,219,178,.22)) !important;
+  border-color: rgba(255,255,255,.84) !important;
+  box-shadow: 0 22px 60px rgba(100,74,48,.12), inset 0 1px 0 rgba(255,255,255,.95) !important;
+}
+html:not([data-theme="dark"]) .navbar {
+  background: rgba(250,243,232,.68) !important;
+  border-color: rgba(255,255,255,.85) !important;
+}
+html:not([data-theme="dark"]) .section-heading h2,
+html:not([data-theme="dark"]) #skills h3 { color: #29251f; }
+html:not([data-theme="dark"]) .body-copy { color: #65594b; }
+html:not([data-theme="dark"]) .hero .eyebrow {
+  color: #b65b12;
+  border-color: rgba(106,78,53,.28);
+  background: rgba(255,255,255,.36);
+}
+@media (max-width: 991px) {
+  html:not([data-theme="dark"]) .hero::after {
+    top: 30%;
+    right: 5%;
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 575px) {
+  html:not([data-theme="dark"]) .hero::after { display: none; }
+}
+</style>
+
+
+<style id="day-handwritten-background-final">
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Patrick+Hand&display=swap');
+/* DAY MODE ONLY: handwritten sketchbook paper. Dark theme rules are untouched. */
+html:not([data-theme="dark"]) { background: #f4eadb !important; }
+html:not([data-theme="dark"]) body {
+  background-color: #f4eadb !important;
+  background-image:
+    radial-gradient(ellipse at 12% 8%, rgba(255,255,255,.88), transparent 34%),
+    radial-gradient(ellipse at 88% 24%, rgba(221,177,125,.18), transparent 32%),
+    repeating-linear-gradient(0deg, rgba(110,79,49,.035) 0 1px, transparent 1px 5px),
+    linear-gradient(135deg,#fbf4e9 0%,#f1e3cf 55%,#f9f0e2 100%) !important;
+  background-attachment: fixed !important;
+}
+html:not([data-theme="dark"]) body::before {
+  content:"" !important; position:fixed !important; inset:0 !important;
+  z-index:0 !important; pointer-events:none !important; opacity:.52 !important;
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 145px, rgba(124,88,54,.07) 146px, transparent 147px 300px),
+    repeating-linear-gradient(15deg, transparent 0 185px, rgba(124,88,54,.055) 186px, transparent 187px 360px) !important;
+}
+html:not([data-theme="dark"]) body > * { position:relative; z-index:1; }
+html:not([data-theme="dark"]) .navbar,
+html:not([data-theme="dark"]) nav {
+  background:rgba(250,243,232,.82) !important;
+  backdrop-filter:blur(12px) !important;
+  -webkit-backdrop-filter:blur(12px) !important;
+}
+html:not([data-theme="dark"]) .section,
+html:not([data-theme="dark"]) .showcase,
+html:not([data-theme="dark"]) .writing-section,
+html:not([data-theme="dark"]) .recognition-section,
+html:not([data-theme="dark"]) #about,
+html:not([data-theme="dark"]) #education,
+html:not([data-theme="dark"]) #skills,
+html:not([data-theme="dark"]) #projects,
+html:not([data-theme="dark"]) #recognition,
+html:not([data-theme="dark"]) #writing,
+html:not([data-theme="dark"]) #contact,
+html:not([data-theme="dark"]) footer {
+  background-color:transparent !important;
+  background-image:none !important;
+}
+html:not([data-theme="dark"]) .hero {
+  background-color:transparent !important;
+  background-image:linear-gradient(90deg,rgba(248,239,224,.22),rgba(248,239,224,.02)) !important;
+}
+html:not([data-theme="dark"]) .hero h1,
+html:not([data-theme="dark"]) .section-heading h2,
+html:not([data-theme="dark"]) .hero .hero-description,
+html:not([data-theme="dark"]) .section-heading p {
+  font-family:'Caveat','Patrick Hand',cursive !important;
+}
+html:not([data-theme="dark"]) .hero h1 { font-size:clamp(3.5rem,7vw,6rem) !important; }
+html:not([data-theme="dark"]) .section-heading h2 { font-size:clamp(2.1rem,4vw,3.1rem) !important; }
+html:not([data-theme="dark"]) .project-card,
+html:not([data-theme="dark"]) .recognition-card,
+html:not([data-theme="dark"]) .book-card {
+  background:rgba(255,250,241,.74) !important;
+  border:1px solid rgba(129,94,58,.16) !important;
+  box-shadow:0 12px 28px rgba(86,60,35,.09) !important;
+}
+/* Explicitly keep dark mode untouched */
+html[data-theme="dark"] body { background-color:#101116; }
+</style>
+
+
+
+<style id="snp-final-day-hero-text-contrast">
+/* Day mode only: make all first-screen text readable against the light paper background. */
+html:not([data-theme="dark"]) .hero,
+html:not([data-theme="dark"]) .hero .hero-inner,
+html:not([data-theme="dark"]) .hero .hero-inner :is(h1,h2,h3,h4,p,span,small,li,strong,b,label),
+html:not([data-theme="dark"]) .hero .eyebrow,
+html:not([data-theme="dark"]) .hero .hero-role,
+html:not([data-theme="dark"]) .hero .hero-description,
+html:not([data-theme="dark"]) .hero .hero-bottom,
+html:not([data-theme="dark"]) .hero .hero-bottom *,
+html:not([data-theme="dark"]) .hero .hero-inner a:not(.btn):not(.btn-orange):not(.nav-cta),
+html:not([data-theme="dark"]) .navbar-brand,
+html:not([data-theme="dark"]) .navbar .nav-link {
+  color: #211c17 !important;
+  -webkit-text-fill-color: #211c17 !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
+}
+/* Keep brand accents warm and clear. */
+html:not([data-theme="dark"]) .hero h1 em,
+html:not([data-theme="dark"]) .hero .hero-role span,
+html:not([data-theme="dark"]) .navbar .nav-link.active,
+html:not([data-theme="dark"]) .navbar .nav-link:hover {
+  color: #bd4c18 !important;
+  -webkit-text-fill-color: #bd4c18 !important;
+}
+/* Preserve white text on filled CTA buttons. */
+html:not([data-theme="dark"]) .hero .btn-orange,
+html:not([data-theme="dark"]) .hero .btn-orange *,
+html:not([data-theme="dark"]) .navbar .nav-cta,
+html:not([data-theme="dark"]) .navbar .nav-cta * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+/* Night mode remains governed by the original night-theme rules. */
+</style>
+
+
+
+<style id="snp-day-first-page-white-to-black-only">
+/* DAY MODE ONLY — change white first-screen/hero letters to readable black.
+   Night mode and all other page sections are intentionally untouched. */
+html:not([data-theme="dark"]) .hero .hero-inner,
+html:not([data-theme="dark"]) .hero .hero-inner h1,
+html:not([data-theme="dark"]) .hero .hero-inner h2,
+html:not([data-theme="dark"]) .hero .hero-inner p,
+html:not([data-theme="dark"]) .hero .hero-inner span,
+html:not([data-theme="dark"]) .hero .hero-inner small,
+html:not([data-theme="dark"]) .hero .hero-inner li,
+html:not([data-theme="dark"]) .hero .hero-role,
+html:not([data-theme="dark"]) .hero .hero-description,
+html:not([data-theme="dark"]) .hero .hero-bottom,
+html:not([data-theme="dark"]) .hero .hero-bottom *,
+html:not([data-theme="dark"]) .hero .eyebrow,
+html:not([data-theme="dark"]) .hero .hero-kicker,
+html:not([data-theme="dark"]) .hero .hero-meta {
+  color: #171717 !important;
+  -webkit-text-fill-color: #171717 !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
+}
+/* Keep orange name accents and filled button text as designed. */
+html:not([data-theme="dark"]) .hero h1 em,
+html:not([data-theme="dark"]) .hero .hero-role span {
+  color: #c94f1d !important;
+  -webkit-text-fill-color: #c94f1d !important;
+}
+html:not([data-theme="dark"]) .hero .btn-orange,
+html:not([data-theme="dark"]) .hero .btn-orange * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+</style>
+
 </head>
 
 <body>
+<div id='boho-bg' aria-hidden='true'><svg class='boho-splash' viewBox='0 0 1440 900' preserveAspectRatio='xMidYMid slice'><defs><filter id='rough' x='-20%' y='-20%' width='140%' height='140%'><feTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='4' seed='4' result='n'/><feDisplacementMap in='SourceGraphic' in2='n' scale='90'/><feGaussianBlur stdDeviation='5'/></filter></defs><g filter='url(#rough)'><ellipse cx='120' cy='90' rx='380' ry='260' fill='#f2a900' fill-opacity='0.3'/><ellipse cx='1380' cy='230' rx='340' ry='260' fill='#1f8a8a' fill-opacity='0.24'/><ellipse cx='260' cy='820' rx='400' ry='240' fill='#d9627a' fill-opacity='0.24'/><ellipse cx='1250' cy='800' rx='380' ry='230' fill='#8fae7e' fill-opacity='0.32'/><ellipse cx='720' cy='430' rx='260' ry='160' fill='#3b4a8f' fill-opacity='0.08'/></g><g><circle cx='82' cy='146' r='2' fill='#f2a900' fill-opacity='.5'/><circle cx='287' cy='150' r='4' fill='#f2a900' fill-opacity='.5'/><circle cx='-165' cy='-30' r='3' fill='#f2a900' fill-opacity='.5'/><circle cx='276' cy='117' r='2' fill='#f2a900' fill-opacity='.5'/><circle cx='131' cy='229' r='2' fill='#f2a900' fill-opacity='.5'/><circle cx='156' cy='40' r='3' fill='#f2a900' fill-opacity='.5'/><circle cx='-15' cy='-16' r='2' fill='#f2a900' fill-opacity='.5'/><circle cx='-13' cy='38' r='3' fill='#f2a900' fill-opacity='.5'/><circle cx='404' cy='153' r='4' fill='#f2a900' fill-opacity='.5'/><circle cx='-43' cy='157' r='9' fill='#f2a900' fill-opacity='.5'/><circle cx='21' cy='279' r='3' fill='#f2a900' fill-opacity='.5'/><circle cx='1536' cy='316' r='3' fill='#1f8a8a' fill-opacity='.5'/><circle cx='1249' cy='330' r='2' fill='#1f8a8a' fill-opacity='.5'/><circle cx='1188' cy='170' r='6' fill='#1f8a8a' fill-opacity='.5'/><circle cx='1313' cy='125' r='4' fill='#1f8a8a' fill-opacity='.5'/><circle cx='1048' cy='283' r='4' fill='#1f8a8a' fill-opacity='.5'/><circle cx='1298' cy='416' r='3' fill='#1f8a8a' fill-opacity='.5'/><circle cx='1490' cy='276' r='6' fill='#1f8a8a' fill-opacity='.5'/><circle cx='1552' cy='104' r='4' fill='#1f8a8a' fill-opacity='.5'/><circle cx='1335' cy='203' r='9' fill='#1f8a8a' fill-opacity='.5'/><circle cx='1160' cy='321' r='3' fill='#1f8a8a' fill-opacity='.5'/><circle cx='1523' cy='183' r='2' fill='#1f8a8a' fill-opacity='.5'/><circle cx='278' cy='677' r='4' fill='#d9627a' fill-opacity='.5'/><circle cx='185' cy='906' r='6' fill='#d9627a' fill-opacity='.5'/><circle cx='115' cy='762' r='2' fill='#d9627a' fill-opacity='.5'/><circle cx='420' cy='778' r='2' fill='#d9627a' fill-opacity='.5'/><circle cx='477' cy='884' r='9' fill='#d9627a' fill-opacity='.5'/><circle cx='538' cy='811' r='4' fill='#d9627a' fill-opacity='.5'/><circle cx='195' cy='595' r='4' fill='#d9627a' fill-opacity='.5'/><circle cx='425' cy='837' r='3' fill='#d9627a' fill-opacity='.5'/><circle cx='126' cy='738' r='3' fill='#d9627a' fill-opacity='.5'/><circle cx='269' cy='762' r='3' fill='#d9627a' fill-opacity='.5'/><circle cx='-8' cy='967' r='6' fill='#d9627a' fill-opacity='.5'/><circle cx='1393' cy='858' r='9' fill='#8fae7e' fill-opacity='.5'/><circle cx='1236' cy='859' r='6' fill='#8fae7e' fill-opacity='.5'/><circle cx='1330' cy='733' r='6' fill='#8fae7e' fill-opacity='.5'/><circle cx='1476' cy='786' r='6' fill='#8fae7e' fill-opacity='.5'/><circle cx='1333' cy='783' r='3' fill='#8fae7e' fill-opacity='.5'/><circle cx='1378' cy='931' r='2' fill='#8fae7e' fill-opacity='.5'/><circle cx='1051' cy='814' r='4' fill='#8fae7e' fill-opacity='.5'/><circle cx='1233' cy='860' r='9' fill='#8fae7e' fill-opacity='.5'/><circle cx='1118' cy='904' r='3' fill='#8fae7e' fill-opacity='.5'/><circle cx='1184' cy='677' r='9' fill='#8fae7e' fill-opacity='.5'/><circle cx='1112' cy='651' r='6' fill='#8fae7e' fill-opacity='.5'/></g></svg><svg class='boho-sun' viewBox='-170 -170 340 340'><path d='M0 -150 q-9 22 0 46 q9 -24 0 -46z' transform='rotate(0.0)' fill='#f2a900' fill-opacity='.8'/><path d='M0 -128 q-9 22 0 30 q9 -16 0 -30z' transform='rotate(22.5)' fill='#d9627a' fill-opacity='.8'/><path d='M0 -150 q-9 22 0 46 q9 -24 0 -46z' transform='rotate(45.0)' fill='#f2a900' fill-opacity='.8'/><path d='M0 -128 q-9 22 0 30 q9 -16 0 -30z' transform='rotate(67.5)' fill='#d9627a' fill-opacity='.8'/><path d='M0 -150 q-9 22 0 46 q9 -24 0 -46z' transform='rotate(90.0)' fill='#f2a900' fill-opacity='.8'/><path d='M0 -128 q-9 22 0 30 q9 -16 0 -30z' transform='rotate(112.5)' fill='#d9627a' fill-opacity='.8'/><path d='M0 -150 q-9 22 0 46 q9 -24 0 -46z' transform='rotate(135.0)' fill='#f2a900' fill-opacity='.8'/><path d='M0 -128 q-9 22 0 30 q9 -16 0 -30z' transform='rotate(157.5)' fill='#d9627a' fill-opacity='.8'/><path d='M0 -150 q-9 22 0 46 q9 -24 0 -46z' transform='rotate(180.0)' fill='#f2a900' fill-opacity='.8'/><path d='M0 -128 q-9 22 0 30 q9 -16 0 -30z' transform='rotate(202.5)' fill='#d9627a' fill-opacity='.8'/><path d='M0 -150 q-9 22 0 46 q9 -24 0 -46z' transform='rotate(225.0)' fill='#f2a900' fill-opacity='.8'/><path d='M0 -128 q-9 22 0 30 q9 -16 0 -30z' transform='rotate(247.5)' fill='#d9627a' fill-opacity='.8'/><path d='M0 -150 q-9 22 0 46 q9 -24 0 -46z' transform='rotate(270.0)' fill='#f2a900' fill-opacity='.8'/><path d='M0 -128 q-9 22 0 30 q9 -16 0 -30z' transform='rotate(292.5)' fill='#d9627a' fill-opacity='.8'/><path d='M0 -150 q-9 22 0 46 q9 -24 0 -46z' transform='rotate(315.0)' fill='#f2a900' fill-opacity='.8'/><path d='M0 -128 q-9 22 0 30 q9 -16 0 -30z' transform='rotate(337.5)' fill='#d9627a' fill-opacity='.8'/><circle r='84' fill='#f2a900'/><circle r='62' fill='none' stroke='#fff7e6' stroke-width='5'/><circle r='44' fill='#d9627a' fill-opacity='.75'/><circle r='26' fill='#ffe08a'/></svg><svg class='boho-mandala' viewBox='-130 -130 260 260' stroke='#3a2c22' stroke-width='1.5'><ellipse cx='0' cy='-62' rx='15' ry='36' transform='rotate(0)' fill='#1f8a8a'/><ellipse cx='0' cy='-62' rx='15' ry='36' transform='rotate(30)' fill='#3b4a8f'/><ellipse cx='0' cy='-62' rx='15' ry='36' transform='rotate(60)' fill='#d9627a'/><ellipse cx='0' cy='-62' rx='15' ry='36' transform='rotate(90)' fill='#1f8a8a'/><ellipse cx='0' cy='-62' rx='15' ry='36' transform='rotate(120)' fill='#3b4a8f'/><ellipse cx='0' cy='-62' rx='15' ry='36' transform='rotate(150)' fill='#d9627a'/><ellipse cx='0' cy='-62' rx='15' ry='36' transform='rotate(180)' fill='#1f8a8a'/><ellipse cx='0' cy='-62' rx='15' ry='36' transform='rotate(210)' fill='#3b4a8f'/><ellipse cx='0' cy='-62' rx='15' ry='36' transform='rotate(240)' fill='#d9627a'/><ellipse cx='0' cy='-62' rx='15' ry='36' transform='rotate(270)' fill='#1f8a8a'/><ellipse cx='0' cy='-62' rx='15' ry='36' transform='rotate(300)' fill='#3b4a8f'/><ellipse cx='0' cy='-62' rx='15' ry='36' transform='rotate(330)' fill='#d9627a'/><circle cx='110' cy='0' r='3.5' fill='#f2a900'/><circle cx='106' cy='28' r='3.5' fill='#f2a900'/><circle cx='95' cy='55' r='3.5' fill='#f2a900'/><circle cx='78' cy='78' r='3.5' fill='#f2a900'/><circle cx='55' cy='95' r='3.5' fill='#f2a900'/><circle cx='28' cy='106' r='3.5' fill='#f2a900'/><circle cx='0' cy='110' r='3.5' fill='#f2a900'/><circle cx='-28' cy='106' r='3.5' fill='#f2a900'/><circle cx='-55' cy='95' r='3.5' fill='#f2a900'/><circle cx='-78' cy='78' r='3.5' fill='#f2a900'/><circle cx='-95' cy='55' r='3.5' fill='#f2a900'/><circle cx='-106' cy='28' r='3.5' fill='#f2a900'/><circle cx='-110' cy='0' r='3.5' fill='#f2a900'/><circle cx='-106' cy='-28' r='3.5' fill='#f2a900'/><circle cx='-95' cy='-55' r='3.5' fill='#f2a900'/><circle cx='-78' cy='-78' r='3.5' fill='#f2a900'/><circle cx='-55' cy='-95' r='3.5' fill='#f2a900'/><circle cx='-28' cy='-106' r='3.5' fill='#f2a900'/><circle cx='-0' cy='-110' r='3.5' fill='#f2a900'/><circle cx='28' cy='-106' r='3.5' fill='#f2a900'/><circle cx='55' cy='-95' r='3.5' fill='#f2a900'/><circle cx='78' cy='-78' r='3.5' fill='#f2a900'/><circle cx='95' cy='-55' r='3.5' fill='#f2a900'/><circle cx='106' cy='-28' r='3.5' fill='#f2a900'/><circle r='30' fill='#f2a900'/><circle r='16' fill='#fff7e6'/></svg><svg class='boho-rainbow' viewBox='0 0 300 150'><path d='M18 150a132 132 0 0 1 264 0' stroke='#d9627a' stroke-width='18' fill='none'/><path d='M36 150a114 114 0 0 1 228 0' stroke='#f2a900' stroke-width='18' fill='none'/><path d='M54 150a96 96 0 0 1 192 0' stroke='#7fc6c0' stroke-width='18' fill='none'/><path d='M72 150a78 78 0 0 1 156 0' stroke='#3b4a8f' stroke-width='18' fill='none'/></svg><svg class='boho-sprig' viewBox='0 0 100 270'><path d='M48 6Q60 120 46 264' stroke='#5e7a52' stroke-width='3' fill='none'/><ellipse cx='30' cy='40' rx='7' ry='20' transform='rotate(-55 30 40)' fill='#8fae7e'/><ellipse cx='58' cy='60' rx='7' ry='20' transform='rotate(55 58 60)' fill='#8fae7e'/><ellipse cx='32' cy='90' rx='7' ry='20' transform='rotate(-55 32 90)' fill='#8fae7e'/><ellipse cx='60' cy='112' rx='7' ry='20' transform='rotate(55 60 112)' fill='#8fae7e'/><ellipse cx='36' cy='142' rx='7' ry='20' transform='rotate(-55 36 142)' fill='#8fae7e'/><ellipse cx='62' cy='164' rx='7' ry='20' transform='rotate(55 62 164)' fill='#8fae7e'/><ellipse cx='40' cy='194' rx='7' ry='20' transform='rotate(-55 40 194)' fill='#8fae7e'/><ellipse cx='64' cy='214' rx='7' ry='20' transform='rotate(55 64 214)' fill='#8fae7e'/><ellipse cx='46' cy='240' rx='7' ry='20' transform='rotate(-30 46 240)' fill='#8fae7e'/></svg></div>
 
   <div id="cinematic-preloader" aria-hidden="true"><div class="preload-inner"><div class="preload-top"><span>Independent mind / digital portfolio</span><span id="preload-percent">00%</span></div><div class="preload-name">SANOJ N.<br><span>PAULOSE.</span></div><div class="preload-track"><div class="preload-fill"></div></div><div class="preload-top" style="margin-top:12px;margin-bottom:0"><span>AI · CODE · HUMAN IMAGINATION</span><span>EST. 2002</span></div></div></div>
   <canvas id="cinematic-canvas" aria-hidden="true"></canvas><div id="cinematic-spotlight" aria-hidden="true"></div><div id="cinematic-cursor" aria-hidden="true"></div><div id="cinematic-cursor-ring" aria-hidden="true"></div>
@@ -3115,7 +3342,7 @@ html:not([data-theme="dark"]) #education .timeline article::before {
             ? "The bulb is awake and the site is in night mode. Pull it to go back to day mode."
             : "The bulb is sleeping and the site is in day mode. Pull it to switch to night mode."
         );
-        hint.textContent = dark ? "Pull to sleep" : "Pull to wake me";
+        hint.textContent = dark ? "Pull to Reveal the Magic" : "Pull to wake me";
       }
 
       function showHint() {
@@ -3335,20 +3562,16 @@ html[data-theme="dark"] .project-visual small{color:#c3c4ca!important}
 </style>
 
 
-<!-- HARD FIX: force night theme on every fresh page load; the bulb remains the only theme switch. -->
+<!-- Theme defaults to daylight in this preview; the existing bulb toggle switches day/night. -->
 <style id="force-night-default">
 html[data-theme="dark"] { color-scheme: dark !important; }
 html[data-theme="dark"] body { background-color:#101116 !important; color:#f3f0ea; }
 </style>
-<script id="force-night-default-script">
+<script id="preview-day-default-script">
 (function(){
-  const forceNight = () => {
-    document.documentElement.setAttribute('data-theme','dark');
-    try { localStorage.setItem('sanoj-theme','dark'); } catch(e) {}
-  };
-  forceNight();
-  document.addEventListener('DOMContentLoaded', forceNight, { once:true });
-  window.addEventListener('pageshow', forceNight);
+  // Preview opens in daylight so the handwritten design is immediately visible.
+  document.documentElement.removeAttribute('data-theme');
+  try { localStorage.setItem('sanoj-theme','light'); } catch(e) {}
 })();
 </script>
 
@@ -3406,6 +3629,252 @@ html:not([data-theme="dark"]) .hero .text-link {
 /* Keep the signature orange words and CTA styling as-is. */
 html:not([data-theme="dark"]) .hero h1 em { color:#f08a4b !important; -webkit-text-fill-color:#f08a4b !important; -webkit-text-stroke:0 !important; }
 html:not([data-theme="dark"]) .hero .btn-orange { color:#fffaf5 !important; -webkit-text-fill-color:#fffaf5 !important; }
+</style>
+
+
+<style id="ACTUAL-DAY-HANDWRITTEN-OVERRIDE">
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap');
+/* DAY: visibly change the whole canvas, not only the body behind opaque sections */
+html:not([data-theme="dark"]), html:not([data-theme="dark"]) body { background:#f5ead8 !important; }
+html:not([data-theme="dark"]) body {
+ background-image: radial-gradient(circle at 12% 18%,rgba(190,130,74,.12) 0 2px,transparent 3px),
+ repeating-linear-gradient(0deg,rgba(105,76,49,.045) 0px,rgba(105,76,49,.045) 1px,transparent 1px,transparent 29px),
+ linear-gradient(135deg,#fbf4e9 0%,#f0e0c9 48%,#fbf3e5 100%) !important;
+ background-attachment:fixed !important; color:#2d241d !important; }
+html:not([data-theme="dark"]) body::after { content:"✳  notes & ideas     ✎     wonder more"; position:fixed; right:22px; bottom:18px; z-index:999; pointer-events:none; color:rgba(113,78,48,.62); font:600 23px 'Caveat',cursive; transform:rotate(-5deg); }
+html:not([data-theme="dark"]) .navbar { background:rgba(250,242,229,.9) !important; backdrop-filter:blur(14px); }
+html:not([data-theme="dark"]) .showcase, html:not([data-theme="dark"]) .projects-dark, html:not([data-theme="dark"]) #about, html:not([data-theme="dark"]) #education, html:not([data-theme="dark"]) #skills, html:not([data-theme="dark"]) #projects, html:not([data-theme="dark"]) #recognition, html:not([data-theme="dark"]) #writing, html:not([data-theme="dark"]) #contact, html:not([data-theme="dark"]) footer { background-color:transparent !important; }
+html:not([data-theme="dark"]) .section-heading h2, html:not([data-theme="dark"]) .hero h1, html:not([data-theme="dark"]) .hero p { font-family:'Caveat',cursive !important; }
+html:not([data-theme="dark"]) .section-heading h2 { font-size:clamp(2.2rem,4vw,3.3rem) !important; }
+html[data-theme="dark"] body::after { content:none !important; }
+</style>
+
+
+<style id="snp-bohemian-day-background-only">
+/* BOHEMIAN DAY MODE ONLY — night theme selectors are deliberately untouched. */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Patrick+Hand&display=swap');
+html:not([data-theme="dark"]) body {
+  background-color:#f5e8d3 !important;
+  background-image:
+    radial-gradient(ellipse at 8% 18%, rgba(239,115,70,.20) 0 3%, transparent 18%),
+    radial-gradient(ellipse at 92% 12%, rgba(219,156,64,.20) 0 4%, transparent 19%),
+    radial-gradient(ellipse at 83% 70%, rgba(74,111,85,.12) 0 4%, transparent 20%),
+    radial-gradient(ellipse at 12% 86%, rgba(218,124,70,.15) 0 3%, transparent 18%),
+    repeating-linear-gradient(0deg, rgba(95,68,43,.035) 0 1px, transparent 1px 5px),
+    linear-gradient(135deg,#fbf1df 0%,#f1dfc4 45%,#f9edda 100%) !important;
+  background-attachment:fixed !important;
+}
+/* Subtle illustrated botanical / celestial line art, embedded as a data URI so no extra image file is needed. */
+html:not([data-theme="dark"]) body::before {
+  content:"" !important;
+  position:fixed !important; inset:0 !important; z-index:0 !important;
+  pointer-events:none !important; opacity:.34 !important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='620' viewBox='0 0 520 620'%3E%3Cg fill='none' stroke='%23775b3d' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' opacity='.75'%3E%3Cpath d='M42 250 C70 205 63 156 93 112 M65 203 C34 197 29 174 32 158 C54 165 67 180 65 203 M75 169 C101 164 112 143 113 126 C92 132 78 148 75 169 M57 225 C32 225 18 210 15 195 M85 139 C67 126 64 108 72 91 C91 106 95 122 85 139'/%3E%3Cpath d='M455 530 C430 490 438 446 412 405 M438 482 C466 477 479 457 481 439 C460 445 445 460 438 482 M429 447 C405 440 395 420 397 402 C417 412 429 429 429 447 M446 508 C468 508 488 494 495 477'/%3E%3Ccircle cx='430' cy='92' r='24'/%3E%3Cpath d='M430 59 L430 48 M430 136 L430 125 M397 92 L386 92 M474 92 L463 92 M407 69 L399 61 M453 115 L461 123 M453 69 L461 61 M407 115 L399 123'/%3E%3Cpath d='M155 490 q-15 -20 0 -38 q15 18 0 38 M155 490 l0 38 M155 507 q-22 -7 -27 -25 q20 0 27 25 M155 515 q22 -8 27 -26 q-20 1 -27 26'/%3E%3Cpath d='M300 76 l5 14 15 1 -12 9 4 14 -12 -8 -12 8 4 -14 -12 -9 15 -1z'/%3E%3Cpath d='M295 390 q-18 -20 0 -36 q18 16 0 36 M295 390 l0 32 M295 407 q-20 -6 -23 -23 q18 1 23 23 M295 414 q18 -7 23 -22 q-17 0 -23 22'/%3E%3Cpath d='M80 380 q-18 -10 -8 -27 q8 -13 18 0 q10 17 -10 27z M80 380 l0 25'/%3E%3C/g%3E%3C/svg%3E"),
+    radial-gradient(ellipse at 3% 38%, rgba(219,111,67,.13), transparent 22%),
+    radial-gradient(ellipse at 97% 80%, rgba(71,103,77,.12), transparent 22%);
+  background-repeat:repeat, no-repeat, no-repeat !important;
+  background-size:520px 620px, cover, cover !important;
+  mix-blend-mode:multiply !important;
+}
+/* Let the artwork sit behind the page content. */
+html:not([data-theme="dark"]) body > * { position:relative; z-index:1; }
+html:not([data-theme="dark"]) #cinematic-canvas,
+html:not([data-theme="dark"]) #cinematic-spotlight,
+html:not([data-theme="dark"]) #cinematic-cursor,
+html:not([data-theme="dark"]) #cinematic-cursor-ring { z-index:2 !important; }
+/* Day-only playful illustration touches: taped project cards and soft ink outlines. */
+html:not([data-theme="dark"]) .project-card,
+html:not([data-theme="dark"]) .recognition-card,
+html:not([data-theme="dark"]) .book-card {
+  border-radius:7px 12px 8px 11px !important;
+  transform:rotate(-.25deg);
+}
+html:not([data-theme="dark"]) .project-card:nth-child(even),
+html:not([data-theme="dark"]) .recognition-card:nth-child(even) { transform:rotate(.35deg); }
+html:not([data-theme="dark"]) .project-card::before {
+  content:""; position:absolute; top:-7px; left:24px; width:54px; height:15px;
+  background:rgba(215,168,102,.38); transform:rotate(-7deg); z-index:3; pointer-events:none;
+}
+html:not([data-theme="dark"]) .hero h1,
+html:not([data-theme="dark"]) .section-heading h2 { font-family:'Caveat','Patrick Hand',cursive !important; }
+/* Keep night mode exactly as it was: all visual overrides above target day mode only. */
+</style>
+
+
+<style id="snp-bohemian-day-mode-v2">
+/* DAY MODE ONLY — bohemian scrapbook background. Night selectors are deliberately untouched. */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Patrick+Hand&display=swap');
+html:not([data-theme="dark"]) body {
+  background-color:#f5ead8 !important;
+  background-image:
+    radial-gradient(ellipse at 6% 12%, rgba(255,255,255,.88) 0 8%, transparent 32%),
+    radial-gradient(ellipse at 93% 18%, rgba(222,111,62,.18) 0 4%, transparent 23%),
+    radial-gradient(ellipse at 8% 78%, rgba(214,143,64,.18) 0 5%, transparent 24%),
+    radial-gradient(ellipse at 82% 86%, rgba(78,104,75,.13) 0 5%, transparent 23%),
+    repeating-linear-gradient(0deg, rgba(102,70,42,.045) 0 1px, transparent 1px 29px),
+    repeating-linear-gradient(90deg, rgba(102,70,42,.025) 0 1px, transparent 1px 33px),
+    linear-gradient(135deg,#fff5e6 0%,#f1dfc5 48%,#f8eddb 100%) !important;
+  background-attachment:fixed !important;
+}
+/* Fine paper grain and little ink speckles */
+html:not([data-theme="dark"]) body::before {
+  content:"" !important; position:fixed !important; inset:0 !important; z-index:0 !important; pointer-events:none !important;
+  opacity:.62 !important;
+  background-image:
+    radial-gradient(circle at 7% 19%,#b8794a 0 1px,transparent 2px),
+    radial-gradient(circle at 89% 39%,#b8794a 0 1px,transparent 2px),
+    radial-gradient(circle at 22% 82%,#b8794a 0 1px,transparent 2px),
+    radial-gradient(circle at 76% 68%,#b8794a 0 1px,transparent 2px),
+    repeating-linear-gradient(17deg,transparent 0 118px,rgba(129,83,48,.09) 119px,transparent 121px 240px) !important;
+}
+/* Make sure the page content sits above the paper grain. */
+html:not([data-theme="dark"]) body > * { position:relative; z-index:1; }
+html:not([data-theme="dark"]) #cinematic-canvas,
+html:not([data-theme="dark"]) #cinematic-spotlight,
+html:not([data-theme="dark"]) #cinematic-cursor,
+html:not([data-theme="dark"]) #cinematic-cursor-ring { z-index:2 !important; }
+/* Preserve the paper texture across the full page, not just the body behind opaque sections. */
+html:not([data-theme="dark"]) .section,
+html:not([data-theme="dark"]) .showcase,
+html:not([data-theme="dark"]) .projects-dark,
+html:not([data-theme="dark"]) .writing-section,
+html:not([data-theme="dark"]) .recognition-section,
+html:not([data-theme="dark"]) #about,
+html:not([data-theme="dark"]) #education,
+html:not([data-theme="dark"]) #skills,
+html:not([data-theme="dark"]) #projects,
+html:not([data-theme="dark"]) #recognition,
+html:not([data-theme="dark"]) #writing,
+html:not([data-theme="dark"]) #contact,
+html:not([data-theme="dark"]) footer { background-color:transparent !important; background-image:none !important; }
+html:not([data-theme="dark"]) .navbar { background:rgba(255,247,235,.86) !important; backdrop-filter:blur(14px); border-bottom:1px solid rgba(133,91,55,.18) !important; }
+html:not([data-theme="dark"]) .hero { background:transparent !important; }
+html:not([data-theme="dark"]) .hero h1,
+html:not([data-theme="dark"]) .hero h1 em,
+html:not([data-theme="dark"]) .section-heading h2 { font-family:'Caveat','Patrick Hand',cursive !important; }
+html:not([data-theme="dark"]) .hero h1 { font-size:clamp(3.4rem,7vw,6.4rem) !important; line-height:.88 !important; }
+html:not([data-theme="dark"]) .hero h1 em { color:#c85f22 !important; -webkit-text-fill-color:#c85f22 !important; }
+/* Boho corner ornaments made with CSS — no random labels or extra text. */
+html:not([data-theme="dark"]) #about,
+html:not([data-theme="dark"]) #education,
+html:not([data-theme="dark"]) #skills,
+html:not([data-theme="dark"]) #projects,
+html:not([data-theme="dark"]) #recognition,
+html:not([data-theme="dark"]) #writing,
+html:not([data-theme="dark"]) #contact { position:relative; }
+html:not([data-theme="dark"]) .project-card,
+html:not([data-theme="dark"]) .recognition-card,
+html:not([data-theme="dark"]) .book-card {
+  background:rgba(255,250,241,.82) !important;
+  border:1px solid rgba(130,91,52,.22) !important;
+  border-radius:8px 14px 9px 13px !important;
+  box-shadow:0 12px 28px rgba(103,72,42,.13), inset 0 1px 0 rgba(255,255,255,.85) !important;
+}
+html:not([data-theme="dark"]) .project-card::before,
+html:not([data-theme="dark"]) .recognition-card::before { content:""; position:absolute; width:58px; height:16px; top:-7px; left:22px; background:rgba(219,157,87,.43); transform:rotate(-7deg); z-index:3; pointer-events:none; }
+html:not([data-theme="dark"]) .project-info { background:transparent !important; }
+html:not([data-theme="dark"]) .section-heading h2,
+html:not([data-theme="dark"]) .section-heading p,
+html:not([data-theme="dark"]) .section-heading small,
+html:not([data-theme="dark"]) .section-number { color:#29221b !important; }
+html:not([data-theme="dark"]) .btn-orange,
+html:not([data-theme="dark"]) .hero .btn-primary { box-shadow:0 7px 0 rgba(137,77,34,.14),0 12px 24px rgba(196,99,35,.18) !important; }
+@media(max-width:767px){ html:not([data-theme="dark"]) body { background-attachment:scroll !important; } }
+</style>
+
+
+<style id="snp-bohemian-illustrated-day-v3">
+/* DAY MODE ONLY — richer bohemian scrapbook background. Night theme is untouched. */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Kalam:wght@300;400;700&display=swap');
+html:not([data-theme="dark"]) body {
+  background-color:#f7ead5 !important;
+  background-image:
+    radial-gradient(ellipse at 5% 18%,rgba(236,103,45,.22) 0 2%,transparent 16%),
+    radial-gradient(ellipse at 94% 36%,rgba(244,147,55,.20) 0 3%,transparent 18%),
+    radial-gradient(ellipse at 16% 78%,rgba(55,91,68,.12) 0 2%,transparent 17%),
+    radial-gradient(ellipse at 85% 88%,rgba(220,93,52,.16) 0 2%,transparent 16%),
+    repeating-linear-gradient(0deg,rgba(108,77,49,.035) 0 1px,transparent 1px 5px),
+    linear-gradient(135deg,#fff4df 0%,#f4e4ca 48%,#fff0d8 100%) !important;
+  background-attachment:fixed !important;
+}
+/* Hand-drawn ink motifs in the page margins, using inline SVG (no external image required). */
+html:not([data-theme="dark"]) body::before {
+ content:""; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.42;
+ background-image:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='330' viewBox='0 0 260 330'%3E%3Cg fill='none' stroke='%23705a43' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M26 300 Q52 225 36 150 Q30 110 65 62 M38 182 Q8 170 10 144 Q38 150 38 182 M41 146 Q70 137 76 109 Q47 113 41 146 M47 224 Q77 213 84 184 Q56 188 47 224 M34 261 Q9 250 5 223 Q29 232 34 261'/%3E%3Ccircle cx='177' cy='58' r='22'/%3E%3Cpath d='M177 30 Q187 49 177 58 Q162 65 177 86 M177 36 Q157 42 155 58 M177 58 Q199 52 201 37'/%3E%3Cpath d='M132 155 l10 -24 10 24 -20 0 M142 131 l0 38 M126 145 l32 12 M128 157 l28 -13'/%3E%3C/g%3E%3C/svg%3E"),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='240' viewBox='0 0 220 240'%3E%3Cg fill='none' stroke='%23c66b32' stroke-width='1.4' stroke-linecap='round'%3E%3Cpath d='M24 36 Q34 16 44 36 Q34 56 24 36 M34 16 V56 M14 36 H54 M22 24 L46 48 M46 24 L22 48'/%3E%3Cpath d='M130 64 Q153 34 177 64 Q153 95 130 64 Z M153 34 V95 M130 64 H177'/%3E%3Cpath d='M85 147 q22 -22 44 0 q-22 22 -44 0 M107 125 v44 M85 147 h44'/%3E%3C/g%3E%3C/svg%3E");
+ background-position:left 8% top 110px,right 4% bottom 70px;
+ background-repeat:repeat-y,repeat-y; background-size:220px 300px,180px 240px;
+}
+html:not([data-theme="dark"]) body > * { position:relative; z-index:1; }
+/* Soft ink-wash splashes behind content sections */
+html:not([data-theme="dark"]) .section,
+html:not([data-theme="dark"]) .showcase,
+html:not([data-theme="dark"]) .writing-section,
+html:not([data-theme="dark"]) .recognition-section,
+html:not([data-theme="dark"]) #about,
+html:not([data-theme="dark"]) #education,
+html:not([data-theme="dark"]) #skills,
+html:not([data-theme="dark"]) #projects,
+html:not([data-theme="dark"]) #recognition,
+html:not([data-theme="dark"]) #writing,
+html:not([data-theme="dark"]) #contact,
+html:not([data-theme="dark"]) footer {
+ background-color:transparent !important;
+ background-image:radial-gradient(ellipse at 95% 8%,rgba(234,112,51,.09),transparent 24%),radial-gradient(ellipse at 3% 85%,rgba(58,97,70,.08),transparent 22%) !important;
+}
+html:not([data-theme="dark"]) .hero h1,
+html:not([data-theme="dark"]) .section-heading h2,
+html:not([data-theme="dark"]) #projects h2 { font-family:'Caveat','Kalam',cursive !important; }
+html:not([data-theme="dark"]) .project-card,
+html:not([data-theme="dark"]) .recognition-card {
+ border:1px solid rgba(120,82,48,.18) !important;
+ box-shadow:0 9px 24px rgba(90,58,30,.10), 0 2px 0 rgba(255,255,255,.7) inset !important;
+}
+html:not([data-theme="dark"]) .project-card::before {
+ content:""; position:absolute; top:-7px; left:24%; width:62px; height:17px;
+ background:rgba(224,155,83,.45); transform:rotate(-7deg); z-index:3; pointer-events:none;
+}
+html:not([data-theme="dark"]) .project-card { position:relative; }
+@media(max-width:767px){html:not([data-theme="dark"]) body::before{opacity:.22;background-size:150px 220px,130px 180px}}
+</style>
+
+
+
+<style id="snp-last-loaded-day-hero-text-fix">
+/* Final override is deliberately placed last so earlier duplicate CSS cannot undo it.
+   Only the first/hero screen in Day Mode is affected. */
+html:not([data-theme="dark"]) body #home.hero .hero-inner .eyebrow,
+html:not([data-theme="dark"]) body #home.hero .hero-inner > p,
+html:not([data-theme="dark"]) body #home.hero .hero-inner .hero-role,
+html:not([data-theme="dark"]) body #home.hero .hero-inner .hero-description,
+html:not([data-theme="dark"]) body #home.hero .hero-inner .hero-bottom,
+html:not([data-theme="dark"]) body #home.hero .hero-inner .hero-bottom span,
+html:not([data-theme="dark"]) body #home.hero .hero-inner h1,
+html:not([data-theme="dark"]) body #home.hero .hero-inner h1 strong,
+html:not([data-theme="dark"]) body #home.hero .hero-inner h1 span {
+  color: #171717 !important;
+  -webkit-text-fill-color: #171717 !important;
+  -webkit-text-stroke: 0 !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
+}
+html:not([data-theme="dark"]) body #home.hero .hero-inner h1 em,
+html:not([data-theme="dark"]) body #home.hero .hero-inner .hero-role span {
+  color: #bd4c18 !important;
+  -webkit-text-fill-color: #bd4c18 !important;
+  -webkit-text-stroke: 0 !important;
+}
+html:not([data-theme="dark"]) body #home.hero .hero-inner a.btn-orange,
+html:not([data-theme="dark"]) body #home.hero .hero-inner a.btn-orange * {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+html:not([data-theme="dark"]) body #home.hero .hero-inner a.btn-outline-light {
+  color: #171717 !important;
+  -webkit-text-fill-color: #171717 !important;
+  border-color: #800020 !important;
+}
 </style>
 
 </body>
@@ -3685,3 +4154,229 @@ html[data-theme="dark"] .hero h1 em:hover {
   html[data-theme="dark"] .hero h1 em:hover { transition: none !important; animation: none !important; }
 }
 </style>
+<style id="final-day-handwritten-background-fix">
+/* FINAL DAY MODE FIX: remove unwanted notes and let the paper aesthetic show everywhere. */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Patrick+Hand&display=swap');
+html:not([data-theme="dark"]) body {
+  background-color:#f5ead8 !important;
+  background-image:
+    radial-gradient(ellipse at 8% 8%,rgba(255,255,255,.85),transparent 34%),
+    radial-gradient(ellipse at 88% 28%,rgba(222,174,119,.22),transparent 32%),
+    radial-gradient(ellipse at 20% 82%,rgba(255,255,255,.55),transparent 35%),
+    repeating-linear-gradient(0deg,rgba(111,79,48,.055) 0px,rgba(111,79,48,.055) 1px,transparent 1px,transparent 32px),
+    linear-gradient(135deg,#fbf2e4 0%,#efe0ca 52%,#f9efdf 100%) !important;
+  background-attachment:fixed !important;
+}
+html:not([data-theme="dark"]) body::before {
+  content:"" !important; position:fixed !important; inset:0 !important; z-index:0 !important;
+  pointer-events:none !important; opacity:.55 !important;
+  background-image:
+    repeating-linear-gradient(90deg,transparent 0 94px,rgba(146,102,60,.045) 95px,transparent 96px 190px),
+    radial-gradient(circle at 4% 14%,rgba(178,124,75,.10) 0 1px,transparent 2px),
+    radial-gradient(circle at 94% 74%,rgba(178,124,75,.10) 0 1px,transparent 2px) !important;
+}
+/* Stop the previous decorative labels; they were not part of the requested design. */
+html:not([data-theme="dark"]) body::after { content:none !important; display:none !important; }
+html:not([data-theme="dark"]) .hero::after { content:none !important; display:none !important; }
+/* Let the paper background remain visible behind sections instead of solid blocks. */
+html:not([data-theme="dark"]) .section,
+html:not([data-theme="dark"]) .showcase,
+html:not([data-theme="dark"]) .projects-dark,
+html:not([data-theme="dark"]) .writing-section,
+html:not([data-theme="dark"]) .recognition-section,
+html:not([data-theme="dark"]) #about,
+html:not([data-theme="dark"]) #education,
+html:not([data-theme="dark"]) #skills,
+html:not([data-theme="dark"]) #projects,
+html:not([data-theme="dark"]) #recognition,
+html:not([data-theme="dark"]) #writing,
+html:not([data-theme="dark"]) #contact,
+html:not([data-theme="dark"]) footer {
+  background-color:transparent !important;
+  background-image:none !important;
+}
+/* Keep cards readable, but styled like softly taped paper rather than dark blocks. */
+html:not([data-theme="dark"]) .project-card,
+html:not([data-theme="dark"]) .recognition-card,
+html:not([data-theme="dark"]) .book-card {
+  background:rgba(255,250,241,.78) !important;
+  border:1px solid rgba(130,91,52,.18) !important;
+  box-shadow:0 12px 30px rgba(103,72,42,.10), inset 0 1px 0 rgba(255,255,255,.8) !important;
+}
+html:not([data-theme="dark"]) .project-info {background:transparent !important;}
+html:not([data-theme="dark"]) .section-heading h2,
+html:not([data-theme="dark"]) .section-heading p,
+html:not([data-theme="dark"]) .section-heading small,
+html:not([data-theme="dark"]) .section-number {color:#29221b !important;}
+html:not([data-theme="dark"]) .section-heading h2,
+html:not([data-theme="dark"]) .hero h1,
+html:not([data-theme="dark"]) .hero h1 em {font-family:'Caveat','Patrick Hand',cursive !important;}
+html:not([data-theme="dark"]) .hero {background-color:transparent !important;}
+html:not([data-theme="dark"]) .hero .hero-inner {background:transparent !important;}
+/* The dark theme is intentionally unaffected by all rules above. */
+</style>
+
+<style id="boho-day-art">
+/* BOHEMIAN DAY ART: splashes, sun, mandala, rainbow + cartoons from the portfolio. Day mode only. */
+html[data-theme="dark"] #boho-bg, html[data-theme="dark"] .bd, html[data-theme="dark"] .bd-wash { display:none !important; }
+html:not([data-theme="dark"]) #boho-bg { position:fixed !important; inset:0; z-index:0 !important; overflow:hidden; pointer-events:none; }
+html:not([data-theme="dark"]) .boho-splash { position:absolute; inset:0; width:100%; height:100%; mix-blend-mode:multiply; }
+html:not([data-theme="dark"]) .boho-sun { position:absolute; top:-120px; right:-120px; width:380px; height:380px; opacity:.8; animation:bohoSpin 140s linear infinite; }
+html:not([data-theme="dark"]) .boho-mandala { position:absolute; left:-120px; bottom:-120px; width:340px; height:340px; opacity:.2; }
+html:not([data-theme="dark"]) .boho-rainbow { position:absolute; right:2%; bottom:-4px; width:300px; opacity:.5; }
+html:not([data-theme="dark"]) .boho-sprig { position:absolute; left:-14px; top:92px; width:90px; opacity:.5; }
+@keyframes bohoSpin { to { transform:rotate(360deg); } }
+html:not([data-theme="dark"]) .bd, html:not([data-theme="dark"]) .bd-wash { position:absolute; z-index:0; pointer-events:none; }
+html:not([data-theme="dark"]) .bd { background-repeat:no-repeat; background-position:center; background-size:contain; opacity:.92; }
+html:not([data-theme="dark"]) .bd-wash { inset:0; mix-blend-mode:multiply; }
+html:not([data-theme="dark"]) .bd-wash.w0 { background:radial-gradient(ellipse 40% 55% at 10% 30%,rgba(143,174,126,.24),transparent 70%),radial-gradient(ellipse 35% 45% at 92% 80%,rgba(242,169,0,.2),transparent 70%); }
+html:not([data-theme="dark"]) .bd-wash.w1 { background:radial-gradient(ellipse 40% 50% at 88% 20%,rgba(31,138,138,.2),transparent 70%),radial-gradient(ellipse 35% 45% at 8% 85%,rgba(217,98,122,.2),transparent 70%); }
+html:not([data-theme="dark"]) .bd-wash.w2 { background:radial-gradient(ellipse 38% 50% at 6% 25%,rgba(217,98,122,.2),transparent 70%),radial-gradient(ellipse 40% 50% at 94% 75%,rgba(59,74,143,.14),transparent 70%); }
+html:not([data-theme="dark"]) .bd-wash.w3 { background:radial-gradient(ellipse 38% 50% at 92% 15%,rgba(242,169,0,.22),transparent 70%),radial-gradient(ellipse 40% 50% at 12% 80%,rgba(143,174,126,.24),transparent 70%); }
+html:not([data-theme="dark"]) #home > .container, html:not([data-theme="dark"]) .section > .container, html:not([data-theme="dark"]) .showcase > :not(.bd):not(.bd-wash) { position:relative; z-index:1; }
+.bd-robot{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 140' fill='none' stroke='%233a2c22' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M60 18v10'/%3E%3Ccircle cx='60' cy='12' r='5' fill='%23f2a900'/%3E%3Crect x='28' y='28' width='64' height='48' rx='16' fill='%237fc6c0'/%3E%3Ccircle cx='46' cy='50' r='7' fill='%23fff'/%3E%3Ccircle cx='74' cy='50' r='7' fill='%23fff'/%3E%3Ccircle cx='47' cy='51' r='3' fill='%233a2c22'/%3E%3Ccircle cx='75' cy='51' r='3' fill='%233a2c22'/%3E%3Cpath d='M50 64q10 8 20 0M22 50h6M92 50h6'/%3E%3Crect x='36' y='80' width='48' height='40' rx='12' fill='%23f2a900'/%3E%3Cpath d='M36 92l-16 14M84 92l18-28'/%3E%3Ccircle cx='104' cy='58' r='6' fill='%23fff'/%3E%3Cpath d='M48 120v12M72 120v12'/%3E%3Cpath d='M60 112c-12-8-8-16 0-10 8-6 12 2 0 10z' fill='%23d9627a' stroke-width='2'/%3E%3C/svg%3E")}
+.bd-laptop{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 110' fill='none' stroke='%233a2c22' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='24' y='10' width='92' height='60' rx='7' fill='%23fff7e6'/%3E%3Cpath d='M10 76h120l-8 18H18z' fill='%238fae7e'/%3E%3Cpath d='M58 28l-14 13 14 13M82 28l14 13-14 13M72 26l-4 30' stroke='%231f8a8a'/%3E%3Cpath d='M120 30q10-8 8 6' stroke='%23d9627a'/%3E%3C/svg%3E")}
+.bd-bulb{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 130' fill='none' stroke='%233a2c22' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='60' cy='52' r='34' fill='%23ffe08a'/%3E%3Cpath d='M46 86h28v12a14 6 0 0 1-28 0z' fill='%23cfd3d6'/%3E%3Cpath d='M46 92h28M60 4v10M18 18l7 7M102 18l-7 7M4 52h10M106 52h10'/%3E%3Cpath d='M48 46L72 42L60 64z' stroke-width='2' stroke='%231f8a8a'/%3E%3Ccircle cx='48' cy='46' r='4.5' fill='%23d9627a'/%3E%3Ccircle cx='72' cy='42' r='4.5' fill='%231f8a8a'/%3E%3Ccircle cx='60' cy='64' r='4.5' fill='%233b4a8f'/%3E%3C/svg%3E")}
+.bd-cap{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 110' fill='none' stroke='%233a2c22' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M65 14L8 40l57 26 57-26z' fill='%233b4a8f'/%3E%3Cpath d='M30 52v22c20 16 50 16 70 0V52' fill='%235566b3'/%3E%3Cpath d='M122 40v28'/%3E%3Ccircle cx='122' cy='72' r='5' fill='%23f2a900'/%3E%3Cpath d='M40 96h50' stroke='%23d9627a'/%3E%3C/svg%3E")}
+.bd-net{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 110' fill='none' stroke='%233a2c22' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='2' stroke='%231f8a8a' d='M20 25L75 15M20 25L75 45M20 25L75 75M20 55L75 15M20 55L75 45M20 55L75 75M20 85L75 45M20 85L75 75M20 85L75 100M75 15L130 40M75 45L130 40M75 75L130 40M75 100L130 40M75 15L130 70M75 45L130 70M75 75L130 70M75 100L130 70'/%3E%3Ccircle cx='20' cy='25' r='8' fill='%23f2a900'/%3E%3Ccircle cx='20' cy='55' r='8' fill='%23f2a900'/%3E%3Ccircle cx='20' cy='85' r='8' fill='%23f2a900'/%3E%3Ccircle cx='75' cy='15' r='8' fill='%23d9627a'/%3E%3Ccircle cx='75' cy='45' r='8' fill='%23d9627a'/%3E%3Ccircle cx='75' cy='75' r='8' fill='%23d9627a'/%3E%3Ccircle cx='75' cy='100' r='8' fill='%23d9627a'/%3E%3Ccircle cx='130' cy='40' r='8' fill='%237fc6c0'/%3E%3Ccircle cx='130' cy='70' r='8' fill='%237fc6c0'/%3E%3C/svg%3E")}
+.bd-lens{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none' stroke='%233a2c22' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='46' cy='46' r='30' fill='%23f6c9a0'/%3E%3Ccircle cx='36' cy='42' r='3' fill='%233a2c22'/%3E%3Ccircle cx='56' cy='42' r='3' fill='%233a2c22'/%3E%3Cpath d='M36 56q10 8 20 0'/%3E%3Ccircle cx='78' cy='78' r='23' fill='%238fd0e0' fill-opacity='.5'/%3E%3Cpath d='M95 95l18 18' stroke-width='8' stroke='%238a5a35'/%3E%3Cpath d='M68 78l7 7 12-14' stroke='%231f8a8a' stroke-width='4'/%3E%3C/svg%3E")}
+.bd-chat{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 90' fill='none' stroke='%233a2c22' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 8h64a8 8 0 0 1 8 8v26a8 8 0 0 1-8 8H34L18 64V50H8a8 8 0 0 1-8-8V16a8 8 0 0 1 8-8z' fill='%23fff7e6' transform='translate(2 0)'/%3E%3Ccircle cx='28' cy='29' r='3' fill='%233a2c22'/%3E%3Ccircle cx='42' cy='29' r='3' fill='%233a2c22'/%3E%3Ccircle cx='56' cy='29' r='3' fill='%233a2c22'/%3E%3Cpath d='M46 62h50a8 8 0 0 1 8 8v8a8 8 0 0 1-8 8H84l-12 8v-8H46a8 8 0 0 1-8-8v-8a8 8 0 0 1 8-8z' fill='%237fc6c0' transform='translate(0 -4)'/%3E%3C/svg%3E")}
+.bd-heart{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none' stroke='%233a2c22' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M50 104C12 78 8 46 28 32c12-8 22-2 22 8 2-10 14-16 26-8 20 14 14 48-26 72z' fill='%23d9627a'/%3E%3Cpath d='M92 22q10 10 0 22M102 14q18 18 0 38' stroke-width='2.5' stroke='%233b4a8f'/%3E%3C/svg%3E")}
+.bd-book{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 110' fill='none' stroke='%233a2c22' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 40q28-14 56 0v52q-28-14-56 0z' fill='%23fff7e6'/%3E%3Cpath d='M64 40q28-14 56 0v52q-28-14-56 0z' fill='%23fff1d0'/%3E%3Cpath d='M18 56q12-4 36 0M18 68q12-4 36 0M74 56q12-4 36 0M74 68q12-4 24 0' stroke-width='2'/%3E%3Cpath d='M96 6c24 6 28 30 6 52L84 76l-4-6C72 48 76 18 96 6z' fill='%237fc6c0'/%3E%3Cpath d='M84 76L72 98' stroke-width='3'/%3E%3C/svg%3E")}
+.bd-medal{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 130' fill='none' stroke='%233a2c22' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M40 6l16 36M80 6L64 42' stroke-width='8' stroke='%23d9627a'/%3E%3Ccircle cx='60' cy='80' r='32' fill='%23f2a900'/%3E%3Cpath d='M60 62l6 13 14 2-10 10 3 14-13-7-13 7 3-14-10-10 14-2z' fill='%23fff7e6' stroke-width='2.5'/%3E%3C/svg%3E")}
+.bd-kerala{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 720 140' fill='none' stroke='%233a2c22' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='%231f8a8a' stroke-width='3' d='M0 120q15-8 30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0'/%3E%3Cpath stroke='%231f8a8a' stroke-width='3' d='M0 128q15-8 30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0t30 0'/%3E%3Cpath d='M300 118a60 60 0 0 1 120 0z' fill='%23f2a900'/%3E%3Cg transform='translate(20 0) scale(1)'%3E%3Cpath d='M60 118Q48 80 66 40' stroke='%238a5a35' stroke-width='6'/%3E%3Cg stroke='%234f8a4b' stroke-width='5'%3E%3Cpath d='M66 40Q40 26 22 46M66 40Q48 12 26 16M66 40Q72 8 98 14M66 40Q96 24 112 44M66 40Q60 26 80 30'/%3E%3C/g%3E%3Ccircle cx='62' cy='46' r='4.5' fill='%238a5a35'/%3E%3Ccircle cx='71' cy='47' r='4.5' fill='%238a5a35'/%3E%3C/g%3E%3Cg transform='translate(130 23.599999999999994) scale(0.8)'%3E%3Cpath d='M60 118Q48 80 66 40' stroke='%238a5a35' stroke-width='6'/%3E%3Cg stroke='%234f8a4b' stroke-width='5'%3E%3Cpath d='M66 40Q40 26 22 46M66 40Q48 12 26 16M66 40Q72 8 98 14M66 40Q96 24 112 44M66 40Q60 26 80 30'/%3E%3C/g%3E%3Ccircle cx='62' cy='46' r='4.5' fill='%238a5a35'/%3E%3Ccircle cx='71' cy='47' r='4.5' fill='%238a5a35'/%3E%3C/g%3E%3Cg transform='translate(520 11.799999999999997) scale(0.9)'%3E%3Cpath d='M60 118Q48 80 66 40' stroke='%238a5a35' stroke-width='6'/%3E%3Cg stroke='%234f8a4b' stroke-width='5'%3E%3Cpath d='M66 40Q40 26 22 46M66 40Q48 12 26 16M66 40Q72 8 98 14M66 40Q96 24 112 44M66 40Q60 26 80 30'/%3E%3C/g%3E%3Ccircle cx='62' cy='46' r='4.5' fill='%238a5a35'/%3E%3Ccircle cx='71' cy='47' r='4.5' fill='%238a5a35'/%3E%3C/g%3E%3Cg transform='translate(620 -5.900000000000006) scale(1.05)'%3E%3Cpath d='M60 118Q48 80 66 40' stroke='%238a5a35' stroke-width='6'/%3E%3Cg stroke='%234f8a4b' stroke-width='5'%3E%3Cpath d='M66 40Q40 26 22 46M66 40Q48 12 26 16M66 40Q72 8 98 14M66 40Q96 24 112 44M66 40Q60 26 80 30'/%3E%3C/g%3E%3Ccircle cx='62' cy='46' r='4.5' fill='%238a5a35'/%3E%3Ccircle cx='71' cy='47' r='4.5' fill='%238a5a35'/%3E%3C/g%3E%3Cg transform='translate(240 0)'%3E%3Cpath d='M0 100h70q-4 14-18 14H18Q4 114 0 100z' fill='%23d9627a'/%3E%3Cpath d='M10 100q25-40 50 0z' fill='%23e8c27a'/%3E%3Cpath d='M35 66v-12' /%3E%3C/g%3E%3Cg transform='translate(430 0)'%3E%3Cpath d='M0 100h70q-4 14-18 14H18Q4 114 0 100z' fill='%23d9627a'/%3E%3Cpath d='M10 100q25-40 50 0z' fill='%23e8c27a'/%3E%3Cpath d='M35 66v-12' /%3E%3C/g%3E%3C/svg%3E")}
+.bd-bunting{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 60' fill='none' stroke='%233a2c22' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M0 6Q40 22 80 6Q120 22 160 6' stroke-width='2.5'/%3E%3Cpath d='M10 12h24l-12 34z' fill='%23d9627a' stroke-width='2'/%3E%3Cpath d='M50 14h24l-12 34z' fill='%23f2a900' stroke-width='2'/%3E%3Cpath d='M90 14h24l-12 34z' fill='%237fc6c0' stroke-width='2'/%3E%3Cpath d='M130 12h24l-12 34z' fill='%238fae7e' stroke-width='2'/%3E%3C/svg%3E")}
+.bd-robot{width:118px;aspect-ratio:0.8571;right:1.2%;bottom:60px;}
+.bd-laptop{width:150px;aspect-ratio:1.2727;right:3%;top:36px;}
+.bd-bulb{width:110px;aspect-ratio:0.9231;right:5%;top:24px;}
+.bd-cap{width:130px;aspect-ratio:1.1818;right:4%;top:30px;}
+.bd-net{width:150px;aspect-ratio:1.3636;right:3%;top:28px;}
+.bd-lens{width:112px;aspect-ratio:1.0000;right:3%;top:30px;}
+.bd-chat{width:118px;aspect-ratio:1.2222;left:2%;bottom:24px;}
+.bd-heart{width:104px;aspect-ratio:1.0000;right:6%;bottom:26px;}
+.bd-book{width:150px;aspect-ratio:1.1818;right:3%;top:30px;}
+.bd-medal{width:100px;aspect-ratio:0.9231;right:4%;top:26px;}
+.bd-kerala{left:0;right:0;bottom:0;height:150px;background-position:center bottom;background-size:auto 150px;}
+.bd-bunting{left:0;right:0;top:62px;height:56px;background-repeat:repeat-x;background-size:auto 56px;opacity:.95;}
+html:not([data-theme="dark"]) .bd-robot { display:none; }
+@media (min-width:1200px) { html:not([data-theme="dark"]) .bd-robot { display:block; } }
+@media (max-width:991px) { html:not([data-theme="dark"]) .bd:not(.bd-bunting):not(.bd-kerala) { opacity:.3; transform:scale(.7); transform-origin:top right; } html:not([data-theme="dark"]) .boho-sun { width:260px; height:260px; top:-90px; right:-90px; } }
+/* sections stay see-through so the splashes show; hero too */
+html:not([data-theme="dark"]) .hero { background:transparent !important; }
+html:not([data-theme="dark"]) .hero::before { display:none !important; }
+html:not([data-theme="dark"]) .hero-profile-photo { border:5px solid #fff7e6 !important; box-shadow:0 0 0 10px rgba(242,169,0,.38),0 0 0 22px rgba(217,98,122,.2),0 0 0 36px rgba(31,138,138,.1),0 24px 50px rgba(103,72,42,.28) !important; }
+html:not([data-theme="dark"]) .hero-orbit { border:2px dashed rgba(31,138,138,.55) !important; }
+html:not([data-theme="dark"]) .hero-orbit:before { border:2px dotted rgba(217,98,122,.6) !important; }
+html:not([data-theme="dark"]) .section-heading h2 em { padding:0 .14em; border-radius:4px 14px 5px 12px; background:linear-gradient(transparent 60%,rgba(242,169,0,.4) 60%,rgba(242,169,0,.4) 92%,transparent 92%); }
+html:not([data-theme="dark"]) .project-card, html:not([data-theme="dark"]) .recognition-card, html:not([data-theme="dark"]) .book-card { background:rgba(255,250,241,.82) !important; }
+@media (prefers-reduced-motion:reduce) { .boho-sun { animation:none !important; } }
+</style>
+<script id="boho-day-art-script">
+(function(){
+  var m=[['#home','bd-bunting bd-robot'],['#about','bd-laptop'],['.showcase','bd-bulb'],['#education','bd-cap'],['#skills','bd-net'],
+    ['#projects','bd-lens bd-chat bd-heart'],['#writing','bd-book'],['#recognition','bd-medal'],['#contact','bd-kerala']];
+  var secs=document.querySelectorAll('main > section'),i=0;
+  function put(s,c){var d=document.createElement('span');d.className=c;d.setAttribute('aria-hidden','true');s.insertBefore(d,s.firstChild);}
+  secs.forEach(function(s){if(getComputedStyle(s).position==='static')s.style.position='relative';put(s,'bd-wash w'+(i++%4));});
+  m.forEach(function(r){var s=document.querySelector(r[0]);if(!s)return;r[1].split(' ').forEach(function(c){put(s,'bd '+c);});});
+})();
+</script>
+
+<style id="snp-day-text-contrast-final">
+/* Day mode only: readable ink on the light bohemian paper background. */
+html:not([data-theme="dark"]) body,
+html:not([data-theme="dark"]) main,
+html:not([data-theme="dark"]) main .section,
+html:not([data-theme="dark"]) main .section-heading,
+html:not([data-theme="dark"]) main .section-heading h2,
+html:not([data-theme="dark"]) main .section-heading small,
+html:not([data-theme="dark"]) main .section-heading p,
+html:not([data-theme="dark"]) main .body-copy,
+html:not([data-theme="dark"]) main .timeline h4,
+html:not([data-theme="dark"]) main .timeline p,
+html:not([data-theme="dark"]) main .timeline small,
+html:not([data-theme="dark"]) main .writing-copy,
+html:not([data-theme="dark"]) main .writing-copy h3,
+html:not([data-theme="dark"]) main .writing-copy p,
+html:not([data-theme="dark"]) main .thought-row,
+html:not([data-theme="dark"]) main .thought-row h3,
+html:not([data-theme="dark"]) main .thought-row p,
+html:not([data-theme="dark"]) main .recognition-copy,
+html:not([data-theme="dark"]) main .recognition-copy h3,
+html:not([data-theme="dark"]) main .recognition-copy p,
+html:not([data-theme="dark"]) main .contact-panel,
+html:not([data-theme="dark"]) main .contact-panel h2,
+html:not([data-theme="dark"]) main .contact-links a {
+  color:#29231d !important;
+  -webkit-text-fill-color:currentColor !important;
+  text-shadow:none !important;
+}
+html:not([data-theme="dark"]) .navbar-brand,
+html:not([data-theme="dark"]) .nav-link,
+html:not([data-theme="dark"]) .navbar .nav-link,
+html:not([data-theme="dark"]) .hero h1,
+html:not([data-theme="dark"]) .hero .hero-role,
+html:not([data-theme="dark"]) .hero .hero-description,
+html:not([data-theme="dark"]) .hero .hero-bottom,
+html:not([data-theme="dark"]) .hero .hero-bottom span,
+html:not([data-theme="dark"]) .hero .eyebrow,
+html:not([data-theme="dark"]) .hero .hero-inner p:not(.hero-role):not(.hero-description),
+html:not([data-theme="dark"]) .hero .hero-inner a:not(.btn-orange),
+html:not([data-theme="dark"]) .hero .hero-inner li {
+  color:#29231d !important;
+  -webkit-text-fill-color:currentColor !important;
+  text-shadow:none !important;
+}
+html:not([data-theme="dark"]) .hero h1 em,
+html:not([data-theme="dark"]) .section-heading h2 em,
+html:not([data-theme="dark"]) .hero .hero-role span {
+  color:#bd4c18 !important;
+  -webkit-text-fill-color:#bd4c18 !important;
+}
+/* Keep white lettering on orange buttons and intentional dark showcase/book panels. */
+html:not([data-theme="dark"]) .btn-orange,
+html:not([data-theme="dark"]) .nav-cta,
+html:not([data-theme="dark"]) .btn-orange *,
+html:not([data-theme="dark"]) .nav-cta {
+  color:#fff !important;
+  -webkit-text-fill-color:#fff !important;
+}
+html:not([data-theme="dark"]) .showcase,
+html:not([data-theme="dark"]) .showcase h2,
+html:not([data-theme="dark"]) .showcase p,
+html:not([data-theme="dark"]) .showcase a,
+html:not([data-theme="dark"]) .projects-dark,
+html:not([data-theme="dark"]) .projects-dark h2,
+html:not([data-theme="dark"]) .projects-dark p,
+html:not([data-theme="dark"]) .projects-dark a,
+html:not([data-theme="dark"]) .book-card,
+html:not([data-theme="dark"]) .book-card *,
+html:not([data-theme="dark"]) footer,
+html:not([data-theme="dark"]) footer a,
+html:not([data-theme="dark"]) footer p {
+  color:#f8f3eb !important;
+  -webkit-text-fill-color:currentColor !important;
+}
+html:not([data-theme="dark"]) .project-info,
+html:not([data-theme="dark"]) .project-info h3,
+html:not([data-theme="dark"]) .project-info p,
+html:not([data-theme="dark"]) .project-info small,
+html:not([data-theme="dark"]) .project-info a,
+html:not([data-theme="dark"]) .project-visual,
+html:not([data-theme="dark"]) .project-visual strong,
+html:not([data-theme="dark"]) .project-visual small,
+html:not([data-theme="dark"]) .project-visual p,
+html:not([data-theme="dark"]) .project-visual span {
+  color:#29231d !important;
+  -webkit-text-fill-color:currentColor !important;
+}
+html:not([data-theme="dark"]) .about-symbol,
+html:not([data-theme="dark"]) .tag-list span,
+html:not([data-theme="dark"]) .recognition-badge,
+html:not([data-theme="dark"]) .recognition-date {
+  color:#6e4518 !important;
+  -webkit-text-fill-color:currentColor !important;
+}
+html:not([data-theme="dark"]) .hero .btn-orange { color:#fff !important; -webkit-text-fill-color:#fff !important; }
+</style>
+
