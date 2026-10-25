@@ -2185,6 +2185,256 @@ html[data-theme="dark"] #writing .writing-panel::after {
 }
 </style>
 
+
+<style id="snp-apple-liquid-glass">
+/* Apple-inspired liquid glass: keep the cinematic hero untouched */
+:root {
+  --glass-dark: rgba(255,255,255,.075);
+  --glass-dark-hi: rgba(255,255,255,.14);
+  --glass-light: rgba(255,255,255,.58);
+  --glass-border-dark: rgba(255,255,255,.20);
+  --glass-border-light: rgba(255,255,255,.72);
+  --glass-blur: 28px;
+}
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  /* Main content sections become large, shared glass surfaces */
+  body > section:not(.hero),
+  main > section:not(.hero),
+  #about .container > .about-card,
+  #education .timeline,
+  #skills .container,
+  #projects .container,
+  #recognition .container,
+  #writing .container,
+  #contact .container,
+  .writing-panel,
+  .contact-panel,
+  .testimonial {
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(165%);
+    backdrop-filter: blur(var(--glass-blur)) saturate(165%);
+  }
+}
+/* Navbar: translucent Apple-style floating glass */
+.navbar,
+html[data-theme="dark"] .navbar {
+  background: rgba(18,20,24,.48) !important;
+  border: 1px solid rgba(255,255,255,.16);
+  border-bottom-color: rgba(255,255,255,.23);
+  box-shadow: 0 12px 36px rgba(0,0,0,.14), inset 0 1px 0 rgba(255,255,255,.18);
+  -webkit-backdrop-filter: blur(30px) saturate(180%) !important;
+  backdrop-filter: blur(30px) saturate(180%) !important;
+}
+html:not([data-theme="dark"]) .navbar {
+  background: rgba(248,250,255,.58) !important;
+  border: 1px solid rgba(255,255,255,.78);
+  box-shadow: 0 12px 36px rgba(25,35,55,.09), inset 0 1px 0 rgba(255,255,255,.9);
+  -webkit-backdrop-filter: blur(30px) saturate(180%) !important;
+  backdrop-filter: blur(30px) saturate(180%) !important;
+}
+/* One unified glass sheet per major content section */
+#about, #education, #skills, #projects, #recognition, #writing, #contact,
+.about-section, .writing-section, .recognition-section {
+  position: relative;
+  isolation: isolate;
+}
+#about > .container,
+#education > .container,
+#skills > .container,
+#projects > .container,
+#recognition > .container,
+#writing > .container,
+#contact > .container {
+  position: relative;
+  border-radius: 28px;
+  padding: clamp(24px, 4vw, 48px);
+  border: 1px solid rgba(255,255,255,.19);
+  background: linear-gradient(135deg, rgba(255,255,255,.105), rgba(255,255,255,.035) 55%, rgba(255,138,36,.045));
+  box-shadow: 0 24px 70px rgba(0,0,0,.16), inset 0 1px 0 rgba(255,255,255,.16);
+  -webkit-backdrop-filter: blur(30px) saturate(165%);
+  backdrop-filter: blur(30px) saturate(165%);
+  overflow: hidden;
+}
+#about > .container::before,
+#education > .container::before,
+#skills > .container::before,
+#projects > .container::before,
+#recognition > .container::before,
+#writing > .container::before,
+#contact > .container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    linear-gradient(118deg, rgba(255,255,255,.13), transparent 27%, transparent 70%, rgba(255,138,36,.07)),
+    radial-gradient(ellipse at 0% 0%, rgba(255,255,255,.08), transparent 45%);
+}
+/* Remove solid section fills so the glass and page atmosphere show through */
+#about, #education, #skills, #projects, #recognition, #writing, #contact,
+.soft-bg, .projects-dark, .writing-section, .recognition-section {
+  background: transparent !important;
+}
+html[data-theme="dark"] #about > .container,
+html[data-theme="dark"] #education > .container,
+html[data-theme="dark"] #skills > .container,
+html[data-theme="dark"] #projects > .container,
+html[data-theme="dark"] #recognition > .container,
+html[data-theme="dark"] #writing > .container,
+html[data-theme="dark"] #contact > .container {
+  background: linear-gradient(135deg, rgba(255,255,255,.105), rgba(255,255,255,.035) 58%, rgba(255,138,36,.055));
+  border-color: rgba(255,255,255,.20);
+}
+/* Keep inner content open and uncluttered — no little boxes around education entries */
+#education .timeline {
+  border: 0 !important;
+  border-left: 0 !important;
+  border-radius: 0 !important;
+  padding: 0 0 0 8px !important;
+  margin-top: 24px;
+  background: transparent !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+#education .timeline::after { display: none !important; }
+#education .timeline article,
+#education .timeline article:hover {
+  background: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 0 26px !important;
+  margin: 0 !important;
+  transform: none;
+}
+#education .timeline article::before { display: none !important; }
+#education .timeline article + article {
+  border-top: 1px solid rgba(255,255,255,.13) !important;
+  padding-top: 20px !important;
+}
+/* Inner UI elements: subtle liquid-glass, not chunky cards */
+.about-card, .testimonial, .writing-panel, .contact-panel, .recognition-card,
+.project-card, .project-visual, .skill-icon, .tag-list span {
+  border: 1px solid rgba(255,255,255,.16) !important;
+  background: linear-gradient(135deg, rgba(255,255,255,.09), rgba(255,255,255,.025)) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(155%);
+  backdrop-filter: blur(20px) saturate(155%);
+  box-shadow: 0 14px 38px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.12);
+}
+.about-card, .testimonial, .writing-panel, .contact-panel, .recognition-card {
+  border-radius: 22px !important;
+  overflow: hidden;
+}
+.project-card { border-radius: 20px; overflow: hidden; }
+.project-visual { border-radius: 16px; }
+.skill-icon { border-radius: 50%; }
+.tag-list span { border-radius: 999px; }
+.about-card:hover, .testimonial:hover, .recognition-card:hover, .project-card:hover {
+  box-shadow: 0 22px 55px rgba(0,0,0,.20), 0 0 26px rgba(255,138,36,.08), inset 0 1px 0 rgba(255,255,255,.2);
+}
+/* Orange accent stays as a glow, rather than a heavy solid block */
+.section-number, .btn-orange, .nav-cta {
+  border-radius: 999px !important;
+  box-shadow: 0 8px 24px rgba(255,138,36,.22);
+}
+.eyebrow {
+  border-radius: 999px;
+  background: rgba(255,255,255,.07);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+html[data-theme="dark"] .project-visual,
+html[data-theme="dark"] .about-card,
+html[data-theme="dark"] .testimonial,
+html[data-theme="dark"] .writing-panel,
+html[data-theme="dark"] .contact-panel,
+html[data-theme="dark"] .recognition-card,
+html[data-theme="dark"] .skill-icon,
+html[data-theme="dark"] .tag-list span {
+  color: var(--ink);
+  border-color: rgba(255,255,255,.17) !important;
+}
+html:not([data-theme="dark"]) #about > .container,
+html:not([data-theme="dark"]) #education > .container,
+html:not([data-theme="dark"]) #skills > .container,
+html:not([data-theme="dark"]) #projects > .container,
+html:not([data-theme="dark"]) #recognition > .container,
+html:not([data-theme="dark"]) #writing > .container,
+html:not([data-theme="dark"]) #contact > .container {
+  background: linear-gradient(135deg, rgba(255,255,255,.68), rgba(255,255,255,.38) 58%, rgba(255,138,36,.06));
+  border-color: rgba(255,255,255,.8);
+  box-shadow: 0 24px 65px rgba(30,40,55,.09), inset 0 1px 0 rgba(255,255,255,.95);
+}
+html:not([data-theme="dark"]) .about-card,
+html:not([data-theme="dark"]) .testimonial,
+html:not([data-theme="dark"]) .writing-panel,
+html:not([data-theme="dark"]) .contact-panel,
+html:not([data-theme="dark"]) .recognition-card,
+html:not([data-theme="dark"]) .project-visual,
+html:not([data-theme="dark"]) .tag-list span {
+  color: #202124;
+  border-color: rgba(255,255,255,.8) !important;
+  background: linear-gradient(135deg, rgba(255,255,255,.68), rgba(255,255,255,.34)) !important;
+  box-shadow: 0 14px 35px rgba(30,40,55,.08), inset 0 1px 0 rgba(255,255,255,.95);
+}
+html:not([data-theme="dark"]) #education .timeline article + article {
+  border-top-color: rgba(40,45,55,.13) !important;
+}
+@media (max-width: 767px) {
+  #about > .container, #education > .container, #skills > .container,
+  #projects > .container, #recognition > .container, #writing > .container,
+  #contact > .container {
+    border-radius: 22px;
+    padding: 22px 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #about > .container, #education > .container, #skills > .container,
+  #projects > .container, #recognition > .container, #writing > .container,
+  #contact > .container {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+</style>
+
+
+<style id="restore-education-timeline-points">
+/* Restore the original education timeline point markers */
+#education .timeline {
+  border-left: 1px solid #ddd !important;
+  padding-left: 24px !important;
+  margin-top: 25px !important;
+  position: relative !important;
+}
+#education .timeline article {
+  position: relative !important;
+}
+#education .timeline article::before {
+  display: block !important;
+  content: "" !important;
+  position: absolute !important;
+  left: -30px !important;
+  top: 5px !important;
+  width: 11px !important;
+  height: 11px !important;
+  background: #0e0f11 !important;
+  border: 3px solid var(--orange) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 0 0 transparent !important;
+}
+html:not([data-theme="dark"]) #education .timeline {
+  border-left-color: #ddd !important;
+}
+html:not([data-theme="dark"]) #education .timeline article::before {
+  background: #fff !important;
+}
+#education .timeline::after { display: none !important; }
+</style>
+
 </head>
 
 <body>
